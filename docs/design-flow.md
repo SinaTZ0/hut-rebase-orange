@@ -22,7 +22,7 @@ Follow these steps for every new page. Going back to an earlier step is fine whe
    - **App components** (form alerts, links…): check `components/shared/` before building something new.
    - **Custom pieces**: build anything more distinctive in the route slice, composing primitives where they fit.
    - **Sarv patterns** (hero, service strip, news cards, timeline…): defaults to start from, not templates to fill. The `sv-` HTML in `claude-design-system/` is a reference for structure and semantics; its placeholder art is not a visual target. Rebuild it with primitives and Tailwind tokens; never import `bundle.css` or `tokens.css` or copy `sv-` classes.
-   - **No decorative containers**: add a card, tile or panel only for something you can click or a standalone group of content. Whitespace and dividers separate everything else.
+   - **No decorative containers**: add a card, tile or panel only for something you can click or a standalone group of content. Whitespace and dividers separate everything else. Items that share a container fill it edge to edge ([app-identity.md](./app-identity.md) → Containers).
 6. **Prepare shared pieces**: as a separate change before the page, create any missing primitive and update any whose base style doesn't match app-identity yet ([components.md](./components.md)), including its interaction effects. Base styles follow app-identity, never one page's needs, because a change affects every page. Update the story and check it in light, dark and side by side (`npm run storybook`).
 7. **Build**:
    - A page-specific look that will be reused becomes a variant. One-off creative styling is fine; keep it local to the page.

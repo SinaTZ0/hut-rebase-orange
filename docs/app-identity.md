@@ -131,6 +131,9 @@ Rules:
   - `rounded-full`: badges, chips, timeline dots
 - **Depth**: cards rest on `shadow-sm` plus a 1px `border`. A card that is a link takes `shadow-md` and a faint `accent` wash on hover; dropdowns use `shadow-md`. `shadow-float` is for the service strip only. Dark-theme shadows are deeper and rely on `border` for edges.
 - **Containers**: use a card only for something you can click or a standalone group of content. Layout wrappers, single figures (stats) and section intros are not cards. Separate items in a list with dividers or whitespace, not a box each.
+- **Fill the container**: when items share a container, the items own the space. The container has no padding and no gaps; each item is a cell that stretches to fill its slice, and cells are separated by hairline dividers. Padding goes on the item's content, so the hover and focus area is the whole cell, not a small box inside a gutter. Don't leave dead space around interactive items.
+- **Dividers**: the app prefers hairline dividers to boxes and fills. Use them to separate and organise content, such as items in a list or grid, a header from its body, or a body from its footer, and let the design decide where they help.
+- **Uniform surfaces**: keep a component's parts on the surface they sit on. Don't give every part (icon, chip, label) its own filled ground, because it makes the parts feel detached from one another and from the component. Use fills where they carry meaning, such as state or emphasis.
 - **Controls**: tap targets at least 40px (above WCAG 2.2's 24px minimum). Inputs, selects and default buttons are 44px tall, so they line up in a row; `sm` buttons are 40px; `lg` buttons (48px) are for hero and call-to-action bands. Icon-only buttons are 44px (40px when compact): enlarge the target, not the icon. Inputs have a 1.5px `input` edge and a label always visible above them.
 
 ### States & motion
