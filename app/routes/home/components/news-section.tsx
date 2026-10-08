@@ -25,7 +25,7 @@ export function NewsSection() {
           {/*------ Featured Story ------*/}
           <SiteLink
             href={featured.href}
-            className="group relative isolate flex min-h-96 flex-col justify-end overflow-hidden rounded-lg p-6 text-deep-foreground shadow-sm transition-shadow duration-150 outline-none [--ring:var(--ring-deep)] hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+            className="group relative isolate flex min-h-96 flex-col justify-end overflow-hidden rounded-lg p-6 text-deep-foreground shadow-sm transition-shadow duration-150 outline-none [--ring:var(--ring-deep)] hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid"
           >
             <img
               src={featured.image}
@@ -52,7 +52,7 @@ export function NewsSection() {
               <li key={story.id} className="flex-1">
                 <SiteLink
                   href={story.href}
-                  className="group flex h-full items-center gap-4 rounded-md bg-card p-3 shadow-sm ring-1 ring-border transition-shadow duration-150 outline-none hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                  className="group flex h-full items-center gap-4 rounded-md bg-card p-3 shadow-sm ring-1 ring-border transition-shadow duration-150 outline-none hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid"
                 >
                   <img
                     src={story.image}

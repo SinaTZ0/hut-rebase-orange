@@ -15,7 +15,8 @@ const twTriggerStyles = defineStyles({
   appearance: "border-input bg-card data-placeholder:text-muted-foreground",
   hover: "hover:border-muted-foreground",
   interaction: "transition-colors duration-150 outline-none select-none",
-  focus: "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+  focus:
+    "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid",
   disabled: "disabled:cursor-not-allowed disabled:opacity-45",
   invalid: "aria-invalid:border-destructive",
   icon: "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",

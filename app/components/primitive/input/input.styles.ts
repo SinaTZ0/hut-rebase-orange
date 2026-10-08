@@ -14,7 +14,8 @@ const twInputStyles = defineStyles({
     "file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground",
   interaction: "transition-colors duration-150 outline-none",
   hover: "hover:border-muted-foreground",
-  focus: "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+  focus:
+    "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid",
   disabled: "disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-muted disabled:opacity-45",
   invalid: "aria-invalid:border-destructive",
 });

@@ -16,7 +16,7 @@ export function ServiceStrip() {
           </h2>
           <SiteLink
             href={HUT_LINKS.systems}
-            className="inline-flex min-h-10 items-center gap-2 rounded-sm text-nav text-brand-text outline-none hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+            className="inline-flex min-h-10 items-center gap-2 rounded-sm text-nav text-brand-text outline-none hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid"
           >
             کلیه خدمات
             <ArrowLeftIcon aria-hidden className="size-5" />
@@ -27,7 +27,7 @@ export function ServiceStrip() {
             <li key={service.title}>
               <SiteLink
                 href={service.href}
-                className="group flex h-full flex-col items-start gap-3 rounded-md p-3 transition-colors duration-150 outline-none hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring"
+                className="group flex h-full flex-col items-start gap-3 rounded-md p-3 transition-colors duration-150 outline-none hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-solid"
               >
                 <span className="grid size-12 place-items-center rounded-md bg-accent text-brand-text group-hover:bg-card">
                   <service.icon aria-hidden className="size-7" />

@@ -11,7 +11,8 @@ const twSharedStyles = defineStyles({
   appearance: "border-transparent bg-clip-padding",
   typography: "text-button whitespace-nowrap",
   interaction: "transition-[color,background-color,border-color,translate] duration-150 outline-none select-none",
-  focus: "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+  focus:
+    "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid",
   disabled: "disabled:pointer-events-none disabled:opacity-45",
   invalid: "aria-invalid:border-destructive",
   icon: "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",

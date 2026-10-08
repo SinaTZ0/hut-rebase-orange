@@ -19,7 +19,7 @@ const twGroupStyles = defineStyles({
   hover: "hover:border-muted-foreground",
   // The group draws the control's focus ring, so the ring wraps the addons too.
   focus:
-    "has-[[data-slot=input-group-control]:focus-visible]:outline-2 has-[[data-slot=input-group-control]:focus-visible]:outline-offset-2 has-[[data-slot=input-group-control]:focus-visible]:outline-ring",
+    "has-[[data-slot=input-group-control]:focus-visible]:outline-2 has-[[data-slot=input-group-control]:focus-visible]:outline-offset-2 has-[[data-slot=input-group-control]:focus-visible]:outline-ring has-[[data-slot=input-group-control]:focus-visible]:outline-solid",
   // Inside a combobox popup the popup itself shows focus, so the group stays quiet.
   focusCombobox:
     "in-data-[slot=combobox-content]:focus-within:border-inherit in-data-[slot=combobox-content]:focus-within:outline-none",

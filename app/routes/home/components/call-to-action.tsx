@@ -67,7 +67,7 @@ export function CallToAction() {
               <li key={route.href}>
                 <SiteLink
                   href={route.href}
-                  className="group flex items-start gap-4 rounded-md p-4 transition-colors duration-150 outline-none hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring"
+                  className="group flex items-start gap-4 rounded-md p-4 transition-colors duration-150 outline-none hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-solid"
                 >
                   <span className="grid size-12 shrink-0 place-items-center rounded-md bg-accent text-brand-text group-hover:bg-card">
                     <route.icon aria-hidden className="size-7" />

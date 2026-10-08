@@ -10,7 +10,8 @@ const twSharedStyles = defineStyles({
   geometryIcon: "has-data-[icon=inline-end]:pe-2 has-data-[icon=inline-start]:ps-2",
   typography: "text-caption whitespace-nowrap",
   interaction: "transition-colors duration-150",
-  focus: "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+  focus:
+    "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid",
   invalid: "aria-invalid:border-destructive",
   icon: "[&>svg]:pointer-events-none [&>svg]:size-3.5!",
 });

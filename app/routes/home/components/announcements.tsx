@@ -21,7 +21,7 @@ export function Announcements() {
             <li key={item.title}>
               <SiteLink
                 href={HUT_LINKS.portal}
-                className="group flex h-full items-center gap-4 rounded-md bg-card p-4 shadow-sm ring-1 ring-border transition-shadow duration-150 outline-none hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                className="group flex h-full items-center gap-4 rounded-md bg-card p-4 shadow-sm ring-1 ring-border transition-shadow duration-150 outline-none hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid"
               >
                 <span className="grid size-16 shrink-0 place-items-center rounded-md bg-accent text-center leading-tight text-brand-text">
                   <span>

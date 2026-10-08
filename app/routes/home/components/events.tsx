@@ -25,7 +25,7 @@ export function Events() {
             <li key={event.id}>
               <SiteLink
                 href={event.href}
-                className="group block rounded-lg outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                className="group block rounded-lg outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid"
               >
                 <Card className="flex-col gap-0 py-0 min-[600px]:flex-row">
                   <img

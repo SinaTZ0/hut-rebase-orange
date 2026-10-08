@@ -12,7 +12,8 @@ const twTextareaStyles = defineStyles({
   appearance: "border-input bg-card placeholder:text-muted-foreground",
   interaction: "transition-colors duration-150 outline-none",
   hover: "hover:border-muted-foreground",
-  focus: "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+  focus:
+    "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid",
   disabled: "disabled:cursor-not-allowed disabled:bg-muted disabled:opacity-45",
   invalid: "aria-invalid:border-destructive",
 });

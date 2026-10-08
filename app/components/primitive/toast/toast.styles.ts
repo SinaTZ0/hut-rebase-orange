@@ -26,7 +26,8 @@ const twToastStyles = defineStyles({
   appearance: "bg-popover text-popover-foreground shadow-md",
   interaction:
     "will-change-transform outline-none select-none [transition:transform_500ms_cubic-bezier(0.22,1,0.36,1),opacity_500ms,height_150ms]",
-  focus: "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+  focus:
+    "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid",
   state:
     "data-expanded:h-(--toast-height) data-expanded:[transform:translateX(var(--toast-swipe-movement-x))_translateY(var(--offset-y))] data-limited:opacity-0 data-starting-style:[transform:translateY(150%)]",
   // Leaves in the direction it was swiped, or slides down when it times out or is closed.

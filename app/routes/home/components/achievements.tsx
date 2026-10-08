@@ -26,7 +26,7 @@ export function Achievements() {
             <li key={item.id}>
               <SiteLink
                 href={item.href}
-                className="group block h-full rounded-lg outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                className="group block h-full rounded-lg outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid"
               >
                 <Card className="h-full">
                   <img

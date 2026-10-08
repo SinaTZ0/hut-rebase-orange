@@ -38,7 +38,8 @@ const twTriggerStyles = defineStyles({
   appearance: "border-transparent text-muted-foreground",
   interaction: "transition-colors duration-150",
   hover: "hover:text-brand-text",
-  focus: "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+  focus:
+    "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid",
   disabled:
     "disabled:pointer-events-none disabled:opacity-45 aria-disabled:pointer-events-none aria-disabled:opacity-45",
   state: "data-active:bg-card data-active:text-foreground group-data-[variant=default]/tabs-list:data-active:shadow-sm",
