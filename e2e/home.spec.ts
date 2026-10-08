@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 
-test("signed-out visitors land on the auth page", async ({ page }) => {
+test("the homepage presents the university", async ({ page }) => {
   await page.goto("/");
-  await expect(page).toHaveURL(/\/auth$/);
-  await expect(page).toHaveTitle("ورود به زروان");
+  await expect(page).toHaveTitle("دانشگاه صنعتی همدان | دانش، فناوری، آینده");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("دانشگاه صنعتی همدان");
 });
