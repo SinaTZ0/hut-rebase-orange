@@ -7,8 +7,8 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "cn"
 
 import { useIsMobile } from "~/hooks/use-mobile"
-import { Button } from "~/components/primitive/button/button"
-import { Input } from "~/components/primitive/input/input"
+import { Button } from "~/components/ui/button"
+import { Input } from "~/components/ui/input"
 import { Separator } from "~/components/ui/separator"
 import {
   Sheet,

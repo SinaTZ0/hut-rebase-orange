@@ -9,8 +9,7 @@ import {
   type Locale,
 } from "react-day-picker"
 
-import { Button } from "~/components/primitive/button/button"
-import { buttonVariants } from "~/components/primitive/button/button.styles"
+import { Button, buttonVariants } from "~/components/ui/button"
 import { ChevronLeftIcon, ChevronRightIcon, ChevronDownIcon } from "lucide-react"
 
 function Calendar({
