@@ -3,7 +3,7 @@
 Follow these steps for every new page. Going back to an earlier step is fine when the design changes.
 
 1. **Purpose**: In one sentence, say what the user comes to this page to do. Example: "Find a course and see when and where it meets."
-2. **App context**: Read [app-identity.md](./app-identity.md). Note which signature patterns fit this page and how its copy follows the tone rules. Don't create a new mood, tone or theme for one page.
+2. **App context**: Read [app-identity.md](./app-identity.md). Note which signature patterns fit this page and how its copy follows the tone rules, and read the matching guidelines in `claude-design-system/components/<Name>/README.md`. Don't create a new mood, tone or theme for one page.
 3. **Page brief**: this is where the page is designed.
    - `role`: where the page sits in the flow (entry, list, detail, form, settings…) and where the user goes next.
    - `structure`: the sections from top to bottom, with what each one contains. Include the empty, loading and error states.
@@ -13,6 +13,7 @@ Follow these steps for every new page. Going back to an earlier step is fine whe
    - **Standard controls** (buttons, inputs, dialogs, menus…): pick the shadcn component that fits ([shadcn.md](./shadcn.md)) and use its primitive from `components/primitive/`.
    - **App components** (form alerts, links…): check `components/shared/` before building something new.
    - **Custom pieces**: build anything more distinctive in the route slice, composing primitives where they fit.
+   - **Sarv patterns** (hero, service strip, news cards, timeline…): the `sv-` HTML in `claude-design-system/` is a design reference. Rebuild it with primitives and Tailwind tokens; never import `bundle.css` or `tokens.css` or copy `sv-` classes.
 5. **Prepare shared pieces**: as a separate change before the page, create any missing primitive and update any whose base style doesn't match app-identity yet ([components.md](./components.md)). Base styles follow app-identity, never one page's needs, because a change affects every page. Update the story and check it in light, dark and side by side (`npm run storybook`).
 6. **Build**:
    - A page-specific look that will be reused becomes a variant. One-off creative styling is fine; keep it local to the page.

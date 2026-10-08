@@ -1,0 +1,28 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="en" dir="ltr"><head><meta charset="utf-8"><style>
+body{margin:0}
+.cover{position:relative;width:960px;height:288px;overflow:hidden;background:var(--surface)}
+.cover svg{position:absolute;inset:0}
+.brand{fill:var(--primary)}.gold{fill:var(--accent)}.raised{fill:var(--surface-deep-raised)}.soft{fill:var(--primary-soft)}.deep{fill:var(--surface-deep)}.cut{fill:var(--surface)}
+.tile{rx:var(--radius-lg)}
+.txt{position:absolute;left:40px;bottom:36px;width:420px}
+.name{font-family:var(--font-sans);font-weight:800;font-size:120px;line-height:.95;color:var(--ink);letter-spacing:-.01em}
+.tag{margin-top:10px;font-family:var(--font-sans);font-size:14px;line-height:22px;color:var(--ink-muted)}
+</style></head><body><div class="cover">
+<svg viewBox="0 0 960 288" width="960" height="288" aria-hidden="true">
+<!-- blocks: primary 176x240, accent 144x240, surface-deep-raised 120x176, primary-soft 144x80, surface-deep 120x120, all radius-lg.
+     arrangement: a staggered stack from x=512, tall teal slab bleeding off the top, gold slab off the bottom, two blocks bleeding off the right edge.
+     pattern: arches cut from the blocks in the ground colour; Sarv's gateway ("ivan") and cypress silhouette, built from half-circle tops (rx = half the arch width).
+     steps and radii: 16px gaps (space-4), 24px corners (radius-lg), arches 48px (space-7) and 32px (space-6) wide. -->
+<rect class="brand tile" x="512" y="-24" width="176" height="240"/>
+<path class="cut" d="M536 184V112.0a24.0 24.0 0 0 1 48 0V184Z"/><path class="cut" d="M616 184V112.0a24.0 24.0 0 0 1 48 0V184Z"/>
+<rect class="soft tile" x="704" y="-24" width="144" height="80"/>
+<rect class="gold tile" x="704" y="72" width="144" height="240"/>
+<path class="cut" d="M720 288V216.0a16.0 16.0 0 0 1 32 0V288Z"/><path class="cut" d="M768 288V216.0a16.0 16.0 0 0 1 32 0V288Z"/><path class="cut" d="M816 288V216.0a16.0 16.0 0 0 1 32 0V288Z"/>
+<rect class="raised tile" x="864" y="-24" width="120" height="176"/>
+<rect class="deep tile" x="864" y="168" width="120" height="144"/>
+<rect class="brand tile" x="512" y="232" width="176" height="80"/>
+</svg>
+<div class="txt"><div class="name">Sarv</div><div class="tag">Persian-first, right-to-left design for universities.</div></div>
+</div></body></html>

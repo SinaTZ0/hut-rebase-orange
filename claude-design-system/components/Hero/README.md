@@ -1,0 +1,3 @@
+The first screen: a full-bleed scene or photograph (`sv-hero__media`), the `overlay` scrim darkening towards the reading side (`sv-hero__scrim`), then `display` headline, a `h3` tagline, a `body-lg` lead and exactly two actions: one `accent` and one `outline-deep`. Text sits on the right (inline-start) in right-to-left layouts, the picture on the left.
+
+The consumer provides the image (the bundled scene is a vector placeholder), the headline and the lead (two lines at most). The hero keeps bottom padding of `space-9` + `space-6` so the service strip can overlap it. Text on the scene is `on-deep` / `on-deep-muted` over `overlay`; never place text over an unscrimmed photo.

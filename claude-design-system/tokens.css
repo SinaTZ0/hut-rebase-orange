@@ -1,0 +1,18 @@
+/* Sarv — generated from tokens.json  */
+:root,[data-theme="light"]{--surface:#fbfaf6;--surface-raised:#ffffff;--surface-sunken:#f0f2ee;--surface-deep:#134542;--surface-deep-raised:#18504b;--on-deep:#f6f3ea;--on-deep-muted:#bcd3ce;--ink:#11302e;--ink-muted:#4a625f;--border:#dde3de;--border-strong:#6f8782;--primary:#134542;--primary-hover:#0d3331;--on-primary:#f6f3ea;--primary-soft:#e2eeeb;--brand-text:#0f5a54;--accent:#e9b43c;--accent-hover:#d6a02a;--on-accent:#14201f;--accent-text:#7d5400;--focus:#0b5cad;--focus-on-deep:#ffd36b;--overlay:#0b2625d9;--success:#17633f;--success-surface:#e4f3ea;--warning:#7a5200;--warning-surface:#fbf0d6;--danger:#b3261e;--danger-surface:#fbe7e5;--info:#1b5e8e;--info-surface:#e1eef7;--shadow-sm:0 1px 2px #0f2a2814, 0 1px 1px #0f2a280d;--shadow-md:0 10px 28px -10px #0f2a2833;--shadow-float:0 24px 48px -16px #0f2a2840;}
+[data-theme="dark"]{--surface:#0a1818;--surface-raised:#112625;--surface-sunken:#07110f;--surface-deep:#0f302e;--surface-deep-raised:#17423f;--on-deep:#e9f2ef;--on-deep-muted:#a6c2bc;--ink:#e8f1ee;--ink-muted:#9fb8b3;--border:#234240;--border-strong:#5d7d78;--primary:#7ad6c7;--primary-hover:#9be3d7;--on-primary:#06211e;--primary-soft:#17302e;--brand-text:#86dccf;--accent:#f2c24f;--accent-hover:#f7d278;--on-accent:#14201f;--accent-text:#f2c24f;--focus:#8fc7ff;--focus-on-deep:#ffd36b;--overlay:#06100fe0;--success:#6fd49b;--success-surface:#14301f;--warning:#f2c24f;--warning-surface:#33280e;--danger:#ff9a92;--danger-surface:#3a1816;--info:#86c1ee;--info-surface:#14293a;--shadow-sm:0 1px 2px #00000080;--shadow-md:0 12px 30px -10px #000000b3;--shadow-float:0 28px 56px -16px #000000cc;}
+:root{--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:72px;--space-9:112px;--radius-sm:8px;--radius-md:14px;--radius-lg:24px;--radius-pill:999px;--container:1200px;--gutter:24px;--header-h:76px;--font-sans:"Vazirmatn", "Segoe UI", Tahoma, system-ui, sans-serif;}
+.display{font-family:var(--font-sans);font-size:56px;line-height:84px;font-weight:800;}
+.stat{font-family:var(--font-sans);font-size:44px;line-height:56px;font-weight:800;}
+.h1{font-family:var(--font-sans);font-size:40px;line-height:60px;font-weight:800;}
+.h2{font-family:var(--font-sans);font-size:30px;line-height:48px;font-weight:700;}
+.h3{font-family:var(--font-sans);font-size:22px;line-height:36px;font-weight:700;}
+.h4{font-family:var(--font-sans);font-size:18px;line-height:30px;font-weight:700;}
+.body-lg{font-family:var(--font-sans);font-size:18px;line-height:32px;font-weight:400;}
+.body{font-family:var(--font-sans);font-size:16px;line-height:28px;font-weight:400;}
+.body-sm{font-family:var(--font-sans);font-size:14px;line-height:24px;font-weight:400;}
+.caption{font-family:var(--font-sans);font-size:12px;line-height:20px;font-weight:500;}
+.button{font-family:var(--font-sans);font-size:15px;line-height:24px;font-weight:700;}
+.kicker{font-family:var(--font-sans);font-size:13px;line-height:20px;font-weight:700;}
+.nav{font-family:var(--font-sans);font-size:14px;line-height:24px;font-weight:600;}
+@font-face{font-family:"Vazirmatn";src:url("fonts/Vazirmatn-Variable.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}

@@ -1,0 +1,3 @@
+The page top: a `surface-deep` utility bar (official-site label, contact, portal login) above a `surface-raised` header row. In right-to-left order the row holds the brand (emblem + name + Latin name), the primary navigation (`nav` type style, five items at most), then the tools (language, theme, search) at the far end.
+
+The consumer provides the nav items and marks the current section with `aria-current="page"` (gold underline, `brand-text`). Under 960px the nav hides and `sv-menu-btn` appears. The emblem is a placeholder: replace `sv-brand__mark` with the university's official mark and keep it at 44px.

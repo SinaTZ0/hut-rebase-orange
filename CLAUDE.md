@@ -2,7 +2,7 @@
 
 These instructions apply to the entire repository unless overridden by a more specific `AGENTS.md` in a subdirectory.
 
-This is a React Router v8 application using Framework Mode. The application's user-facing content is in Persian.
+This is a React Router v8 application using Framework Mode: the website of a Persian public university, with a small CMS. The application's user-facing content is in Persian. Its design system, Sarv, lives in `claude-design-system/` as read-only reference (never imported); `docs/app-identity.md` maps it to the app.
 
 ## Working Directory
 
