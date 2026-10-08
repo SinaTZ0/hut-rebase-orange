@@ -9,8 +9,8 @@ const twGroupStyles = defineStyles({
   // Block-aligned addons and textareas stack vertically, so the fixed height gives way.
   layoutBlock:
     "has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col has-[>textarea]:h-auto",
-  // Same chrome as Input: 48px, 1.5px `input` edge.
-  geometry: "h-12 rounded-sm border-[1.5px]",
+  // Same chrome as Input: 44px, 1.5px `input` edge.
+  geometry: "h-11 rounded-sm border-[1.5px]",
   // The input yields padding on the side an addon occupies.
   geometryAddon:
     "has-[>[data-align=block-end]]:[&>input]:pt-3 has-[>[data-align=block-start]]:[&>input]:pb-3 has-[>[data-align=inline-end]]:[&>input]:pe-1.5 has-[>[data-align=inline-start]]:[&>input]:ps-1.5",

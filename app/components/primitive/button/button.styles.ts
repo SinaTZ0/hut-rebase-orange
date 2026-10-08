@@ -10,52 +10,58 @@ const twSharedStyles = defineStyles({
   geometry: "rounded-md border-[1.5px]",
   appearance: "border-transparent bg-clip-padding",
   typography: "text-button whitespace-nowrap",
-  interaction: "transition-[color,background-color,border-color,translate] duration-150 outline-none select-none",
+  interaction:
+    "transition-[color,background-color,border-color,translate] duration-150 ease-out outline-none select-none",
   focus:
     "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid",
+  // The press: a 1px drop while held. Transforms only run with motion allowed (docs/app-identity.md → Interaction).
+  active: "motion-safe:active:not-disabled:translate-y-px",
   disabled: "disabled:pointer-events-none disabled:opacity-45",
   invalid: "aria-invalid:border-destructive",
   icon: "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
+  // The arrow nudge: a trailing forward arrow moves 4px ahead (left in RTL) on hover and keyboard focus.
+  iconNudge:
+    "[&_[data-icon=inline-end]]:transition-[translate] [&_[data-icon=inline-end]]:duration-150 [&_[data-icon=inline-end]]:ease-out motion-safe:[&_[data-icon=inline-end]]:group-hover/button:-translate-x-1 motion-safe:[&_[data-icon=inline-end]]:group-focus-visible/button:-translate-x-1",
+  motion: "motion-reduce:transition-none",
 });
 
 /*===== Appearance =====*/
 
 // Sarv allows one `gold` button per view: the page's main call to action. `default` (teal) is for in-app actions.
-// Every variant but `link` lifts 1px on hover, unless reduced motion is on. Popup triggers don't lift, so an open
-// popup stays aligned with them.
+// Hover tints by one step; the movement is the shared press and arrow nudge above.
 const twVariant = defineStyles({
   default: {
     appearance: "bg-primary text-primary-foreground",
-    hover: "hover:bg-primary-hover motion-safe:hover:not-aria-[haspopup]:-translate-y-px",
+    hover: "hover:bg-primary-hover",
   },
   gold: {
     appearance: "bg-gold text-gold-foreground",
-    hover: "hover:bg-gold-hover motion-safe:hover:not-aria-[haspopup]:-translate-y-px",
+    hover: "hover:bg-gold-hover",
   },
   outline: {
     appearance: "border-input bg-transparent text-foreground",
-    hover: "hover:bg-accent motion-safe:hover:not-aria-[haspopup]:-translate-y-px",
+    hover: "hover:bg-accent",
     state: "aria-expanded:bg-accent",
   },
   // For secondary choices on `surface-deep` bands.
   "outline-deep": {
     appearance: "border-gold bg-transparent text-gold",
-    hover: "hover:bg-deep-raised motion-safe:hover:not-aria-[haspopup]:-translate-y-px",
+    hover: "hover:bg-deep-raised",
     state: "aria-expanded:bg-deep-raised",
   },
   secondary: {
     appearance: "bg-secondary text-secondary-foreground",
-    hover: "hover:bg-accent motion-safe:hover:not-aria-[haspopup]:-translate-y-px",
+    hover: "hover:bg-accent",
     state: "aria-expanded:bg-accent",
   },
   ghost: {
     appearance: "text-brand-text",
-    hover: "hover:bg-accent motion-safe:hover:not-aria-[haspopup]:-translate-y-px",
+    hover: "hover:bg-accent",
     state: "aria-expanded:bg-accent",
   },
   destructive: {
     appearance: "bg-destructive-surface text-destructive",
-    hover: "hover:border-destructive motion-safe:hover:not-aria-[haspopup]:-translate-y-px",
+    hover: "hover:border-destructive",
   },
   link: {
     appearance: "text-brand-text underline-offset-4",
@@ -65,7 +71,7 @@ const twVariant = defineStyles({
 
 /*===== Geometry =====*/
 
-// Heights line up with the 48px inputs; `sm` and every icon size keep Sarv's 40px minimum tap target.
+// Heights line up with the 44px inputs; `sm` and every icon size keep Sarv's 40px minimum tap target.
 // `geometryIcon` tightens the padding on the side holding a `data-icon` child so the icon looks optically centered.
 // `geometryGroup` restores the shared radius when compact buttons sit inside a ButtonGroup.
 const twSize = defineStyles({
@@ -86,13 +92,13 @@ const twSize = defineStyles({
   },
   default: {
     layout: "gap-2",
-    geometry: "h-12 px-6",
-    geometryIcon: "has-data-[icon=inline-end]:pe-5 has-data-[icon=inline-start]:ps-5",
+    geometry: "h-11 px-5",
+    geometryIcon: "has-data-[icon=inline-end]:pe-4 has-data-[icon=inline-start]:ps-4",
   },
   lg: {
     layout: "gap-2",
-    geometry: "h-14 px-8",
-    geometryIcon: "has-data-[icon=inline-end]:pe-6 has-data-[icon=inline-start]:ps-6",
+    geometry: "h-12 px-6",
+    geometryIcon: "has-data-[icon=inline-end]:pe-5 has-data-[icon=inline-start]:ps-5",
   },
   "icon-xs": {
     geometry: "size-8 rounded-sm",
@@ -104,10 +110,10 @@ const twSize = defineStyles({
     geometryGroup: "in-data-[slot=button-group]:rounded-md",
   },
   icon: {
-    geometry: "size-12",
+    geometry: "size-11",
   },
   "icon-lg": {
-    geometry: "size-14",
+    geometry: "size-12",
     icon: "[&_svg:not([class*='size-'])]:size-6",
   },
 });

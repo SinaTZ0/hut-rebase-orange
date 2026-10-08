@@ -24,7 +24,7 @@ const twTriggerStyles = defineStyles({
 
 const twTriggerSize = defineStyles({
   default: {
-    geometry: "h-12",
+    geometry: "h-11",
   },
   sm: {
     geometry: "h-10",

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ArrowLeftIcon, CalendarIcon, PlusIcon } from "lucide-react";
 
+import { Input } from "~/components/primitive/input/input";
 import { Button } from "./button";
 import { twSize, twVariant } from "./button.styles";
 
@@ -101,6 +102,8 @@ export const PrimaryAction: Story = {
   ),
 };
 
+// Hover or tab to a button: a trailing `inline-end` arrow nudges 4px forward, and pressing drops the button 1px.
+// Both stay still under reduced motion.
 export const WithIcon: Story = {
   render: (args) => (
     <div className="flex flex-wrap items-center gap-3">
@@ -113,6 +116,20 @@ export const WithIcon: Story = {
         {/* Arrow points left: "forward" in RTL. */}
         <ArrowLeftIcon data-icon="inline-end" />
       </Button>
+      <Button {...args} variant="gold">
+        پذیرش و ثبت‌نام
+        <ArrowLeftIcon data-icon="inline-end" />
+      </Button>
+    </div>
+  ),
+};
+
+// Default buttons are 44px, the same as inputs and selects, so a field and its button line up in one row.
+export const BesideInput: Story = {
+  render: (args) => (
+    <div className="flex max-w-md items-end gap-2">
+      <Input aria-label="جست‌وجو در اخبار" placeholder="جست‌وجو در اخبار" />
+      <Button {...args}>جست‌وجو</Button>
     </div>
   ),
 };
