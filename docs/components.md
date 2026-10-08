@@ -56,6 +56,8 @@ Use the same group names across components and leave out the ones you don't need
 | `motion`                   | Reduced-motion overrides                                   |
 | `icon`                     | Selectors affecting descendant icons                       |
 
+Interactive primitives own their hover, focus and press feedback, taken from the interaction vocabulary in [app-identity.md](./app-identity.md#interaction), along with its timings and reduced-motion overrides. Put transitions in `interaction`, the end states in `hover` / `focus` / `active`, and `motion-reduce:` classes in `motion`. Effects on a child (media zoom, arrow nudge, title tint) hang off a named group on the root (`group/card`, `group/link`) and pair every `group-hover/*` with `group-focus-visible/*`.
+
 When one group has a distinct sub-concern, add a capitalized suffix and a comment saying why, e.g. `geometryIcon` for padding that adjusts around a `data-icon` child, or `stateAutofill`.
 
 Helpers:
