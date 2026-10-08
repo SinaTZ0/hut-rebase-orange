@@ -1,0 +1,70 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "typescript",
+    "unicorn",
+    "oxc",
+    "import",
+    "react",
+    "jsx-a11y",
+    "vitest"
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn"
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "import/no-unassigned-import": [
+      "warn",
+      {
+        "allow": ["**/*.css"]
+      }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "react-router",
+            "importNames": ["Link", "NavLink"],
+            "message": "Import Link from ~/components/link or NavLink from ~/components/nav-link, which add page view transitions (docs/view-transitions.md)."
+          }
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["app/components/ui/**"],
+      "rules": {
+        "jsx-a11y/prefer-tag-over-role": "off",
+        "jsx-a11y/click-events-have-key-events": "off",
+        "jsx-a11y/no-noninteractive-element-interactions": "off",
+        "jsx-a11y/label-has-associated-control": "off",
+        "react/set-state-in-effect": "off",
+        "react/no-unstable-nested-components": "off",
+        "eslint/no-shadow": "off",
+        "eslint/no-underscore-dangle": "off"
+      }
+    },
+    {
+      "files": ["app/components/link.tsx", "app/components/nav-link.tsx"],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "ignorePatterns": [
+    ".react-router/",
+    "build/",
+    "playwright-report/",
+    "test-results/",
+    "storybook-static/",
+    "claude-design-assets/"
+  ]
+}
