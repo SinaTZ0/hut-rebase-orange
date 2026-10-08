@@ -19,7 +19,10 @@ app/
       atoms.ts              # Jotai atoms used only by this route
       schema.ts             # form schemas owned by this route
       *.server.ts           # server-only helpers for this route's loader/action
-  components/               # UI shared by multiple routes
+  components/
+    primitive/              # this app's versions of shadcn components
+    shared/                 # app-made UI shared by multiple routes
+    ui/                     # shadcn source, reference only
   hooks/                    # hooks shared by multiple routes
   atoms/                    # Jotai atoms shared by multiple routes
   lib/                      # shared helpers (browser-safe, or *.server.ts)
@@ -35,7 +38,7 @@ Not every slice needs every file. Start with the route module alone and split it
 - **Colocate.** The route module, its exports (`loader`, `action`, `clientLoader`, `clientAction`, `meta`, `headers`,
   `ErrorBoundary`), its `./+types/...` imports, and its private components, hooks, queries, and schemas all live in its
   slice.
-- **Promote only when shared.** Move code to `app/components/`, `app/hooks/`, or `app/lib/` only when multiple routes
+- **Promote only when shared.** Move code to `app/components/shared/`, `app/hooks/`, or `app/lib/` only when multiple routes
   use it or it clearly belongs to a broader domain. Never import from another route's slice; promote instead.
 - **Use generated types.** Type loaders, actions, and components with the route's generated `Route` types instead of
   hand-written ones.
@@ -61,7 +64,7 @@ Not every slice needs every file. Start with the route module alone and split it
 
 ## Navigation
 
-- Import `Link` from `~/components/link` and `NavLink` from `~/components/nav-link`, not from `react-router`. They fade
+- Import `Link` from `~/components/shared/link/link` and `NavLink` from `~/components/shared/nav-link/nav-link`, not from `react-router`. They fade
   the page when the pathname changes, and a lint rule blocks the direct imports. See
   [`view-transitions.md`](./view-transitions.md).
 - `<Form>` and `useNavigate()` aren't wrapped. Pass `viewTransition` yourself when the result is another page, and

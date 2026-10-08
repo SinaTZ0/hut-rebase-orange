@@ -43,9 +43,10 @@ Preserve established local conventions unless a rule below explicitly says other
 
 ### Components
 
-- Restyled components live in `app/components/primitive/<name>/` as `<name>.tsx`, `<name>.styles.ts` and `<name>.stories.tsx`; `app/components/ui/` holds untouched shadcn code. Read `docs/components.md` before creating or restyling a component.
+- Primitives are this app's versions of shadcn components and live in `app/components/primitive/<name>/` as `<name>.tsx`, `<name>.styles.ts` and `<name>.stories.tsx`. `app/components/ui/` holds the untouched shadcn source as reference only: never edit or import from it. Read `docs/components.md` before creating or restyling a component.
 - Write style maps with `defineStyles` and the shared group names; join them with `joinStyles` / `composeStyles`.
-- To restyle a `ui/` component, move it to `primitive/` and repoint every import. Never keep two versions of the same component.
+- If a shadcn component has no primitive yet, create one from its `ui/` source, keeping shadcn's API and `data-slot`s.
+- App-made components with no shadcn original (e.g. `form-alert`, `link`) live in `app/components/shared/<name>/` once more than one route uses them.
 
 ### Imports
 
@@ -96,7 +97,3 @@ Avoid comments for self-explanatory code.
 Add JSDoc to functions, methods, and classes when their purpose, contract, side effects, constraints, or error behavior are not obvious from the code.
 
 Document relevant parameters, return behavior, thrown errors, side effects, and important invariants. Avoid redundant documentation.
-
-### Agent Skills
-
-don't use any Agent Skills until i specifically tell you.

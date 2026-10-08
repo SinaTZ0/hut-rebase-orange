@@ -32,7 +32,7 @@
           {
             "name": "react-router",
             "importNames": ["Link", "NavLink"],
-            "message": "Import Link from ~/components/link or NavLink from ~/components/nav-link, which add page view transitions (docs/view-transitions.md)."
+            "message": "Import Link from ~/components/shared/link/link or NavLink from ~/components/shared/nav-link/nav-link, which add page view transitions (docs/view-transitions.md)."
           }
         ]
       }
@@ -53,7 +53,7 @@
       }
     },
     {
-      "files": ["app/components/link.tsx", "app/components/nav-link.tsx"],
+      "files": ["app/components/shared/link/link.tsx", "app/components/shared/nav-link/nav-link.tsx"],
       "rules": {
         "no-restricted-imports": "off"
       }

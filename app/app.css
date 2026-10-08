@@ -194,7 +194,7 @@
   }
 }
 
-/* Page fade on client navigations. Links opt in through ~/components/link (docs/view-transitions.md); without these
+/* Page fade on client navigations. Links opt in through ~/components/shared/link/link (docs/view-transitions.md); without these
    rules the browser's default cross-fade runs at 250ms. The page ignores input while it runs, so keep it short. */
 ::view-transition-group(root),
 ::view-transition-old(root),

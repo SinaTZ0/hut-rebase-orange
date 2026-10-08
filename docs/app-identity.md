@@ -68,7 +68,7 @@ Use green for structure and action and gold for value and accent. Keep gold off 
   - `rounded-2xl` 20px or more: maps and hero blocks
   - avatars are `rounded-full`
 - **Borders over shadows**: cards use a 1px `border`. `shadow-soft` is the only elevation, and it should be used rarely.
-- **Controls**: inputs and primary buttons are 54–56px tall, full width at the bottom of a flow. This isn't in `components/ui` yet.
+- **Controls**: inputs and primary buttons are 54–56px tall, full width at the bottom of a flow. This isn't in `components/primitive` yet.
 
 ### Iconography & imagery
 

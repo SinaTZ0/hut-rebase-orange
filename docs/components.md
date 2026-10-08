@@ -2,7 +2,7 @@
 
 ## Where components live
 
-- `app/components/primitive/` holds the components we have restyled for this app. Each one owns its folder:
+- `app/components/primitive/` holds this app's versions of shadcn components. Every shadcn component the app uses lives here, restyled or not, so all of them manage their classes with `defineStyles`. Each one owns its folder:
 
   ```text
   primitive/button/
@@ -11,10 +11,21 @@
     button.stories.tsx  # maintained UI documentation
   ```
 
-- `app/components/ui/` holds shadcn components we haven't changed yet. When one needs app-specific styling, **move** it into `primitive/` with the structure above, point every import (including other `ui/` files) at the new path, and delete the `ui/` file. Never keep two versions of the same component.
-- Route-specific pieces stay in their route slice; see [frontend-guideline.md](./frontend-guideline.md).
+- `app/components/ui/` holds the untouched shadcn source, with every component installed. It is reference material only: never edit it and never import from it. Read it only when creating a primitive.
+- `app/components/shared/` holds app-made components used by more than one route: things with no shadcn original, such as `form-alert`, `link` and `theme-toggle`. They use the same one-folder-per-component layout, with a `<name>.styles.ts` only when the component has its own style map, and a story for anything visible. The shadcn API rule below doesn't apply to them; they compose primitives instead.
+- Route-specific pieces stay in their route slice and move to `shared/` when a second route needs them; see [frontend-guideline.md](./frontend-guideline.md).
 
 Import directly from the owning file. `buttonVariants` and other CVA helpers come from the `*.styles.ts` file.
+
+## Creating a primitive
+
+Build the primitive from the shadcn source in `ui/` instead of writing it from memory:
+
+1. Copy the `ui/` file into `primitive/<name>/<name>.tsx`. Leave the `ui/` file as it is.
+2. Move its classes into `<name>.styles.ts` as `defineStyles` groups (see below). Keep the shadcn classes as they are unless the component needs restyling for app-identity.
+3. Keep shadcn's API: the same exports, props, parts and `data-slot` / `data-*` attributes, so shadcn's docs and patterns still apply. Customise styles and add variants, but don't rename or restructure.
+4. If it composes other shadcn components, import their primitives, creating them first if they don't exist.
+5. Add `<name>.stories.tsx`.
 
 ## Editing styles
 
@@ -58,4 +69,4 @@ Prefer a CVA variant over `data-[size=…]:` selectors on the element itself. Ke
 
 ## Changing a primitive
 
-A primitive's styles change every page that uses it, so follow the base-styles step in [design-flow.md](./design-flow.md). Before you change a default or add a variant, check the existing consumers and other `ui/` components that compose it, because some rely on its slots and selectors (`data-slot`, `in-data-[slot=button-group]`, `has-data-[icon=…]`, `aria-invalid`). Then update the story.
+A primitive's styles change every page that uses it, so follow the "Prepare shared pieces" step in [design-flow.md](./design-flow.md). Before you change a default or add a variant, check the existing consumers and the other primitives that compose it, because some rely on its slots and selectors (`data-slot`, `in-data-[slot=button-group]`, `has-data-[icon=…]`, `aria-invalid`). Then update the story.

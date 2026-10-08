@@ -1,6 +1,6 @@
 import { LogOutIcon } from "lucide-react";
 
-import { ThemeToggle } from "~/components/theme-toggle";
+import { ThemeToggle } from "~/components/shared/theme-toggle/theme-toggle";
 import { Button } from "~/components/primitive/button/button";
 import { Spinner } from "~/components/ui/spinner";
 

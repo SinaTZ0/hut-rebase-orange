@@ -5,7 +5,7 @@ import { useCallback, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 
-import { FormAlert } from "~/components/form-alert";
+import { FormAlert } from "~/components/shared/form-alert/form-alert";
 import { Button } from "~/components/primitive/button/button";
 import { Field, FieldDescription, FieldError, FieldGroup, FieldLabel } from "~/components/ui/field";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "~/components/primitive/input-group/input-group";

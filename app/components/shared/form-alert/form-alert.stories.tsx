@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { FormAlert } from "~/components/form-alert";
+import { FormAlert } from "~/components/shared/form-alert/form-alert";
 
 /*===== Meta =====*/
 const meta = {
-  title: "Components/FormAlert",
+  title: "Shared/FormAlert",
   component: FormAlert,
   args: { message: "ایمیل یا رمز عبور درست نیست." },
   render: (args) => (

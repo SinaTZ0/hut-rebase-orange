@@ -123,7 +123,7 @@ export const serializeOrdersSearchParams = createSerializer(ordersSearchParams);
 <Link to={serializeOrdersSearchParams("/orders", { sort: "amount" })}>...</Link>;
 ```
 
-`Link` here is the app wrapper from `~/components/link`. It doesn't fade links that keep the current pathname and only
+`Link` here is the app wrapper from `~/components/shared/link/link`. It doesn't fade links that keep the current pathname and only
 change the query, so they behave like other nuqs updates (see [`view-transitions.md`](./view-transitions.md)).
 
 ## Forms Without JavaScript

@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { isDefinedError } from "@orpc/client";
 import { Controller, type DefaultValues, useForm, type UseFormSetError } from "react-hook-form";
 
-import { FormAlert } from "~/components/form-alert";
+import { FormAlert } from "~/components/shared/form-alert/form-alert";
 import { Button } from "~/components/primitive/button/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/primitive/card/card";
 import { Field, FieldError, FieldGroup, FieldLabel } from "~/components/ui/field";

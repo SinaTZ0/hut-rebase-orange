@@ -14,8 +14,8 @@ loaders.
 Import `Link` and `NavLink` from the app wrappers, not from `react-router`. A lint rule enforces this.
 
 ```tsx
-import { Link } from "~/components/link";
-import { NavLink } from "~/components/nav-link";
+import { Link } from "~/components/shared/link/link";
+import { NavLink } from "~/components/shared/nav-link/nav-link";
 
 <Link to="/orders">سفارش‌ها</Link>;
 ```
