@@ -24,7 +24,7 @@ export function AcademicTimeline() {
         />
 
         <div className="mt-8 rounded-lg bg-card p-6 shadow-sm ring-1 ring-border min-[600px]:p-8">
-          <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-5">
             <h3 className="text-h3">{CALENDAR.term}</h3>
             <Badge variant="secondary">آرشیو تقویم آموزشی</Badge>
           </div>
@@ -33,11 +33,11 @@ export function AcademicTimeline() {
             {CALENDAR.steps.map((step) => (
               <li
                 key={step.title + step.range}
-                className="relative ps-10 pb-8 before:absolute before:start-[13px] before:top-7 before:-bottom-1 before:w-0.5 before:bg-primary last:pb-0 last:before:hidden min-[960px]:ps-0 min-[960px]:pe-3 min-[960px]:pt-10 min-[960px]:pb-0 min-[960px]:before:start-0 min-[960px]:before:end-0 min-[960px]:before:top-[13px] min-[960px]:before:bottom-auto min-[960px]:before:h-0.5 min-[960px]:before:w-auto"
+                className="relative ps-10 pb-8 before:absolute before:start-[13px] before:top-7 before:-bottom-1 before:w-0.5 before:bg-primary last:pb-0 max-[959px]:last:before:hidden min-[960px]:px-3 min-[960px]:pt-10 min-[960px]:pb-0 min-[960px]:text-center min-[960px]:before:start-0 min-[960px]:before:end-0 min-[960px]:before:top-[13px] min-[960px]:before:bottom-auto min-[960px]:before:h-0.5 min-[960px]:before:w-auto min-[960px]:first:before:start-1/2 min-[960px]:last:before:end-1/2"
               >
                 <span
                   aria-hidden
-                  className="absolute start-0 top-0 grid size-7 place-items-center rounded-full bg-primary text-primary-foreground"
+                  className="absolute start-0 top-0 grid size-7 place-items-center rounded-full bg-primary text-primary-foreground min-[960px]:inset-x-0 min-[960px]:mx-auto"
                 >
                   <CheckIcon className="size-4" />
                 </span>

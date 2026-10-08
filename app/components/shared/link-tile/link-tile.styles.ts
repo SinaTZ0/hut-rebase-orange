@@ -62,6 +62,13 @@ const twArrowDirection = defineStyles({
   },
 });
 
+// `bare` drops the icon's filled square so the icon sits on the tile's own surface; on hover it only takes the tint.
+const twIconBare = defineStyles({
+  appearance: "bg-transparent group-hover/link-tile:bg-transparent group-focus-visible/link-tile:bg-transparent",
+  hover: "group-hover/link-tile:text-brand-text",
+  focus: "group-focus-visible/link-tile:text-brand-text",
+});
+
 /*===== Layouts =====*/
 
 // `row`: icon, text and a trailing arrow side by side, for support routes and lists.
@@ -106,6 +113,7 @@ const linkTileArrowVariants = cva(joinStyles(twArrowStyles), {
 });
 
 const linkTileIconClasses = joinStyles(twIconStyles);
+const linkTileIconBareClasses = joinStyles(twIconBare);
 const linkTileTitleClasses = joinStyles(twTitleStyles);
 const linkTileDescriptionClasses = joinStyles(twDescriptionStyles);
 
@@ -115,6 +123,7 @@ export {
   linkTileDescriptionClasses,
   linkTileArrowVariants,
   linkTileIconClasses,
+  linkTileIconBareClasses,
   linkTileTitleClasses,
   twVariant,
 };

@@ -25,8 +25,8 @@ const SUPPORT_ROUTES = [
 /*===== Call To Action =====*/
 
 /**
- * The closing invitation: a `deep` panel with two actions joined to a `card` panel of two real support routes. The
- * panels sit side by side rather than nested, so the support links keep the light-ground focus ring.
+ * The closing invitation: a `deep` panel with two actions joined to a `card` panel of two real support routes that
+ * split its height into full-bleed cells. The panels sit side by side rather than nested, so the support links keep the light-ground focus ring.
  */
 export function CallToAction() {
   return (
@@ -67,10 +67,17 @@ export function CallToAction() {
           </div>
 
           {/*------ Support Routes ------*/}
-          <ul className="flex flex-col justify-center divide-y divide-border bg-card p-3 min-[600px]:p-6">
+          {/* No panel padding: each route is a full-height cell, so the hover wash fills its slice of the panel. */}
+          <ul className="flex flex-col divide-y divide-border bg-card">
             {SUPPORT_ROUTES.map((route) => (
-              <li key={route.href} className="py-2">
-                <LinkTile href={route.href} title={route.title} description={route.description} icon={route.icon} />
+              <li key={route.href} className="flex flex-1">
+                <LinkTile
+                  href={route.href}
+                  title={route.title}
+                  description={route.description}
+                  icon={route.icon}
+                  className="flex-1 rounded-none p-6 focus-visible:-outline-offset-2 min-[600px]:p-8"
+                />
               </li>
             ))}
           </ul>

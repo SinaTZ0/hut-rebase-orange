@@ -1,5 +1,5 @@
 import { Badge } from "~/components/primitive/badge/badge";
-import { Card, CardContent, CardDescription, CardMedia, CardTitle } from "~/components/primitive/card/card";
+import { Card, CardContent, CardDescription, CardFooter, CardMedia, CardTitle } from "~/components/primitive/card/card";
 import { SectionHeader } from "~/components/shared/section-header/section-header";
 import { SiteLink } from "~/components/shared/site-link/site-link";
 import { TextLink } from "~/components/shared/text-link/text-link";
@@ -42,25 +42,26 @@ export function NewsSection() {
 
 /*===== Featured Story =====*/
 
-/** A wide card: the whole poster beside the text from 600px, above it on phones. */
+/** A wide card: the whole poster beside the text from 600px, above it on phones. The footer holds meta and the link. */
 function FeaturedStory({ story }: { story: Story }) {
   return (
-    <Card
-      render={<SiteLink href={story.href} />}
-      className="gap-0 py-0 min-[600px]:col-span-2 min-[600px]:grid min-[600px]:grid-cols-[1.15fr_1fr]"
-    >
-      <CardMedia fit={story.poster ? "contain" : "cover"} className="aspect-2/1 min-[600px]:aspect-auto">
-        <img src={story.image} alt={story.imageAlt} width={1000} height={491} />
-      </CardMedia>
-      <div className="flex flex-col gap-2 p-5 min-[600px]:justify-center min-[600px]:p-6">
-        <Badge variant="gold" className="self-start">
-          خبر ویژه
-        </Badge>
-        <StoryMeta story={story} />
-        <CardTitle>{story.title}</CardTitle>
-        <CardDescription className="line-clamp-3">{story.summary}</CardDescription>
-        <TextLink className="mt-2">ادامه خبر</TextLink>
+    <Card render={<SiteLink href={story.href} />} className="gap-0 py-0 min-[600px]:col-span-2">
+      <div className="grid min-[600px]:grid-cols-[1.15fr_1fr]">
+        <CardMedia fit={story.poster ? "contain" : "cover"} className="aspect-2/1 min-[600px]:aspect-auto">
+          <img src={story.image} alt={story.imageAlt} width={1000} height={491} />
+        </CardMedia>
+        <div className="flex flex-col gap-2 p-5 min-[600px]:justify-center min-[600px]:p-6">
+          <Badge variant="gold" className="self-start">
+            خبر ویژه
+          </Badge>
+          <CardTitle>{story.title}</CardTitle>
+          <CardDescription className="line-clamp-3">{story.summary}</CardDescription>
+        </div>
       </div>
+      <CardFooter className="justify-between gap-3">
+        <StoryMeta story={story} />
+        <TextLink>ادامه خبر</TextLink>
+      </CardFooter>
     </Card>
   );
 }
@@ -73,22 +74,19 @@ function StoryCard({ story }: { story: Story }) {
       <CardMedia fit={story.poster ? "top" : "cover"} className="aspect-2/1">
         <img src={story.image} alt={story.imageAlt} width={1000} height={491} loading="lazy" />
       </CardMedia>
-      <CardContent className="flex flex-1 flex-col gap-1">
-        <StoryMeta story={story} />
+      <CardContent className="flex-1">
         <CardTitle>{story.title}</CardTitle>
-        <TextLink className="mt-auto pt-2">ادامه خبر</TextLink>
       </CardContent>
+      <CardFooter className="justify-between gap-3">
+        <StoryMeta story={story} />
+        <TextLink>ادامه خبر</TextLink>
+      </CardFooter>
     </Card>
   );
 }
 
 function StoryMeta({ story }: { story: Story }) {
-  return (
-    <p className="text-caption text-muted-foreground">
-      <span className="text-brand-text">{story.category}</span>
-      {story.date && <> · {story.date}</>}
-    </p>
-  );
+  return <p className="text-caption text-muted-foreground">{story.date}</p>;
 }
 
 /*===== Announcements =====*/

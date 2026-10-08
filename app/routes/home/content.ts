@@ -155,6 +155,7 @@ export const ACHIEVEMENTS: Story[] = [
     category: "دستاورد پژوهشی",
     title: "انرژی پایدار و هوش مصنوعی؛ در جمع نشریات ISC",
     summary: "نمایه‌شدن نشریه علمی دانشگاه در پایگاه استنادی علوم جهان اسلام",
+    date: "۲۰ مرداد ۱۴۰۵", // Placeholder until real dates exist.
     image: newsJournalImage,
     imageAlt: "نشریه انرژی پایدار و هوش مصنوعی و نشان ISC",
     poster: true,
@@ -165,6 +166,7 @@ export const ACHIEVEMENTS: Story[] = [
     category: "اعضای هیئت علمی",
     title: "ارتقای علمی اعضای هیئت علمی مهندسی پزشکی",
     summary: "آخرین احکام ارتقای مرتبه علمی اعضای هیئت علمی گروه مهندسی پزشکی دانشگاه صنعتی همدان.",
+    date: "۱۲ تیر ۱۴۰۵", // Placeholder until real dates exist.
     image: achievementFacultyImage,
     imageAlt: "اعضای هیئت علمی گروه مهندسی پزشکی",
     href: HUT_LINKS.portal,
@@ -174,6 +176,7 @@ export const ACHIEVEMENTS: Story[] = [
     category: "افتخار دانشجویی",
     title: "افتخارآفرینی دانشجویان در میدان ورزش",
     summary: "کسب مدال طلای کاراته، مقام پنجم کشتی فرنگی و جایگاه هشتم تیراندازی در هفدهمین المپیاد ورزشی دانشجویان.",
+    date: "۳ تیر ۱۴۰۵", // Placeholder until real dates exist.
     image: newsAthleticsImage,
     imageAlt: "نتایج ورزشکاران دانشگاه در المپیاد دانشجویان",
     poster: true,
