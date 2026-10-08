@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { Label } from "~/components/ui/label";
-import { Textarea } from "~/components/ui/textarea";
+import { Textarea } from "./textarea";
 
 /*===== Meta =====*/
 const meta = {
-  title: "UI/Textarea",
+  title: "Primitive/Textarea",
   component: Textarea,
   args: {
     placeholder: "مثال: آموزش دستورات پایه، کنترل پارس، اجتماعی شدن...",

@@ -1,6 +1,6 @@
 import { MoonIcon, SunIcon } from "lucide-react";
 
-import { Button } from "~/components/ui/button";
+import { Button } from "~/components/primitive/button/button";
 import { useTheme } from "~/hooks/use-theme";
 
 /*===== Theme Toggle =====*/

@@ -1,7 +1,7 @@
 import { LogOutIcon } from "lucide-react";
 
 import { ThemeToggle } from "~/components/theme-toggle";
-import { Button } from "~/components/ui/button";
+import { Button } from "~/components/primitive/button/button";
 import { Spinner } from "~/components/ui/spinner";
 
 type PetsHeaderProps = {

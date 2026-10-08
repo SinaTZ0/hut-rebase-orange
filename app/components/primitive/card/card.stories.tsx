@@ -1,22 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Button } from "~/components/ui/button";
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "~/components/ui/card";
+import { Button } from "~/components/primitive/button/button";
+import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./card";
+import { twSize } from "./card.styles";
+
+const sizeOptions = Object.keys(twSize) as Array<keyof typeof twSize>;
 
 /*===== Meta =====*/
 const meta = {
-  title: "UI/Card",
+  title: "Primitive/Card",
   component: Card,
   argTypes: {
-    size: { control: "inline-radio", options: ["default", "sm"] },
+    size: { control: "inline-radio", options: sizeOptions },
   },
   args: { size: "default" },
   render: (args) => (

@@ -8,11 +8,11 @@ import {
   InputGroupInput,
   InputGroupText,
   InputGroupTextarea,
-} from "~/components/ui/input-group";
+} from "./input-group";
 
 /*===== Meta =====*/
 const meta = {
-  title: "UI/InputGroup",
+  title: "Primitive/InputGroup",
   component: InputGroup,
   decorators: [
     (Story) => (

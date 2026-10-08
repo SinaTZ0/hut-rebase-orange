@@ -3,11 +3,11 @@ import { isDefinedError } from "@orpc/client";
 import { Controller, type DefaultValues, useForm, type UseFormSetError } from "react-hook-form";
 
 import { FormAlert } from "~/components/form-alert";
-import { Button } from "~/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
+import { Button } from "~/components/primitive/button/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/primitive/card/card";
 import { Field, FieldError, FieldGroup, FieldLabel } from "~/components/ui/field";
-import { Input } from "~/components/ui/input";
-import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText } from "~/components/ui/input-group";
+import { Input } from "~/components/primitive/input/input";
+import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText } from "~/components/primitive/input-group/input-group";
 import { Spinner } from "~/components/ui/spinner";
 import { toast } from "~/components/ui/toast";
 import { useCreatePet } from "~/routes/pets/hooks/use-create-pet";

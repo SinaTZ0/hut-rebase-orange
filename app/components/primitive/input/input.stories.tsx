@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Input } from "~/components/ui/input";
+import { Input } from "./input";
 import { Label } from "~/components/ui/label";
 
 /*===== Meta =====*/
 const meta = {
-  title: "UI/Input",
+  title: "Primitive/Input",
   component: Input,
   args: { placeholder: "نام حیوان", "aria-label": "نام حیوان" },
   decorators: [

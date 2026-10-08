@@ -41,6 +41,12 @@ app/routes/
 
 Preserve established local conventions unless a rule below explicitly says otherwise.
 
+### Components
+
+- Restyled components live in `app/components/primitive/<name>/` as `<name>.tsx`, `<name>.styles.ts` and `<name>.stories.tsx`; `app/components/ui/` holds untouched shadcn code. Read `docs/components.md` before creating or restyling a component.
+- Write style maps with `defineStyles` and the shared group names; join them with `joinStyles` / `composeStyles`.
+- To restyle a `ui/` component, move it to `primitive/` and repoint every import. Never keep two versions of the same component.
+
 ### Imports
 
 Import values and types directly from their owning modules. Do not create directory barrel files such as `index.ts`.

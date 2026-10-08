@@ -1,21 +1,25 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ArrowLeftIcon, CalendarIcon, PlusIcon } from "lucide-react";
 
-import { Button } from "~/components/ui/button";
+import { Button } from "./button";
+import { twSize, twVariant } from "./button.styles";
+
+const variantOptions = Object.keys(twVariant) as Array<keyof typeof twVariant>;
+const sizeOptions = Object.keys(twSize) as Array<keyof typeof twSize>;
 
 /*===== Meta =====*/
 const meta = {
-  title: "UI/Button",
+  title: "Primitive/Button",
   component: Button,
   args: { children: "رزرو ویزیت" },
   argTypes: {
     variant: {
       control: "select",
-      options: ["default", "outline", "secondary", "ghost", "destructive", "link"],
+      options: variantOptions,
     },
     size: {
       control: "select",
-      options: ["xs", "sm", "default", "lg", "icon-xs", "icon-sm", "icon", "icon-lg"],
+      options: sizeOptions,
     },
   },
 } satisfies Meta<typeof Button>;

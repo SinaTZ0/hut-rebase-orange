@@ -9,7 +9,10 @@ import {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from "~/components/ui/select";
+} from "./select";
+import { twTriggerSize } from "./select.styles";
+
+const sizeOptions = Object.keys(twTriggerSize) as Array<keyof typeof twTriggerSize>;
 
 /*===== Data =====*/
 const species = [
@@ -22,10 +25,10 @@ const species = [
 
 /*===== Meta =====*/
 const meta = {
-  title: "UI/Select",
+  title: "Primitive/Select",
   component: SelectTrigger,
   argTypes: {
-    size: { control: "inline-radio", options: ["default", "sm"] },
+    size: { control: "inline-radio", options: sizeOptions },
   },
   args: { size: "default" },
   render: (args) => (

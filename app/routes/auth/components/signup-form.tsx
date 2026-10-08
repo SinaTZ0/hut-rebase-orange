@@ -6,9 +6,9 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 
 import { FormAlert } from "~/components/form-alert";
-import { Button } from "~/components/ui/button";
+import { Button } from "~/components/primitive/button/button";
 import { Field, FieldDescription, FieldError, FieldGroup, FieldLabel } from "~/components/ui/field";
-import { InputGroup, InputGroupAddon, InputGroupInput } from "~/components/ui/input-group";
+import { InputGroup, InputGroupAddon, InputGroupInput } from "~/components/primitive/input-group/input-group";
 import { Spinner } from "~/components/ui/spinner";
 import { authClient } from "~/lib/auth-client";
 import { ALTCHA_HEADER } from "~/lib/auth-constants";
