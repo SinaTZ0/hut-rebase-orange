@@ -3,22 +3,69 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/vazirmatn";
 
-/* Tokens follow docs/app-identity.md */
+/* Tokens follow docs/app-identity.md, which maps the Sarv design system (claude-design-system/tokens.json) onto
+   shadcn's token names. Sarv's gold `accent` is `gold` here; shadcn's `accent` is Sarv's `primary-soft` wash. */
 
 @custom-variant dark (&:is(.dark *));
 
+/*===== Type =====*/
+
 @theme {
-  /* Persian text needs taller lines than Tailwind's defaults */
-  --text-xs--line-height: 1.7;
-  --text-sm--line-height: 1.75;
-  --text-base--line-height: 1.8;
+  /* Persian needs tall lines; these match Sarv's caption, body-sm, body and body-lg */
+  --text-xs--line-height: calc(20 / 12);
+  --text-sm--line-height: calc(24 / 14);
+  --text-base--line-height: calc(28 / 16);
+  --text-lg--line-height: calc(32 / 18);
+
+  /* Sarv type styles as `text-<name>`: size, line height and weight together */
+  --text-display: 3.5rem;
+  --text-display--line-height: 5.25rem;
+  --text-display--font-weight: 800;
+  --text-stat: 2.75rem;
+  --text-stat--line-height: 3.5rem;
+  --text-stat--font-weight: 800;
+  --text-h1: 2.5rem;
+  --text-h1--line-height: 3.75rem;
+  --text-h1--font-weight: 800;
+  --text-h2: 1.875rem;
+  --text-h2--line-height: 3rem;
+  --text-h2--font-weight: 700;
+  --text-h3: 1.375rem;
+  --text-h3--line-height: 2.25rem;
+  --text-h3--font-weight: 700;
+  --text-h4: 1.125rem;
+  --text-h4--line-height: 1.875rem;
+  --text-h4--font-weight: 700;
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 2rem;
+  --text-body: 1rem;
+  --text-body--line-height: 1.75rem;
+  --text-body-sm: 0.875rem;
+  --text-body-sm--line-height: 1.5rem;
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.25rem;
+  --text-caption--font-weight: 500;
+  --text-button: 0.9375rem;
+  --text-button--line-height: 1.5rem;
+  --text-button--font-weight: 700;
+  --text-kicker: 0.8125rem;
+  --text-kicker--line-height: 1.25rem;
+  --text-kicker--font-weight: 700;
+  --text-nav: 0.875rem;
+  --text-nav--line-height: 1.5rem;
+  --text-nav--font-weight: 600;
+
+  /* Layout: `max-w-site` is Sarv's 1200px content width */
+  --container-site: 75rem;
 }
+
+/*===== Theme Mapping =====*/
 
 @theme inline {
   --font-heading: var(--font-sans);
-  --font-sans: "Vazirmatn Variable", Tahoma, sans-serif;
+  --font-sans: "Vazirmatn Variable", "Segoe UI", Tahoma, system-ui, sans-serif;
 
-  /* shadcn semantic colors */
+  /*------ shadcn semantic colors ------*/
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -26,6 +73,7 @@
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
@@ -34,6 +82,7 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
+  --color-destructive-surface: var(--destructive-surface);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -51,134 +100,187 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Brand colors */
+  /*------ Sarv roles ------*/
+  --color-brand-text: var(--brand-text);
   --color-gold: var(--gold);
-  --color-gold-deep: var(--gold-deep);
+  --color-gold-hover: var(--gold-hover);
+  --color-gold-foreground: var(--gold-foreground);
   --color-gold-text: var(--gold-text);
-  --color-faint: var(--faint);
-  --color-cream: var(--cream);
-  --color-cream-border: var(--cream-border);
-  --color-mint: var(--mint);
-  --color-mint-border: var(--mint-border);
+  --color-deep: var(--deep);
+  --color-deep-raised: var(--deep-raised);
+  --color-deep-foreground: var(--deep-foreground);
+  --color-deep-muted: var(--deep-muted);
+  --color-ring-deep: var(--ring-deep);
+  --color-overlay: var(--overlay);
   --color-success: var(--success);
-  --color-hero: var(--hero);
-  --color-hero-foreground: var(--hero-foreground);
+  --color-success-surface: var(--success-surface);
+  --color-warning: var(--warning);
+  --color-warning-surface: var(--warning-surface);
+  --color-info: var(--info);
+  --color-info-surface: var(--info-surface);
 
-  /* Radius: 8 small, 12 icon boxes, 14 buttons/inputs, 16 cards, 20+ hero/maps */
+  /*------ Radius ------*/
+  /* Sarv: sm 8 (inputs, thumbnails), md 14 (buttons, notices, tiles), lg 24 (feature cards, media).
+     xl and up aren't in Sarv; they stay at least lg so the scale never shrinks. */
   --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: var(--radius);
-  --radius-xl: 1rem;
-  --radius-2xl: 1.25rem;
-  --radius-3xl: 1.75rem;
-  --radius-4xl: 2.25rem;
+  --radius-md: var(--radius);
+  --radius-lg: 1.5rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 2.5rem;
+  --radius-4xl: 3rem;
 
-  /* Borders over shadows; this is the one soft elevation */
-  --shadow-soft: 0 6px 18px rgb(20 40 30 / 0.06);
+  /*------ Shadow ------*/
+  /* Cards rest on sm, lift to md on hover, float is the service strip only */
+  --shadow-sm: var(--elevation-sm);
+  --shadow-md: var(--elevation-md);
+  --shadow-float: var(--elevation-float);
 }
+
+/*===== Light Theme =====*/
 
 :root {
   --radius: 0.875rem;
 
   --background: #fbfaf6;
-  --foreground: #22352b;
+  --foreground: #11302e;
   --card: #ffffff;
-  --card-foreground: #22352b;
+  --card-foreground: #11302e;
   --popover: #ffffff;
-  --popover-foreground: #22352b;
-  --primary: #0c3b2e;
-  --primary-foreground: #f7f4ec;
-  --secondary: #f1ede2;
-  --secondary-foreground: #22352b;
-  --muted: #f1ede2;
-  --muted-foreground: #6e6a5e; /* 5.4:1, not the mockup's #8d897b */
-  --accent: #fbf6e9;
-  --accent-foreground: #22352b;
-  --destructive: #c53b3b; /* mockup #d64545 is 4.19:1 on background */
-  --border: #ebe5d6;
-  --input: #8d897b; /* control edges need 3:1 (WCAG 1.4.11): 3.5:1 on card, 3.35:1 on background */
-  --ring: #0c3b2e;
+  --popover-foreground: #11302e;
+  --primary: #134542;
+  --primary-hover: #0d3331;
+  --primary-foreground: #f6f3ea;
+  --secondary: #f0f2ee;
+  --secondary-foreground: #11302e;
+  --muted: #f0f2ee;
+  --muted-foreground: #4a625f;
+  --accent: #e2eeeb;
+  --accent-foreground: #11302e;
+  --destructive: #b3261e;
+  --destructive-surface: #fbe7e5;
+  --border: #dde3de;
+  --input: #6f8782;
+  --ring: #0b5cad;
 
-  --gold: #c8a85a; /* on green only */
-  --gold-deep: #b98f3e; /* icons and decoration, not text */
-  --gold-text: #8a6b2e; /* gold as readable text, 4.76:1 */
-  --faint: #8d897b; /* disabled and decoration, never text (3.5:1) */
-  --cream: #fbf6e9;
-  --cream-border: #f0e4c6;
-  --mint: #eef4f0;
-  --mint-border: #d5e3da;
-  --success: #267f4c; /* mockup #2e9e5b is 3.41:1 on white */
+  --brand-text: #0f5a54;
+  --gold: #e9b43c;
+  --gold-hover: #d6a02a;
+  --gold-foreground: #14201f;
+  --gold-text: #7d5400;
+  --deep: #134542;
+  --deep-raised: #18504b;
+  --deep-foreground: #f6f3ea;
+  --deep-muted: #bcd3ce;
+  --ring-deep: #ffd36b;
+  --overlay: #0b2625d9;
 
-  /* Hero cards stay brand green in both themes (dark mode's primary is gold), so .dark doesn't override these */
-  --hero: #0c3b2e;
-  --hero-foreground: #f7f4ec;
+  --success: #17633f;
+  --success-surface: #e4f3ea;
+  --warning: #7a5200;
+  --warning-surface: #fbf0d6;
+  --info: #1b5e8e;
+  --info-surface: #e1eef7;
 
-  --chart-1: #0c3b2e;
-  --chart-2: #c8a85a;
-  --chart-3: #4a7a63;
-  --chart-4: #e4c376;
-  --chart-5: #8d897b;
+  --elevation-sm: 0 1px 2px #0f2a2814, 0 1px 1px #0f2a280d;
+  --elevation-md: 0 10px 28px -10px #0f2a2833;
+  --elevation-float: 0 24px 48px -16px #0f2a2840;
+
+  /* Not in Sarv: drawn from its palette, teal and gold first */
+  --chart-1: #134542;
+  --chart-2: #e9b43c;
+  --chart-3: #1b5e8e;
+  --chart-4: #6f8782;
+  --chart-5: #7d5400;
 
   --sidebar: #ffffff;
-  --sidebar-foreground: #22352b;
-  --sidebar-primary: #0c3b2e;
-  --sidebar-primary-foreground: #f7f4ec;
-  --sidebar-accent: #fbf6e9;
-  --sidebar-accent-foreground: #22352b;
-  --sidebar-border: #ebe5d6;
-  --sidebar-ring: #0c3b2e;
+  --sidebar-foreground: #11302e;
+  --sidebar-primary: #134542;
+  --sidebar-primary-foreground: #f6f3ea;
+  --sidebar-accent: #e2eeeb;
+  --sidebar-accent-foreground: #11302e;
+  --sidebar-border: #dde3de;
+  --sidebar-ring: #0b5cad;
 }
 
-/* Not in the design assets: derived night version of the same palette */
+/*===== Dark Theme (Sarv "midnight teal") =====*/
+
 .dark {
-  --background: #0e1a15;
-  --foreground: #f1ede2;
-  --card: #15241d;
-  --card-foreground: #f1ede2;
-  --popover: #15241d;
-  --popover-foreground: #f1ede2;
-  --primary: #c8a85a;
-  --primary-foreground: #0c3b2e;
-  --secondary: #1c2c24;
-  --secondary-foreground: #f1ede2;
-  --muted: #1c2c24;
-  --muted-foreground: #a9a596;
-  --accent: #1c2c24;
-  --accent-foreground: #f1ede2;
-  --destructive: #e5655f;
-  --border: rgb(241 237 226 / 0.1);
-  --input: rgb(241 237 226 / 0.45); /* 4:1 on background; also tints dark fills via bg-input/30 */
-  --ring: #c8a85a;
+  --background: #0a1818;
+  --foreground: #e8f1ee;
+  --card: #112625;
+  --card-foreground: #e8f1ee;
+  --popover: #112625;
+  --popover-foreground: #e8f1ee;
+  --primary: #7ad6c7;
+  --primary-hover: #9be3d7;
+  --primary-foreground: #06211e;
+  --secondary: #07110f;
+  --secondary-foreground: #e8f1ee;
+  --muted: #07110f;
+  --muted-foreground: #9fb8b3;
+  --accent: #17302e;
+  --accent-foreground: #e8f1ee;
+  --destructive: #ff9a92;
+  --destructive-surface: #3a1816;
+  --border: #234240;
+  --input: #5d7d78;
+  --ring: #8fc7ff;
 
-  --gold: #c8a85a;
-  --gold-deep: #c8a85a;
-  --gold-text: #e4c376;
-  --faint: #7d7a6e;
-  --cream: #231f14;
-  --cream-border: #3a3220;
-  --mint: #15271f;
-  --mint-border: #23392e;
-  --success: #4cbf7c;
+  --brand-text: #86dccf;
+  --gold: #f2c24f;
+  --gold-hover: #f7d278;
+  --gold-foreground: #14201f;
+  --gold-text: #f2c24f;
+  --deep: #0f302e;
+  --deep-raised: #17423f;
+  --deep-foreground: #e9f2ef;
+  --deep-muted: #a6c2bc;
+  --ring-deep: #ffd36b;
+  --overlay: #06100fe0;
 
-  --chart-1: #c8a85a;
-  --chart-2: #4a7a63;
-  --chart-3: #e4c376;
-  --chart-4: #8fb5a0;
-  --chart-5: #a9a596;
+  --success: #6fd49b;
+  --success-surface: #14301f;
+  --warning: #f2c24f;
+  --warning-surface: #33280e;
+  --info: #86c1ee;
+  --info-surface: #14293a;
 
-  --sidebar: #15241d;
-  --sidebar-foreground: #f1ede2;
-  --sidebar-primary: #c8a85a;
-  --sidebar-primary-foreground: #0c3b2e;
-  --sidebar-accent: #1c2c24;
-  --sidebar-accent-foreground: #f1ede2;
-  --sidebar-border: rgb(241 237 226 / 0.1);
-  --sidebar-ring: #c8a85a;
+  --elevation-sm: 0 1px 2px #00000080;
+  --elevation-md: 0 12px 30px -10px #000000b3;
+  --elevation-float: 0 28px 56px -16px #000000cc;
+
+  --chart-1: #7ad6c7;
+  --chart-2: #f2c24f;
+  --chart-3: #86c1ee;
+  --chart-4: #5d7d78;
+  --chart-5: #ff9a92;
+
+  --sidebar: #112625;
+  --sidebar-foreground: #e8f1ee;
+  --sidebar-primary: #7ad6c7;
+  --sidebar-primary-foreground: #06211e;
+  --sidebar-accent: #17302e;
+  --sidebar-accent-foreground: #e8f1ee;
+  --sidebar-border: #234240;
+  --sidebar-ring: #8fc7ff;
 }
+
+/*===== Utilities =====*/
+
+/* A deep-teal band (header bar, stats, call to action, footer). Swapping `--ring` makes every focus ring inside it
+   use `ring-deep`, which keeps 3:1 on teal where the blue `ring` doesn't. */
+@utility surface-deep {
+  background-color: var(--deep);
+  color: var(--deep-foreground);
+  --ring: var(--ring-deep);
+}
+
+/*===== Base =====*/
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-ring;
   }
   body {
     @apply bg-background text-foreground;
@@ -190,9 +292,20 @@
   h2,
   h3,
   h4 {
-    @apply font-heading font-extrabold;
+    @apply font-heading font-bold;
+  }
+  /* Sarv's icon stroke. Author CSS beats lucide's `stroke-width` attribute, so change it with a `stroke-*` class,
+     not the `strokeWidth` prop. */
+  :where(svg.lucide) {
+    stroke-width: 1.75;
+  }
+  /* Sarv's one focus style: a solid 2px ring, 2px off the edge. Primitives set the same thing explicitly. */
+  :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
   }
 }
+
+/*===== Motion =====*/
 
 /* Page fade on client navigations. Links opt in through ~/components/shared/link/link (docs/view-transitions.md); without these
    rules the browser's default cross-fade runs at 250ms. The page ignores input while it runs, so keep it short. */
@@ -203,6 +316,13 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  /* Sarv removes its colour transitions and hover lifts entirely */
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+
   ::view-transition-group(*),
   ::view-transition-old(*),
   ::view-transition-new(*) {

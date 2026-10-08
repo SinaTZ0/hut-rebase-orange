@@ -33,7 +33,7 @@ export const WithIcon: Story = {
       <InputGroupAddon>
         <SearchIcon />
       </InputGroupAddon>
-      <InputGroupInput placeholder="جستجوی خدمات" aria-label="جستجوی خدمات" />
+      <InputGroupInput placeholder="جستجو در سایت" aria-label="جستجو در سایت" />
     </InputGroup>
   ),
 };
@@ -44,7 +44,7 @@ export const WithButton: Story = {
       <InputGroupAddon>
         <MapPinIcon />
       </InputGroupAddon>
-      <InputGroupInput defaultValue="تهران، سعادت‌آباد، پلاک ۲۱" aria-label="مکان ارائه خدمت" />
+      <InputGroupInput defaultValue="ساختمان مرکزی، طبقه دوم" aria-label="محل برگزاری" />
       <InputGroupAddon align="inline-end">
         <InputGroupButton size="icon-xs" aria-label="پاک کردن">
           <XIcon />
@@ -68,7 +68,7 @@ export const WithText: Story = {
 export const WithTextarea: Story = {
   render: () => (
     <InputGroup>
-      <InputGroupTextarea placeholder="توضیح مشکل" aria-label="توضیح مشکل" />
+      <InputGroupTextarea placeholder="شرح درخواست" aria-label="شرح درخواست" />
       <InputGroupAddon align="block-end">
         <InputGroupText>۰ / ۳۰۰</InputGroupText>
       </InputGroupAddon>
@@ -82,7 +82,7 @@ export const Invalid: Story = {
       <InputGroupAddon>
         <SearchIcon />
       </InputGroupAddon>
-      <InputGroupInput aria-invalid defaultValue="؟" aria-label="جستجوی خدمات" />
+      <InputGroupInput aria-invalid defaultValue="؟" aria-label="جستجو در سایت" />
     </InputGroup>
   ),
 };

@@ -15,9 +15,9 @@ type Story = StoryObj<typeof meta>;
 export const Horizontal: Story = {
   render: (args) => (
     <div className="flex max-w-sm flex-col gap-3 text-sm">
-      <p>پرونده لئو</p>
+      <p>آخرین اخبار دانشگاه</p>
       <Separator {...args} />
-      <p>واکسن بعدی: ۱۲ مهر</p>
+      <p>به‌روزرسانی: ۱۶ مهر ۱۴۰۵</p>
     </div>
   ),
 };
@@ -25,11 +25,11 @@ export const Horizontal: Story = {
 export const Vertical: Story = {
   render: (args) => (
     <div className="flex h-6 items-center gap-3 text-sm">
-      <span>ویزیت</span>
+      <span>آموزش</span>
       <Separator {...args} orientation="vertical" />
-      <span>واکسن</span>
+      <span>پژوهش</span>
       <Separator {...args} orientation="vertical" />
-      <span>آرایش</span>
+      <span>دانشجویی</span>
     </div>
   ),
 };

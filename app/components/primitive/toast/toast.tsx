@@ -1,6 +1,6 @@
 import { Toast as ToastPrimitive } from "@base-ui/react/toast";
 import { cn } from "cn";
-import { CircleCheckIcon, InfoIcon, Loader2Icon, OctagonXIcon, TriangleAlertIcon, XIcon } from "lucide-react";
+import { CircleCheckIcon, InfoIcon, Loader2Icon, CircleAlertIcon, TriangleAlertIcon, XIcon } from "lucide-react";
 import type { ReactNode } from "react";
 import { Button } from "../button/button";
 import {
@@ -102,10 +102,11 @@ function ToastClose({
 /*===== Icon =====*/
 
 const toastIcons: Record<string, ReactNode> = {
-  success: <CircleCheckIcon aria-hidden="true" />,
-  info: <InfoIcon aria-hidden="true" />,
-  warning: <TriangleAlertIcon aria-hidden="true" />,
-  error: <OctagonXIcon className="text-destructive" aria-hidden="true" />,
+  // Sarv's status icons, each in its tone colour; the title still carries the meaning in words.
+  success: <CircleCheckIcon className="text-success" aria-hidden="true" />,
+  info: <InfoIcon className="text-info" aria-hidden="true" />,
+  warning: <TriangleAlertIcon className="text-warning" aria-hidden="true" />,
+  error: <CircleAlertIcon className="text-destructive" aria-hidden="true" />,
   loading: <Loader2Icon className="animate-spin" aria-hidden="true" />,
 };
 

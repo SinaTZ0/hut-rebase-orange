@@ -24,22 +24,24 @@ export const Types: Story = {
   render: (args) => (
     <Toaster {...args}>
       <div className="flex flex-wrap gap-3 p-6">
-        <Button onClick={() => typesManager.add({ title: "پرونده لئو ذخیره شد.", type: "success" })}>موفق</Button>
+        <Button onClick={() => typesManager.add({ title: "خبر منتشر شد.", type: "success" })}>موفق</Button>
         <Button
           variant="outline"
-          onClick={() => typesManager.add({ title: "نوبت فردا ساعت ۱۰", description: "دکتر رضایی", type: "info" })}
+          onClick={() =>
+            typesManager.add({ title: "انتخاب واحد از ۱۵ بهمن", description: "سامانه آموزشی", type: "info" })
+          }
         >
           اطلاع
         </Button>
         <Button
           variant="outline"
-          onClick={() => typesManager.add({ title: "واکسن هاری لئو عقب افتاده است.", type: "warning" })}
+          onClick={() => typesManager.add({ title: "مهلت پرداخت شهریه فردا تمام می‌شود.", type: "warning" })}
         >
           هشدار
         </Button>
         <Button
           variant="destructive"
-          onClick={() => typesManager.add({ title: "خروج انجام نشد. دوباره امتحان کنید.", type: "error" })}
+          onClick={() => typesManager.add({ title: "ذخیره انجام نشد. دوباره تلاش کنید.", type: "error" })}
         >
           خطا
         </Button>
@@ -61,12 +63,12 @@ export const WithAction: Story = {
         <Button
           onClick={() =>
             actionManager.add({
-              title: "نوبت لغو شد.",
+              title: "خبر به بایگانی رفت.",
               actionProps: { children: "بازگردانی" },
             })
           }
         >
-          لغو نوبت
+          بایگانی خبر
         </Button>
       </div>
     </Toaster>

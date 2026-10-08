@@ -8,7 +8,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "./tooltip";
 const meta = {
   title: "Primitive/Tooltip",
   component: TooltipContent,
-  args: { children: "افزودن به علاقه‌مندی‌ها" },
+  args: { children: "جستجو در سایت" },
   argTypes: {
     side: {
       control: "select",
@@ -19,7 +19,7 @@ const meta = {
   render: (args) => (
     <div className="flex justify-center p-16">
       <Tooltip defaultOpen>
-        <TooltipTrigger render={<Button size="icon" variant="outline" aria-label="افزودن به علاقه‌مندی‌ها" />}>
+        <TooltipTrigger render={<Button size="icon" variant="outline" aria-label="جستجو در سایت" />}>
           <HeartIcon />
         </TooltipTrigger>
         <TooltipContent {...args} />

@@ -1,5 +1,6 @@
 import { type VariantProps } from "class-variance-authority";
 import { cn } from "cn";
+import { CircleAlertIcon } from "lucide-react";
 import { useMemo, type ComponentProps, type ReactNode } from "react";
 import { Label } from "../label/label";
 import { Separator } from "../separator/separator";
@@ -129,7 +130,9 @@ function FieldError({ className, children, errors, ...props }: FieldErrorProps) 
 
   return (
     <div role="alert" data-slot="field-error" className={cn(fieldErrorClasses, className)} {...props}>
-      {content}
+      {/* Sarv never shows an error by colour alone. */}
+      <CircleAlertIcon aria-hidden="true" />
+      <div>{content}</div>
     </div>
   );
 }

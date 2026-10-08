@@ -9,20 +9,22 @@ const twGroupStyles = defineStyles({
   // Block-aligned addons and textareas stack vertically, so the fixed height gives way.
   layoutBlock:
     "has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col has-[>textarea]:h-auto",
-  geometry: "h-14 rounded-lg border",
+  // Same chrome as Input: 48px, 1.5px `input` edge.
+  geometry: "h-12 rounded-sm border-[1.5px]",
   // The input yields padding on the side an addon occupies.
   geometryAddon:
     "has-[>[data-align=block-end]]:[&>input]:pt-3 has-[>[data-align=block-start]]:[&>input]:pb-3 has-[>[data-align=inline-end]]:[&>input]:pe-1.5 has-[>[data-align=inline-start]]:[&>input]:ps-1.5",
-  appearance: "border-input bg-card dark:bg-input/30",
-  interaction: "transition-colors outline-none",
+  appearance: "border-input bg-card",
+  interaction: "transition-colors duration-150 outline-none",
+  hover: "hover:border-muted-foreground",
+  // The group draws the control's focus ring, so the ring wraps the addons too.
   focus:
-    "has-[[data-slot=input-group-control]:focus-visible]:border-ring has-[[data-slot=input-group-control]:focus-visible]:ring-3 has-[[data-slot=input-group-control]:focus-visible]:ring-ring/50",
+    "has-[[data-slot=input-group-control]:focus-visible]:outline-2 has-[[data-slot=input-group-control]:focus-visible]:outline-offset-2 has-[[data-slot=input-group-control]:focus-visible]:outline-ring",
   // Inside a combobox popup the popup itself shows focus, so the group stays quiet.
   focusCombobox:
-    "in-data-[slot=combobox-content]:focus-within:border-inherit in-data-[slot=combobox-content]:focus-within:ring-0",
-  disabled: "has-disabled:bg-input/50 has-disabled:opacity-50 dark:has-disabled:bg-input/80",
-  invalid:
-    "has-[[data-slot][aria-invalid=true]]:border-destructive has-[[data-slot][aria-invalid=true]]:ring-3 has-[[data-slot][aria-invalid=true]]:ring-destructive/20 dark:has-[[data-slot][aria-invalid=true]]:ring-destructive/40",
+    "in-data-[slot=combobox-content]:focus-within:border-inherit in-data-[slot=combobox-content]:focus-within:outline-none",
+  disabled: "has-disabled:bg-muted has-disabled:opacity-45",
+  invalid: "has-[[data-slot][aria-invalid=true]]:border-destructive",
 });
 
 /*===== Addon Styles =====*/
@@ -31,10 +33,10 @@ const twAddonStyles = defineStyles({
   layout: "flex items-center justify-center gap-2",
   geometry: "h-auto py-1.5",
   geometryKbd: "[&>kbd]:rounded-[calc(var(--radius)-5px)]",
-  typography: "text-sm font-medium",
+  typography: "text-body-sm font-medium",
   appearance: "text-muted-foreground",
   interaction: "cursor-text select-none",
-  disabled: "group-data-[disabled=true]/input-group:opacity-50",
+  disabled: "group-data-[disabled=true]/input-group:opacity-45",
   icon: "[&>svg:not([class*='size-'])]:size-5",
 });
 
@@ -62,7 +64,7 @@ const twAddonAlign = defineStyles({
 
 const twButtonStyles = defineStyles({
   layout: "flex items-center gap-2",
-  typography: "text-sm",
+  typography: "text-body-sm",
   appearance: "shadow-none",
   icon: "[&_svg:not([class*='size-'])]:size-4",
 });
@@ -86,7 +88,7 @@ const twButtonSize = defineStyles({
 
 const twTextStyles = defineStyles({
   layout: "flex items-center gap-2",
-  typography: "text-sm",
+  typography: "text-body-sm",
   appearance: "text-muted-foreground",
   icon: "[&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4",
 });
@@ -96,26 +98,23 @@ const twTextStyles = defineStyles({
 // Controls drop their own field chrome because the group draws it.
 const twInputStyles = defineStyles({
   layout: "h-full flex-1",
-  // Rounded like the group (minus its 1px border) so nothing paints square corners over it.
-  geometry: "rounded-[calc(var(--radius)-1px)] border-0",
-  appearance: "bg-transparent shadow-none ring-0 dark:bg-transparent",
-  focus: "focus-visible:ring-0",
-  disabled: "disabled:bg-transparent dark:disabled:bg-transparent",
-  invalid: "aria-invalid:ring-0",
+  // Rounded like the group (minus its 1.5px border) so nothing paints square corners over it.
+  geometry: "rounded-[calc(var(--radius-sm)-1.5px)] border-0",
+  appearance: "bg-transparent shadow-none",
+  focus: "focus-visible:outline-none",
+  disabled: "disabled:bg-transparent",
   // Chrome fills autofilled inputs with its own color, which shows as a box inside the group.
   // An inset shadow in the group's background is the reliable way to cover it.
-  stateAutofill:
-    "autofill:shadow-[inset_0_0_0_100px_var(--card)] autofill:[-webkit-text-fill-color:var(--foreground)] dark:autofill:shadow-[inset_0_0_0_100px_color-mix(in_oklab,var(--input)_30%,var(--background))]",
+  stateAutofill: "autofill:shadow-[inset_0_0_0_100px_var(--card)] autofill:[-webkit-text-fill-color:var(--foreground)]",
 });
 
 const twTextareaStyles = defineStyles({
   layout: "flex-1",
   geometry: "rounded-none border-0 py-2",
-  appearance: "bg-transparent shadow-none ring-0 dark:bg-transparent",
+  appearance: "bg-transparent shadow-none",
   interaction: "resize-none",
-  focus: "focus-visible:ring-0",
-  disabled: "disabled:bg-transparent dark:disabled:bg-transparent",
-  invalid: "aria-invalid:ring-0",
+  focus: "focus-visible:outline-none",
+  disabled: "disabled:bg-transparent",
 });
 
 /*===== Class Composition =====*/

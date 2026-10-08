@@ -7,7 +7,7 @@ import { Label } from "./label";
 const meta = {
   title: "Primitive/Label",
   component: Label,
-  args: { children: "نام حیوان" },
+  args: { children: "نام و نام خانوادگی" },
 } satisfies Meta<typeof Label>;
 
 export default meta;
@@ -19,8 +19,8 @@ export const Playground: Story = {};
 export const WithInput: Story = {
   render: (args) => (
     <div className="flex max-w-sm flex-col gap-2">
-      <Label {...args} htmlFor="pet-name" />
-      <Input id="pet-name" placeholder="مثال: لئو" />
+      <Label {...args} htmlFor="full-name" />
+      <Input id="full-name" placeholder="مثال: سارا احمدی" />
     </div>
   ),
 };

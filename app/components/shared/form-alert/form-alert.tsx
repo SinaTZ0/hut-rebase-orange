@@ -11,9 +11,9 @@ export function FormAlert({ message }: { message: string | undefined }) {
   if (!message) return null;
 
   return (
-    <Alert variant="destructive" className="border-destructive/30 px-3 py-2.5">
-      <CircleAlertIcon strokeWidth={1.7} />
-      <AlertDescription className="text-destructive">{message}</AlertDescription>
+    <Alert variant="destructive">
+      <CircleAlertIcon />
+      <AlertDescription>{message}</AlertDescription>
     </Alert>
   );
 }

@@ -11,7 +11,7 @@ const sizeOptions = Object.keys(twSize) as Array<keyof typeof twSize>;
 const meta = {
   title: "Primitive/Button",
   component: Button,
-  args: { children: "رزرو ویزیت" },
+  args: { children: "ورود به سامانه" },
   argTypes: {
     variant: {
       control: "select",
@@ -33,21 +33,39 @@ export const Playground: Story = {};
 export const Variants: Story = {
   render: (args) => (
     <div className="flex flex-wrap items-center gap-3">
-      <Button {...args}>رزرو ویزیت</Button>
+      {/* One gold button per view: the page's main call to action. */}
+      <Button {...args} variant="gold">
+        پذیرش و ثبت‌نام
+      </Button>
+      <Button {...args}>ورود به سامانه</Button>
       <Button {...args} variant="outline">
-        مشاهده پرونده
+        مشاهده همه اخبار
       </Button>
       <Button {...args} variant="secondary">
-        تغییر زمان
+        ذخیره پیش‌نویس
       </Button>
       <Button {...args} variant="ghost">
         انصراف
       </Button>
       <Button {...args} variant="destructive">
-        لغو سفارش
+        حذف خبر
       </Button>
       <Button {...args} variant="link">
-        قوانین و شرایط
+        قوانین و مقررات
+      </Button>
+    </div>
+  ),
+};
+
+// On a deep-teal band the pair is gold plus `outline-deep`, as in the hero and call-to-action band.
+export const OnDeep: Story = {
+  render: (args) => (
+    <div className="flex flex-wrap items-center gap-3 rounded-lg surface-deep p-6">
+      <Button {...args} variant="gold" size="lg">
+        پذیرش و ثبت‌نام
+      </Button>
+      <Button {...args} variant="outline-deep" size="lg">
+        آشنایی با دانشگاه
       </Button>
     </div>
   ),
@@ -72,7 +90,7 @@ export const Sizes: Story = {
   ),
 };
 
-// `lg` is the full-width primary action at the bottom of a flow.
+// `lg` is for hero and call-to-action bands, and the full-width submit of a form.
 export const PrimaryAction: Story = {
   render: (args) => (
     <div className="max-w-sm">
@@ -88,10 +106,10 @@ export const WithIcon: Story = {
     <div className="flex flex-wrap items-center gap-3">
       <Button {...args}>
         <CalendarIcon data-icon="inline-start" />
-        انتخاب زمان
+        تقویم آموزشی
       </Button>
       <Button {...args} variant="outline">
-        ادامه
+        بیشتر بخوانید
         {/* Arrow points left: "forward" in RTL. */}
         <ArrowLeftIcon data-icon="inline-end" />
       </Button>

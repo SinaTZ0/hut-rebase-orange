@@ -37,9 +37,9 @@ const meta = {
   render: (args) => (
     <FieldGroup>
       <Field {...args}>
-        <FieldLabel htmlFor="pet-name">نام حیوان</FieldLabel>
-        <Input id="pet-name" placeholder="مثال: لئو" />
-        <FieldDescription>همان نامی که صدایش می‌کنید.</FieldDescription>
+        <FieldLabel htmlFor="full-name">نام و نام خانوادگی</FieldLabel>
+        <Input id="full-name" placeholder="مثال: سارا احمدی" />
+        <FieldDescription>مطابق شناسنامه وارد کنید.</FieldDescription>
       </Field>
     </FieldGroup>
   ),
@@ -93,8 +93,8 @@ export const Horizontal: Story = {
     <Field {...args}>
       <input id="reminders" type="checkbox" />
       <FieldContent>
-        <FieldLabel htmlFor="reminders">یادآور واکسن</FieldLabel>
-        <FieldDescription>یک روز قبل از نوبت پیامک می‌گیرید.</FieldDescription>
+        <FieldLabel htmlFor="reminders">یادآور رویدادها</FieldLabel>
+        <FieldDescription>یک روز قبل از هر رویداد پیامک می‌گیرید.</FieldDescription>
       </FieldContent>
     </Field>
   ),
@@ -103,17 +103,17 @@ export const Horizontal: Story = {
 export const FormSection: Story = {
   render: (args) => (
     <FieldSet>
-      <FieldLegend>اطلاعات حیوان</FieldLegend>
-      <FieldDescription>این اطلاعات فقط برای متخصص شما نمایش داده می‌شود.</FieldDescription>
+      <FieldLegend>اطلاعات تحصیلی</FieldLegend>
+      <FieldDescription>این اطلاعات فقط برای کارشناس آموزش نمایش داده می‌شود.</FieldDescription>
       <FieldGroup>
         <Field {...args}>
-          <FieldLabel htmlFor="breed">نژاد</FieldLabel>
-          <Input id="breed" placeholder="مثال: گلدن رتریور" />
+          <FieldLabel htmlFor="major">رشته تحصیلی</FieldLabel>
+          <Input id="major" placeholder="مثال: مهندسی کامپیوتر" />
         </Field>
         <FieldSeparator>اختیاری</FieldSeparator>
         <Field {...args}>
           <FieldLabel htmlFor="notes">توضیحات</FieldLabel>
-          <Textarea id="notes" placeholder="حساسیت دارویی، عادت‌های غذایی..." />
+          <Textarea id="notes" placeholder="زمینه‌های پژوهشی، سوابق آموزشی…" />
         </Field>
       </FieldGroup>
     </FieldSet>

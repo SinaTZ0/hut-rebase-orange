@@ -16,11 +16,11 @@ const sizeOptions = Object.keys(twTriggerSize) as Array<keyof typeof twTriggerSi
 
 /*===== Data =====*/
 const species = [
-  { value: "dog", label: "سگ" },
-  { value: "cat", label: "گربه" },
-  { value: "bird", label: "پرنده" },
-  { value: "fish", label: "ماهی" },
-  { value: "other", label: "سایر" },
+  { value: "engineering", label: "فنی و مهندسی" },
+  { value: "science", label: "علوم پایه" },
+  { value: "humanities", label: "علوم انسانی" },
+  { value: "arts", label: "هنر و معماری" },
+  { value: "other", label: "سایر دانشکده‌ها" },
 ];
 
 /*===== Meta =====*/
@@ -33,8 +33,8 @@ const meta = {
   args: { size: "default" },
   render: (args) => (
     <Select items={species}>
-      <SelectTrigger {...args} className="w-full max-w-sm" aria-label="گونه حیوان">
-        <SelectValue placeholder="گونه حیوان" />
+      <SelectTrigger {...args} className="w-full max-w-sm" aria-label="دانشکده">
+        <SelectValue placeholder="دانشکده" />
       </SelectTrigger>
       <SelectContent>
         {species.map((item) => (
@@ -60,12 +60,12 @@ export const Small: Story = {
 export const Grouped: Story = {
   render: (args) => (
     <Select items={species}>
-      <SelectTrigger {...args} className="w-full max-w-sm" aria-label="گونه حیوان">
-        <SelectValue placeholder="گونه حیوان" />
+      <SelectTrigger {...args} className="w-full max-w-sm" aria-label="دانشکده">
+        <SelectValue placeholder="دانشکده" />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectLabel>رایج</SelectLabel>
+          <SelectLabel>دانشکده‌های اصلی</SelectLabel>
           {species.slice(0, 2).map((item) => (
             <SelectItem key={item.value} value={item.value}>
               {item.label}
@@ -74,7 +74,7 @@ export const Grouped: Story = {
         </SelectGroup>
         <SelectSeparator />
         <SelectGroup>
-          <SelectLabel>سایر گونه‌ها</SelectLabel>
+          <SelectLabel>سایر</SelectLabel>
           {species.slice(2).map((item) => (
             <SelectItem key={item.value} value={item.value}>
               {item.label}

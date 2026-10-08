@@ -12,7 +12,7 @@ const twTabsStyles = defineStyles({
 const twListStyles = defineStyles({
   layout: "group/tabs-list inline-flex w-fit items-center justify-center group-data-vertical/tabs:flex-col",
   geometry:
-    "rounded-lg p-[3px] group-data-horizontal/tabs:h-8 group-data-vertical/tabs:h-fit data-[variant=line]:rounded-none",
+    "rounded-md p-1 group-data-horizontal/tabs:h-12 group-data-vertical/tabs:h-fit data-[variant=line]:rounded-none",
   appearance: "text-muted-foreground",
 });
 
@@ -32,23 +32,22 @@ const twVariant = defineStyles({
 const twTriggerStyles = defineStyles({
   layout:
     "relative inline-flex flex-1 items-center justify-center gap-1.5 group-data-vertical/tabs:w-full group-data-vertical/tabs:justify-start",
-  geometry: "h-[calc(100%-1px)] rounded-md border px-1.5 py-0.5",
-  geometryIcon: "has-data-[icon=inline-end]:pe-1 has-data-[icon=inline-start]:ps-1",
-  typography: "text-sm font-medium whitespace-nowrap",
-  appearance: "border-transparent text-foreground/60 dark:text-muted-foreground",
-  interaction: "transition-all",
-  hover: "hover:text-foreground dark:hover:text-foreground",
-  focus:
-    "focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring",
+  geometry: "h-full rounded-sm border px-3 py-1",
+  geometryIcon: "has-data-[icon=inline-end]:pe-2 has-data-[icon=inline-start]:ps-2",
+  typography: "text-nav whitespace-nowrap",
+  appearance: "border-transparent text-muted-foreground",
+  interaction: "transition-colors duration-150",
+  hover: "hover:text-brand-text",
+  focus: "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
   disabled:
-    "disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50",
-  state:
-    "data-active:bg-background data-active:text-foreground group-data-[variant=default]/tabs-list:data-active:shadow-sm dark:data-active:border-input dark:data-active:bg-input/30 dark:data-active:text-foreground",
-  // The line variant drops the active fill and shows an underline (`after:`) instead.
+    "disabled:pointer-events-none disabled:opacity-45 aria-disabled:pointer-events-none aria-disabled:opacity-45",
+  state: "data-active:bg-card data-active:text-foreground group-data-[variant=default]/tabs-list:data-active:shadow-sm",
+  // The line variant drops the active fill and shows Sarv's current-nav marker instead: `brand-text` over a gold
+  // underline (`after:`).
   stateLine:
-    "group-data-[variant=line]/tabs-list:bg-transparent group-data-[variant=line]/tabs-list:data-active:bg-transparent group-data-[variant=line]/tabs-list:data-active:shadow-none group-data-[variant=line]/tabs-list:data-active:after:opacity-100 dark:group-data-[variant=line]/tabs-list:data-active:border-transparent dark:group-data-[variant=line]/tabs-list:data-active:bg-transparent",
+    "group-data-[variant=line]/tabs-list:bg-transparent group-data-[variant=line]/tabs-list:data-active:bg-transparent group-data-[variant=line]/tabs-list:data-active:text-brand-text group-data-[variant=line]/tabs-list:data-active:shadow-none group-data-[variant=line]/tabs-list:data-active:after:opacity-100",
   stateIndicator:
-    "after:absolute after:bg-foreground after:opacity-0 after:transition-opacity group-data-horizontal/tabs:after:inset-x-0 group-data-horizontal/tabs:after:bottom-[-5px] group-data-horizontal/tabs:after:h-0.5 group-data-vertical/tabs:after:inset-y-0 group-data-vertical/tabs:after:-end-1 group-data-vertical/tabs:after:w-0.5",
+    "after:absolute after:bg-gold after:opacity-0 after:transition-opacity group-data-horizontal/tabs:after:inset-x-0 group-data-horizontal/tabs:after:bottom-[-5px] group-data-horizontal/tabs:after:h-0.5 group-data-vertical/tabs:after:inset-y-0 group-data-vertical/tabs:after:-end-1 group-data-vertical/tabs:after:w-0.5",
   icon: "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
 });
 
@@ -56,7 +55,7 @@ const twTriggerStyles = defineStyles({
 
 const twContentStyles = defineStyles({
   layout: "flex-1",
-  typography: "text-sm",
+  typography: "text-body-sm",
   focus: "outline-none",
 });
 

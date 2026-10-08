@@ -17,15 +17,15 @@ const meta = {
   render: (args) => (
     <Card {...args} className="max-w-sm">
       <CardHeader>
-        <CardTitle>یادآوری‌های لئو</CardTitle>
-        <CardDescription>واکسن سالانه (چندگانه)</CardDescription>
+        <CardTitle>تقویم آموزشی</CardTitle>
+        <CardDescription>نیم‌سال اول ۱۴۰۵–۱۴۰۶</CardDescription>
         <CardAction>
           <Button variant="outline" size="sm">
-            مشاهده پرونده
+            مشاهده تقویم
           </Button>
         </CardAction>
       </CardHeader>
-      <CardContent>سه‌شنبه ۲۹ اردیبهشت ۱۴۰۴، ۵ روز دیگر</CardContent>
+      <CardContent>انتخاب واحد: ۱۲–۱۸ مهر</CardContent>
     </Card>
   ),
 } satisfies Meta<typeof Card>;
@@ -44,12 +44,12 @@ export const WithFooter: Story = {
   render: (args) => (
     <Card {...args} className="max-w-sm">
       <CardHeader>
-        <CardTitle>ویزیت در منزل</CardTitle>
-        <CardDescription>دامپزشک به محل شما می‌آید</CardDescription>
+        <CardTitle>کارشناسی ارشد علوم داده</CardTitle>
+        <CardDescription>دانشکده علوم ریاضی</CardDescription>
       </CardHeader>
-      <CardContent>از ۱.۲ میلیون تومان</CardContent>
+      <CardContent>مهلت ثبت‌نام: ۳۰ مهر ۱۴۰۵</CardContent>
       <CardFooter>
-        <Button className="w-full">رزرو ویزیت</Button>
+        <Button className="w-full">ثبت‌نام</Button>
       </CardFooter>
     </Card>
   ),

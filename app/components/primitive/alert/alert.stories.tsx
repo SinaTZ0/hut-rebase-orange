@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { CircleAlertIcon, InfoIcon } from "lucide-react";
+import { CircleAlertIcon, CircleCheckIcon, InfoIcon, TriangleAlertIcon } from "lucide-react";
 
 import { Button } from "../button/button";
 import { Alert, AlertAction, AlertDescription, AlertTitle } from "./alert";
@@ -27,8 +27,8 @@ const meta = {
   render: (args) => (
     <Alert {...args}>
       <InfoIcon />
-      <AlertTitle>واکسن سالانه لئو نزدیک است</AlertTitle>
-      <AlertDescription>تا ۱۲ مهر برای واکسن هاری نوبت بگیرید.</AlertDescription>
+      <AlertTitle>اطلاعیه</AlertTitle>
+      <AlertDescription>انتخاب واحد نیم‌سال دوم از ۱۵ بهمن آغاز می‌شود.</AlertDescription>
     </Alert>
   ),
 } satisfies Meta<typeof Alert>;
@@ -39,13 +39,36 @@ type Story = StoryObj<typeof meta>;
 /*===== Stories =====*/
 export const Playground: Story = {};
 
+// Each status tone travels with its own icon and a title, never colour alone.
+export const Tones: Story = {
+  render: () => (
+    <div className="grid gap-3">
+      <Alert variant="info">
+        <InfoIcon />
+        <AlertTitle>اطلاعیه</AlertTitle>
+        <AlertDescription>انتخاب واحد نیم‌سال دوم از ۱۵ بهمن آغاز می‌شود.</AlertDescription>
+      </Alert>
+      <Alert variant="success">
+        <CircleCheckIcon />
+        <AlertTitle>ثبت شد</AlertTitle>
+        <AlertDescription>درخواست شما با شماره پیگیری ۴۵۸۱۲ ثبت شد.</AlertDescription>
+      </Alert>
+      <Alert variant="warning">
+        <TriangleAlertIcon />
+        <AlertTitle>مهلت رو به پایان است</AlertTitle>
+        <AlertDescription>برای پرداخت شهریه تا پایان روز پنجشنبه فرصت دارید.</AlertDescription>
+      </Alert>
+    </div>
+  ),
+};
+
 export const Destructive: Story = {
   args: { variant: "destructive" },
   render: (args) => (
     <Alert {...args}>
       <CircleAlertIcon />
       <AlertTitle>پرداخت انجام نشد</AlertTitle>
-      <AlertDescription>اتصال اینترنت را بررسی کنید و دوباره امتحان کنید.</AlertDescription>
+      <AlertDescription>ارتباط با درگاه برقرار نشد. لطفاً دوباره تلاش کنید.</AlertDescription>
     </Alert>
   ),
 };
@@ -53,7 +76,7 @@ export const Destructive: Story = {
 export const WithoutIcon: Story = {
   render: (args) => (
     <Alert {...args}>
-      <AlertTitle>اطلاعات شما امن و محرمانه است</AlertTitle>
+      <AlertTitle>اطلاعات شما نزد دانشگاه محرمانه می‌ماند</AlertTitle>
     </Alert>
   ),
 };
@@ -62,8 +85,8 @@ export const WithAction: Story = {
   render: (args) => (
     <Alert {...args}>
       <InfoIcon />
-      <AlertTitle>نوبت فردا ساعت ۱۰</AlertTitle>
-      <AlertDescription>دکتر رضایی، کلینیک دامپزشکی آرامش</AlertDescription>
+      <AlertTitle>جلسه دفاع فردا ساعت ۱۰</AlertTitle>
+      <AlertDescription>دانشکده فنی و مهندسی، تالار شماره ۲</AlertDescription>
       <AlertAction>
         <Button size="xs" variant="outline">
           جزئیات

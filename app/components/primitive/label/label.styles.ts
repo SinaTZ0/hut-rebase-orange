@@ -4,11 +4,12 @@ import { defineStyles, joinStyles } from "../styles";
 
 const twLabelStyles = defineStyles({
   layout: "flex items-center gap-2",
-  typography: "text-sm leading-none font-medium",
+  // Sarv's field label: `body-sm` at weight 600.
+  typography: "text-body-sm font-semibold",
   interaction: "select-none",
   // A label follows the disabled state of its Field group or of the control just before it.
   disabled:
-    "group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
+    "group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-45 peer-disabled:cursor-not-allowed peer-disabled:opacity-45",
 });
 
 /*===== Class Composition =====*/

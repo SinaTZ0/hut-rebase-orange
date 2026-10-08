@@ -9,16 +9,16 @@ const twSetStyles = defineStyles({
 
 const twLegendStyles = defineStyles({
   geometry: "mb-1.5",
-  typography: "font-medium",
+  typography: "font-bold",
 });
 
 // `data-variant` stays on the legend as well, because FieldDescription tightens its spacing after a legend.
 const twLegendVariant = defineStyles({
   legend: {
-    typography: "text-base",
+    typography: "text-h4",
   },
   label: {
-    typography: "text-sm",
+    typography: "text-body-sm",
   },
 });
 
@@ -62,35 +62,38 @@ const twContentStyles = defineStyles({
 const twLabelStyles = defineStyles({
   layout: "group/field-label peer/field-label flex w-fit gap-2",
   typography: "leading-snug",
-  disabled: "group-data-[disabled=true]/field:opacity-50",
-  state:
-    "has-data-checked:border-primary/30 has-data-checked:bg-primary/5 dark:has-data-checked:border-primary/20 dark:has-data-checked:bg-primary/10",
+  disabled: "group-data-[disabled=true]/field:opacity-45",
+  // A checked choice card takes Sarv's selected-row wash and a teal edge.
+  state: "has-data-checked:border-primary has-data-checked:bg-accent",
   layoutCard: "has-[>[data-slot=field]]:w-full has-[>[data-slot=field]]:flex-col",
-  geometryCard: "has-[>[data-slot=field]]:rounded-lg has-[>[data-slot=field]]:border *:data-[slot=field]:p-2.5",
-  hoverCard: "has-[>[data-slot=field]]:not-has-[:disabled,[data-disabled]]:hover:bg-muted/50",
+  geometryCard:
+    "has-[>[data-slot=field]]:rounded-md has-[>[data-slot=field]]:border-[1.5px] *:data-[slot=field]:px-4 *:data-[slot=field]:py-3",
+  hoverCard: "has-[>[data-slot=field]]:not-has-[:disabled,[data-disabled]]:hover:bg-accent",
+  // The card draws the ring for the control inside it.
   focusCard:
-    "has-[>[data-slot=field]]:has-[:focus-visible]:border-ring has-[>[data-slot=field]]:has-[:focus-visible]:ring-3 has-[>[data-slot=field]]:has-[:focus-visible]:ring-ring/50",
+    "has-[>[data-slot=field]]:has-[:focus-visible]:outline-2 has-[>[data-slot=field]]:has-[:focus-visible]:outline-offset-2 has-[>[data-slot=field]]:has-[:focus-visible]:outline-ring",
 });
 
 const twTitleStyles = defineStyles({
   layout: "flex w-fit items-center gap-2",
-  typography: "text-sm font-medium",
-  disabled: "group-data-[disabled=true]/field:opacity-50",
+  typography: "text-body-sm font-semibold",
+  disabled: "group-data-[disabled=true]/field:opacity-45",
 });
 
 const twDescriptionStyles = defineStyles({
   // Pulls the description closer to a legend or to the control just above it.
   geometry: "last:mt-0 nth-last-2:-mt-1 [[data-variant=legend]+&]:-mt-1.5",
+  // Sarv's hint line: `caption` in `ink-muted`.
   typography:
-    "text-start text-sm leading-normal font-normal group-has-data-horizontal/field:text-balance [&>a]:underline [&>a]:underline-offset-4",
+    "text-start text-caption font-normal group-has-data-horizontal/field:text-balance [&>a]:underline [&>a]:underline-offset-4",
   appearance: "text-muted-foreground",
-  hover: "[&>a:hover]:text-primary",
+  hover: "[&>a:hover]:text-brand-text",
 });
 
 const twSeparatorStyles = defineStyles({
   layout: "relative",
   geometry: "-my-2 h-5 group-data-[variant=outline]/field-group:-mb-2",
-  typography: "text-sm",
+  typography: "text-body-sm",
 });
 
 const twSeparatorContentStyles = defineStyles({
@@ -99,9 +102,13 @@ const twSeparatorContentStyles = defineStyles({
   appearance: "bg-background text-muted-foreground",
 });
 
+// Sarv's error line: `caption` in the danger colour, always led by the circle-alert icon (FieldError adds it).
 const twErrorStyles = defineStyles({
-  typography: "text-sm font-normal",
+  layout: "flex items-start gap-1",
+  typography: "text-caption",
   appearance: "text-destructive",
+  // Centres the 14px icon on the first 20px line.
+  icon: "[&>svg]:mt-0.75 [&>svg]:size-3.5 [&>svg]:shrink-0",
 });
 
 const twErrorListStyles = defineStyles({

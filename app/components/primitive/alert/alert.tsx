@@ -7,9 +7,14 @@ import { alertActionClasses, alertDescriptionClasses, alertTitleClasses, alertVa
 
 export type AlertProps = ComponentProps<"div"> & VariantProps<typeof alertVariants>;
 
-/** A message box announced with `role="alert"`. A leading `svg` child becomes its icon column. */
+/**
+ * An inline notice. A leading `svg` child becomes its icon column. Warnings and errors interrupt with
+ * `role="alert"`; the other tones are announced politely with `role="status"`. Pass `role` to override.
+ */
 function Alert({ className, variant, ...props }: AlertProps) {
-  return <div data-slot="alert" role="alert" className={cn(alertVariants({ variant }), className)} {...props} />;
+  const role = variant === "warning" || variant === "destructive" ? "alert" : "status";
+
+  return <div data-slot="alert" role={role} className={cn(alertVariants({ variant }), className)} {...props} />;
 }
 
 /*===== Compound Parts =====*/

@@ -7,7 +7,7 @@ import { Label } from "../label/label";
 const meta = {
   title: "Primitive/Input",
   component: Input,
-  args: { placeholder: "نام حیوان", "aria-label": "نام حیوان" },
+  args: { placeholder: "نام و نام خانوادگی", "aria-label": "نام و نام خانوادگی" },
   decorators: [
     (Story) => (
       <div className="max-w-sm">
@@ -26,14 +26,14 @@ export const Playground: Story = {};
 export const WithLabel: Story = {
   render: (args) => (
     <div className="flex flex-col gap-2">
-      <Label htmlFor="pet-name">نام حیوان</Label>
-      <Input {...args} id="pet-name" aria-label={undefined} />
+      <Label htmlFor="full-name">نام و نام خانوادگی</Label>
+      <Input {...args} id="full-name" aria-label={undefined} />
     </div>
   ),
 };
 
 export const Filled: Story = {
-  args: { defaultValue: "لئو" },
+  args: { defaultValue: "سارا احمدی" },
 };
 
 // Phone numbers stay LTR inside the RTL layout.
@@ -51,5 +51,5 @@ export const Invalid: Story = {
 };
 
 export const Disabled: Story = {
-  args: { disabled: true, defaultValue: "لئو" },
+  args: { disabled: true, defaultValue: "سارا احمدی" },
 };

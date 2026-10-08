@@ -18,15 +18,15 @@ const meta = {
   render: (args) => (
     <Tabs defaultValue="upcoming" className="max-w-sm">
       <TabsList {...args}>
-        <TabsTrigger value="upcoming">نوبت‌های پیش رو</TabsTrigger>
+        <TabsTrigger value="upcoming">رویدادهای پیش رو</TabsTrigger>
         <TabsTrigger value="past">گذشته</TabsTrigger>
         <TabsTrigger value="cancelled" disabled>
           لغوشده
         </TabsTrigger>
       </TabsList>
-      <TabsContent value="upcoming">ویزیت لئو، فردا ساعت ۱۰</TabsContent>
-      <TabsContent value="past">۳ ویزیت در ماه گذشته</TabsContent>
-      <TabsContent value="cancelled">نوبت لغوشده‌ای ندارید.</TabsContent>
+      <TabsContent value="upcoming">همایش ملی هوش مصنوعی، ۲۴ مهر</TabsContent>
+      <TabsContent value="past">۱۲ رویداد در ماه گذشته</TabsContent>
+      <TabsContent value="cancelled">رویداد لغوشده‌ای وجود ندارد.</TabsContent>
     </Tabs>
   ),
 } satisfies Meta<typeof TabsList>;
@@ -45,13 +45,13 @@ export const Vertical: Story = {
   render: (args) => (
     <Tabs defaultValue="profile" orientation="vertical" className="max-w-md">
       <TabsList {...args}>
-        <TabsTrigger value="profile">پروفایل</TabsTrigger>
-        <TabsTrigger value="pets">حیوانات</TabsTrigger>
-        <TabsTrigger value="payments">پرداخت‌ها</TabsTrigger>
+        <TabsTrigger value="profile">اطلاعات فردی</TabsTrigger>
+        <TabsTrigger value="courses">دروس</TabsTrigger>
+        <TabsTrigger value="payments">شهریه</TabsTrigger>
       </TabsList>
-      <TabsContent value="profile">نام، شماره موبایل و آدرس</TabsContent>
-      <TabsContent value="pets">لئو و میلو</TabsContent>
-      <TabsContent value="payments">۲ پرداخت در این ماه</TabsContent>
+      <TabsContent value="profile">نام، شماره دانشجویی و نشانی</TabsContent>
+      <TabsContent value="courses">۱۸ واحد در نیم‌سال جاری</TabsContent>
+      <TabsContent value="payments">۲ قسط پرداخت‌شده</TabsContent>
     </Tabs>
   ),
 };

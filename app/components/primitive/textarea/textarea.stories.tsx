@@ -8,8 +8,8 @@ const meta = {
   title: "Primitive/Textarea",
   component: Textarea,
   args: {
-    placeholder: "مثال: آموزش دستورات پایه، کنترل پارس، اجتماعی شدن...",
-    "aria-label": "شرح کوتاه مشکل یا درخواست",
+    placeholder: "مثال: درخواست تمدید مهلت تحویل پایان‌نامه…",
+    "aria-label": "شرح درخواست",
   },
   decorators: [
     (Story) => (
@@ -29,7 +29,7 @@ export const Playground: Story = {};
 export const WithLabel: Story = {
   render: (args) => (
     <div className="flex flex-col gap-2">
-      <Label htmlFor="request">شرح کوتاه مشکل یا درخواست</Label>
+      <Label htmlFor="request">شرح درخواست</Label>
       <Textarea {...args} id="request" aria-label={undefined} />
     </div>
   ),
@@ -37,7 +37,7 @@ export const WithLabel: Story = {
 
 export const Filled: Story = {
   args: {
-    defaultValue: "طی دو روز اخیر اشتهاش کم شده و چند بار استفراغ داشته.",
+    defaultValue: "به دلیل بیماری در امتحان میان‌ترم شرکت نکردم و درخواست امتحان مجدد دارم.",
   },
 };
 

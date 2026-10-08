@@ -19,14 +19,14 @@ const twToastStyles = defineStyles({
   layoutStack:
     "[--gap:0.75rem] [--height:var(--toast-frontmost-height,var(--toast-height))] [--offset-y:calc(var(--toast-offset-y)*-1+calc(var(--toast-index)*var(--gap)*-1)+var(--toast-swipe-movement-y))] [--peek:0.75rem] [--scale:calc(max(0,1-(var(--toast-index)*0.1)))] [--shrink:calc(1-var(--scale))]",
   geometry:
-    "h-(--height) [transform:translateX(var(--toast-swipe-movement-x))_translateY(calc(var(--toast-swipe-movement-y)-(var(--toast-index)*var(--peek))-(var(--shrink)*var(--height))))_scale(var(--scale))] rounded-2xl border",
+    "h-(--height) [transform:translateX(var(--toast-swipe-movement-x))_translateY(calc(var(--toast-swipe-movement-y)-(var(--toast-index)*var(--peek))-(var(--shrink)*var(--height))))_scale(var(--scale))] rounded-md border",
   // Fills the gap below each toast so hover doesn't drop while the pointer moves between toasts.
   geometryGap:
     "after:absolute after:start-0 after:top-full after:h-[calc(var(--gap)+1px)] after:w-full after:content-['']",
-  appearance: "bg-popover text-popover-foreground shadow-lg",
+  appearance: "bg-popover text-popover-foreground shadow-md",
   interaction:
     "will-change-transform outline-none select-none [transition:transform_500ms_cubic-bezier(0.22,1,0.36,1),opacity_500ms,height_150ms]",
-  focus: "focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50",
+  focus: "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
   state:
     "data-expanded:h-(--toast-height) data-expanded:[transform:translateX(var(--toast-swipe-movement-x))_translateY(var(--offset-y))] data-limited:opacity-0 data-starting-style:[transform:translateY(150%)]",
   // Leaves in the direction it was swiped, or slides down when it times out or is closed.
@@ -45,11 +45,11 @@ const twContentStyles = defineStyles({
 });
 
 const twTitleStyles = defineStyles({
-  typography: "text-sm font-medium",
+  typography: "text-body-sm font-bold",
 });
 
 const twDescriptionStyles = defineStyles({
-  typography: "text-sm",
+  typography: "text-body-sm",
   appearance: "text-muted-foreground",
 });
 
@@ -66,7 +66,7 @@ const twCloseStyles = defineStyles({
 
 const twIconStyles = defineStyles({
   layout: "shrink-0",
-  icon: "[&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4",
+  icon: "[&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5",
 });
 
 const twTextStyles = defineStyles({

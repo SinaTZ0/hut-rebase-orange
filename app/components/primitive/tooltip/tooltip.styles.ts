@@ -8,10 +8,10 @@ const twPositionerStyles = defineStyles({
 
 const twContentStyles = defineStyles({
   layout: "z-50 inline-flex w-fit max-w-xs origin-(--transform-origin) items-center gap-1.5",
-  geometry: "rounded-md px-3 py-1.5",
+  geometry: "rounded-sm px-3 py-1.5",
   // Tightens the end padding when the tooltip ends with a keyboard shortcut.
   geometryKbd: "has-data-[slot=kbd]:pe-1.5",
-  typography: "text-xs",
+  typography: "text-caption",
   appearance: "bg-foreground text-background",
   // Lifts nested `Kbd`s above the arrow.
   appearanceKbd:
