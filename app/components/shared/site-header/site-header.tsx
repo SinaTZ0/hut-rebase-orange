@@ -29,7 +29,7 @@ import { HUT_LINKS, NAV_GROUPS, NAV_LINKS } from "~/lib/site-links";
 // Sarv's nav item: a gold underline marks hover and focus. External destinations have no «current page», so no
 // `aria-current` marker appears here.
 const navItemClasses =
-  "relative inline-flex h-[76px] items-center gap-1 px-3 text-nav text-foreground outline-none transition-colors duration-150 after:absolute after:inset-x-3 after:bottom-0 after:h-[3px] after:rounded-full after:bg-gold after:opacity-0 hover:text-brand-text hover:after:opacity-100 focus-visible:text-brand-text focus-visible:outline-2 focus-visible:outline-solid focus-visible:-outline-offset-2 focus-visible:outline-ring aria-expanded:text-brand-text aria-expanded:after:opacity-100 data-popup-open:text-brand-text data-popup-open:after:opacity-100";
+  "relative inline-flex h-18 items-center gap-1 px-3 text-nav text-foreground outline-none transition-colors duration-150 after:absolute after:inset-x-3 after:bottom-0 after:h-[3px] after:rounded-full after:bg-gold after:opacity-0 hover:text-brand-text hover:after:opacity-100 focus-visible:text-brand-text focus-visible:outline-2 focus-visible:outline-solid focus-visible:-outline-offset-2 focus-visible:outline-ring aria-expanded:text-brand-text aria-expanded:after:opacity-100 data-popup-open:text-brand-text data-popup-open:after:opacity-100";
 
 /*===== Utility Bar =====*/
 
@@ -41,13 +41,13 @@ function UtilityBar() {
         <nav aria-label="پیوندهای سریع" className="flex shrink-0 items-center gap-5">
           <SiteLink
             href={HUT_LINKS.contact}
-            className="text-deep-foreground outline-none hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid"
+            className="rounded-sm text-deep-foreground transition-colors duration-150 ease-out outline-none hover:text-gold focus-visible:text-gold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid motion-reduce:transition-none"
           >
             ارتباط با ما
           </SiteLink>
           <SiteLink
             href={HUT_LINKS.login}
-            className="text-gold outline-none hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid"
+            className="rounded-sm text-gold transition-colors duration-150 ease-out outline-none hover:text-deep-foreground focus-visible:text-deep-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid motion-reduce:transition-none"
           >
             ورود به پرتال
           </SiteLink>
@@ -179,7 +179,7 @@ export function SiteHeader() {
     <header>
       <UtilityBar />
       <div className="border-b bg-card">
-        <div className="mx-auto flex h-[76px] max-w-site items-center justify-between gap-4 px-6">
+        <div className="mx-auto flex h-18 max-w-site items-center justify-between gap-4 px-6">
           <Brand />
           <DesktopNav />
           <div className="flex shrink-0 items-center gap-1">

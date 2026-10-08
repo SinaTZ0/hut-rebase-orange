@@ -1,8 +1,6 @@
-import { ArrowLeftIcon } from "lucide-react";
-
-import { Button } from "~/components/primitive/button/button";
-import { SiteLink } from "~/components/shared/site-link/site-link";
 import { cn } from "cn";
+
+import { TextLink } from "~/components/shared/text-link/text-link";
 
 /*===== Section Header =====*/
 
@@ -12,7 +10,7 @@ export type SectionHeaderProps = {
   title: string;
   /** At most one sentence. */
   lead?: string;
-  /** An outline link at the opposite end, such as «مشاهده همه». */
+  /** A text link at the opposite end, such as «همه اخبار دانشگاه». */
   action?: { label: string; href: string };
   /** Set on `deep` bands: the gold rule stays, the text switches to the deep palette. */
   onDeep?: boolean;
@@ -41,14 +39,9 @@ export function SectionHeader({ kicker, title, lead, action, onDeep, titleId, cl
         )}
       </div>
       {action && (
-        <Button
-          variant={onDeep ? "outline-deep" : "outline"}
-          nativeButton={false}
-          render={<SiteLink href={action.href} />}
-        >
+        <TextLink href={action.href} tone={onDeep ? "deep" : "default"} className="-mb-2">
           {action.label}
-          <ArrowLeftIcon data-icon="inline-end" />
-        </Button>
+        </TextLink>
       )}
     </div>
   );

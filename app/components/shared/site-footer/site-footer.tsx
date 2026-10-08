@@ -21,8 +21,9 @@ const SOCIAL_LINKS = [
   { label: "لینکدین", href: HUT_LINKS.linkedin },
 ];
 
+// The link tint on `deep`: `deep-muted` brightens to `gold`.
 const footerLinkClasses =
-  "rounded-sm text-body-sm text-deep-muted outline-none hover:text-deep-foreground hover:underline focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-ring";
+  "rounded-sm text-body-sm text-deep-muted transition-colors duration-150 ease-out outline-none hover:text-gold focus-visible:text-gold focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-ring motion-reduce:transition-none";
 
 /*===== Site Footer =====*/
 
