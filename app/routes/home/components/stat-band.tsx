@@ -11,7 +11,7 @@ import { CAMPUS_LIFE, STATS } from "../content";
 /** A `deep` band: the university in six figures beside a campus-life panel that links to the Aparat channel. */
 export function StatBand() {
   return (
-    <section aria-labelledby="glance-title" className="surface-deep py-12 min-[600px]:py-18">
+    <section aria-labelledby="glance-title" className="surface-deep py-12 min-[600px]:py-16">
       <div className="mx-auto max-w-site px-6">
         <SectionHeader
           kicker="جامعه‌ای برای یادگیری و ساختن"

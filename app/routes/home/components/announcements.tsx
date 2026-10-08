@@ -8,7 +8,7 @@ import { SiteLink } from "~/components/shared/site-link/site-link";
 /** Dated notices on the `muted` band. Each states what, when and who issued it. */
 export function Announcements() {
   return (
-    <section aria-labelledby="announcements-title" className="bg-muted py-12 min-[600px]:py-18">
+    <section aria-labelledby="announcements-title" className="bg-muted py-12 min-[600px]:py-16">
       <div className="mx-auto max-w-site px-6">
         <SectionHeader
           kicker="آنچه باید بدانید"

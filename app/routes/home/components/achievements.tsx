@@ -12,7 +12,7 @@ import { ACHIEVEMENTS } from "../content";
 /** Three stacked feature cards: image, gold-text kicker, `h3`, a two-line summary and a link call. */
 export function Achievements() {
   return (
-    <section aria-labelledby="achievements-title" className="py-12 min-[600px]:py-18">
+    <section aria-labelledby="achievements-title" className="py-12 min-[600px]:py-16">
       <div className="mx-auto max-w-site px-6">
         <SectionHeader
           kicker="ثمره تلاش جامعه دانشگاهی"

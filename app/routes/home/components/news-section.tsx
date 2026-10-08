@@ -11,7 +11,7 @@ export function NewsSection() {
   const [featured, ...others] = NEWS;
 
   return (
-    <section aria-labelledby="news-title" className="py-12 min-[600px]:py-18">
+    <section aria-labelledby="news-title" className="py-12 min-[600px]:py-16">
       <div className="mx-auto max-w-site px-6">
         <SectionHeader
           kicker="اخبار و اطلاع‌رسانی"

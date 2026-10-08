@@ -17,27 +17,28 @@
   --text-base--line-height: calc(28 / 16);
   --text-lg--line-height: calc(32 / 18);
 
-  /* Sarv type styles as `text-<name>`: size, line height and weight together */
-  --text-display: 3.5rem;
-  --text-display--line-height: 5.25rem;
+  /* The app's type styles as `text-<name>`: size, line height and weight together. The scale is tighter than Sarv's
+     (docs/app-identity.md → Type); display, h1 and h2 drop one step on phones, below. */
+  --text-display: 3.25rem;
+  --text-display--line-height: 4.75rem;
   --text-display--font-weight: 800;
-  --text-stat: 2.75rem;
-  --text-stat--line-height: 3.5rem;
+  --text-stat: 2.5rem;
+  --text-stat--line-height: 3.25rem;
   --text-stat--font-weight: 800;
-  --text-h1: 2.5rem;
-  --text-h1--line-height: 3.75rem;
+  --text-h1: 2.25rem;
+  --text-h1--line-height: 3.5rem;
   --text-h1--font-weight: 800;
-  --text-h2: 1.875rem;
-  --text-h2--line-height: 3rem;
+  --text-h2: 1.75rem;
+  --text-h2--line-height: 2.75rem;
   --text-h2--font-weight: 700;
-  --text-h3: 1.375rem;
-  --text-h3--line-height: 2.25rem;
+  --text-h3: 1.25rem;
+  --text-h3--line-height: 2rem;
   --text-h3--font-weight: 700;
-  --text-h4: 1.125rem;
-  --text-h4--line-height: 1.875rem;
+  --text-h4: 1rem;
+  --text-h4--line-height: 1.75rem;
   --text-h4--font-weight: 700;
-  --text-body-lg: 1.125rem;
-  --text-body-lg--line-height: 2rem;
+  --text-body-lg: 1.0625rem;
+  --text-body-lg--line-height: 1.875rem;
   --text-body: 1rem;
   --text-body--line-height: 1.75rem;
   --text-body-sm: 0.875rem;
@@ -45,10 +46,10 @@
   --text-caption: 0.75rem;
   --text-caption--line-height: 1.25rem;
   --text-caption--font-weight: 500;
-  --text-button: 0.9375rem;
+  --text-button: 0.875rem;
   --text-button--line-height: 1.5rem;
-  --text-button--font-weight: 700;
-  --text-kicker: 0.8125rem;
+  --text-button--font-weight: 600;
+  --text-kicker: 0.75rem;
   --text-kicker--line-height: 1.25rem;
   --text-kicker--font-weight: 700;
   --text-nav: 0.875rem;
@@ -57,6 +58,19 @@
 
   /* Layout: `max-w-site` is Sarv's 1200px content width */
   --container-site: 75rem;
+}
+
+/* Under 600px the three largest styles drop one step. Overriding the variables here, instead of pairing breakpoint
+   classes in every route, keeps `text-display` / `text-h1` / `text-h2` correct wherever they're used. */
+@media (width < 600px) {
+  :root {
+    --text-display: 2.25rem;
+    --text-display--line-height: 3.5rem;
+    --text-h1: 1.75rem;
+    --text-h1--line-height: 2.75rem;
+    --text-h2: 1.5rem;
+    --text-h2--line-height: 2.5rem;
+  }
 }
 
 /*===== Theme Mapping =====*/
@@ -120,12 +134,12 @@
   --color-info-surface: var(--info-surface);
 
   /*------ Radius ------*/
-  /* Sarv: sm 8 (inputs, thumbnails), md 14 (buttons, notices, tiles), lg 24 (feature cards, media).
+  /* sm 8 (inputs, thumbnails), md 14 (buttons, notices, tiles), lg 20 (feature cards, media). Sarv's lg is 24.
      xl and up aren't in Sarv; they stay at least lg so the scale never shrinks. */
   --radius-sm: 0.5rem;
   --radius-md: var(--radius);
-  --radius-lg: 1.5rem;
-  --radius-xl: 1.5rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.25rem;
   --radius-2xl: 2rem;
   --radius-3xl: 2.5rem;
   --radius-4xl: 3rem;
@@ -274,6 +288,25 @@
   background-color: var(--deep);
   color: var(--deep-foreground);
   --ring: var(--ring-deep);
+}
+
+/* Scrims over photography (docs/app-identity.md → Imagery). `--overlay` already carries alpha, so the weaker stops
+   mix it toward transparent. Never use a flat `bg-overlay`: it hides the photo. */
+
+/* Hero and wide banners: darkest at the inline start where the text sits, easing off toward the far side.
+   Gradient directions are physical, so `to left` assumes RTL (the inline start is the right). */
+@utility scrim-inline {
+  background-image: linear-gradient(
+    to left,
+    var(--overlay) 0%,
+    color-mix(in oklab, var(--overlay) 70%, transparent) 45%,
+    color-mix(in oklab, var(--overlay) 30%, transparent) 100%
+  );
+}
+
+/* A card or panel with its text at the bottom of the image; the top of the picture stays clear. */
+@utility scrim-bottom {
+  background-image: linear-gradient(to top, var(--overlay) 0%, var(--overlay) 38%, transparent 85%);
 }
 
 /*===== Base =====*/

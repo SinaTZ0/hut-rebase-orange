@@ -26,7 +26,7 @@ const SUPPORT_ROUTES = [
 /** The closing invitation: a `deep` panel with two actions beside a card of two real support routes. */
 export function CallToAction() {
   return (
-    <section aria-labelledby="welcome-title" className="py-12 min-[600px]:py-18">
+    <section aria-labelledby="welcome-title" className="py-12 min-[600px]:py-16">
       <div className="mx-auto max-w-site px-6">
         <div className="grid gap-8 rounded-lg surface-deep p-6 min-[600px]:p-10 min-[960px]:grid-cols-[1.2fr_1fr] min-[960px]:items-center">
           <div>

@@ -35,7 +35,7 @@ export function Hero() {
             <span aria-hidden className="h-0.5 w-8 rounded-full bg-gold" />
             {HERO.kicker}
           </p>
-          <h1 id="hero-title" className="mt-3 text-h1 min-[600px]:text-display">
+          <h1 id="hero-title" className="mt-3 text-display">
             دانشگاه صنعتی <span className="text-gold">همدان</span>
           </h1>
           <p className="mt-4 max-w-xl text-body-lg text-deep-muted">{HERO.lead}</p>

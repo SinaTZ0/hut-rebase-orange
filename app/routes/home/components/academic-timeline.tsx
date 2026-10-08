@@ -13,7 +13,7 @@ import { CALENDAR } from "../content";
  */
 export function AcademicTimeline() {
   return (
-    <section aria-labelledby="calendar-title" className="py-12 min-[600px]:py-18">
+    <section aria-labelledby="calendar-title" className="py-12 min-[600px]:py-16">
       <div className="mx-auto max-w-site px-6">
         <SectionHeader
           kicker="مسیر نیم‌سال"

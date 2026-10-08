@@ -11,7 +11,7 @@ import { EVENTS } from "../content";
 /** Workshops and industry courses in row form on the `muted` band. */
 export function Events() {
   return (
-    <section aria-labelledby="events-title" className="bg-muted py-12 min-[600px]:py-18">
+    <section aria-labelledby="events-title" className="bg-muted py-12 min-[600px]:py-16">
       <div className="mx-auto max-w-site px-6">
         <SectionHeader
           kicker="یادگیری ادامه دارد"
