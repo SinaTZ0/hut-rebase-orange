@@ -1,6 +1,7 @@
 import { ArrowLeftIcon, HeartHandshakeIcon, MessageSquareTextIcon } from "lucide-react";
 
 import { Button } from "~/components/primitive/button/button";
+import { LinkTile } from "~/components/shared/link-tile/link-tile";
 import { SiteLink } from "~/components/shared/site-link/site-link";
 import { HUT_LINKS, INTERNAL_PATHS } from "~/lib/site-links";
 
@@ -23,13 +24,17 @@ const SUPPORT_ROUTES = [
 
 /*===== Call To Action =====*/
 
-/** The closing invitation: a `deep` panel with two actions beside a card of two real support routes. */
+/**
+ * The closing invitation: a `deep` panel with two actions joined to a `card` panel of two real support routes. The
+ * panels sit side by side rather than nested, so the support links keep the light-ground focus ring.
+ */
 export function CallToAction() {
   return (
     <section aria-labelledby="welcome-title" className="py-12 min-[600px]:py-16">
       <div className="mx-auto max-w-site px-6">
-        <div className="grid gap-8 rounded-lg surface-deep p-6 min-[600px]:p-10 min-[960px]:grid-cols-[1.2fr_1fr] min-[960px]:items-center">
-          <div>
+        <div className="grid overflow-hidden rounded-lg shadow-sm ring-1 ring-border min-[960px]:grid-cols-[1.2fr_1fr]">
+          {/*------ Invitation ------*/}
+          <div className="surface-deep p-6 min-[600px]:p-10">
             <p className="flex items-center gap-3 text-kicker text-gold">
               <span aria-hidden className="h-0.5 w-8 rounded-full bg-gold" />
               شروع یک مسیر تازه
@@ -62,21 +67,10 @@ export function CallToAction() {
           </div>
 
           {/*------ Support Routes ------*/}
-          <ul className="flex flex-col gap-3 rounded-md bg-card p-3 text-card-foreground">
+          <ul className="flex flex-col justify-center divide-y divide-border bg-card p-3 min-[600px]:p-6">
             {SUPPORT_ROUTES.map((route) => (
-              <li key={route.href}>
-                <SiteLink
-                  href={route.href}
-                  className="group flex items-start gap-4 rounded-md p-4 transition-colors duration-150 outline-none hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-solid"
-                >
-                  <span className="grid size-12 shrink-0 place-items-center rounded-md bg-accent text-brand-text group-hover:bg-card">
-                    <route.icon aria-hidden className="size-7" />
-                  </span>
-                  <span>
-                    <span className="block text-h4">{route.title}</span>
-                    <span className="block text-body-sm text-muted-foreground">{route.description}</span>
-                  </span>
-                </SiteLink>
+              <li key={route.href} className="py-2">
+                <LinkTile href={route.href} title={route.title} description={route.description} icon={route.icon} />
               </li>
             ))}
           </ul>

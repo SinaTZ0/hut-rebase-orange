@@ -20,6 +20,8 @@ export type Story = {
   date?: string;
   image: string;
   imageAlt: string;
+  /** The image contains text (a poster or flyer): never lay text over it, and crop it from the top. */
+  poster?: boolean;
   /** News and achievements link to the portal until their permanent pages exist. */
   href: string;
 };
@@ -53,6 +55,7 @@ export const NEWS: Story[] = [
     date: "۱۰ شهریور ۱۴۰۵",
     image: newsStaffImage,
     imageAlt: "نشست رئیس دانشگاه صنعتی همدان با کارکنان",
+    poster: true,
     href: HUT_LINKS.portal,
   },
   {
@@ -63,6 +66,7 @@ export const NEWS: Story[] = [
     date: "۹ شهریور ۱۴۰۵",
     image: newsAthleticsImage,
     imageAlt: "نتایج ورزشکاران دانشگاه در المپیاد دانشجویان",
+    poster: true,
     href: HUT_LINKS.portal,
   },
   {
@@ -73,6 +77,7 @@ export const NEWS: Story[] = [
     date: "۷ مرداد ۱۴۰۵",
     image: newsJournalImage,
     imageAlt: "نشریه انرژی پایدار و هوش مصنوعی و نشان ISC",
+    poster: true,
     href: HUT_LINKS.portal,
   },
 ];
@@ -152,6 +157,7 @@ export const ACHIEVEMENTS: Story[] = [
     summary: "نمایه‌شدن نشریه علمی دانشگاه در پایگاه استنادی علوم جهان اسلام",
     image: newsJournalImage,
     imageAlt: "نشریه انرژی پایدار و هوش مصنوعی و نشان ISC",
+    poster: true,
     href: HUT_LINKS.portal,
   },
   {
@@ -170,6 +176,7 @@ export const ACHIEVEMENTS: Story[] = [
     summary: "کسب مدال طلای کاراته، مقام پنجم کشتی فرنگی و جایگاه هشتم تیراندازی در هفدهمین المپیاد ورزشی دانشجویان.",
     image: newsAthleticsImage,
     imageAlt: "نتایج ورزشکاران دانشگاه در المپیاد دانشجویان",
+    poster: true,
     href: HUT_LINKS.portal,
   },
 ];
@@ -184,6 +191,7 @@ export const EVENTS: Story[] = [
     summary: "آموزش کاربردی برای توسعه مهارت‌های تخصصی دانشجویان و فعالان صنعت.",
     image: eventBlastingImage,
     imageAlt: "کارگاه تخصصی آتشباری کنترل‌شده",
+    poster: true,
     href: HUT_LINKS.growthCenter,
   },
   {

@@ -1,17 +1,22 @@
+import { Badge } from "~/components/primitive/badge/badge";
+import { Card, CardContent, CardDescription, CardMedia, CardTitle } from "~/components/primitive/card/card";
 import { SectionHeader } from "~/components/shared/section-header/section-header";
 import { SiteLink } from "~/components/shared/site-link/site-link";
-import { Badge } from "~/components/primitive/badge/badge";
+import { TextLink } from "~/components/shared/text-link/text-link";
 import { HUT_LINKS } from "~/lib/site-links";
-import { NEWS } from "../content";
+import { ANNOUNCEMENTS, NEWS, type Story } from "../content";
 
 /*===== News =====*/
 
-/** One featured story over a scrimmed image beside two compact rows. Whole cards are links. */
+/**
+ * News beside the dated announcements. Most news images are posters, so every story gets its own media area and the
+ * text never sits on the image. Whole cards are links.
+ */
 export function NewsSection() {
   const [featured, ...others] = NEWS;
 
   return (
-    <section aria-labelledby="news-title" className="py-12 min-[600px]:py-16">
+    <section aria-labelledby="news-title" className="pt-16 pb-12 min-[600px]:pt-20 min-[600px]:pb-16">
       <div className="mx-auto max-w-site px-6">
         <SectionHeader
           kicker="اخبار و اطلاع‌رسانی"
@@ -21,58 +26,105 @@ export function NewsSection() {
           titleId="news-title"
         />
 
-        <div className="mt-8 grid gap-6 min-[960px]:grid-cols-[1.35fr_1fr]">
-          {/*------ Featured Story ------*/}
-          <SiteLink
-            href={featured.href}
-            className="group relative isolate flex min-h-96 flex-col justify-end overflow-hidden rounded-lg p-6 text-deep-foreground shadow-sm transition-shadow duration-150 outline-none [--ring:var(--ring-deep)] hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid"
-          >
-            <img
-              src={featured.image}
-              alt={featured.imageAlt}
-              width={999}
-              height={490}
-              className="absolute inset-0 -z-20 size-full object-cover"
-            />
-            <span aria-hidden className="absolute inset-0 -z-10 bg-overlay" />
-            <Badge variant="gold" className="self-start">
-              خبر ویژه
-            </Badge>
-            <span className="mt-3 text-caption text-deep-muted">
-              {featured.category} · {featured.date}
-            </span>
-            <h3 className="mt-1 text-h3">{featured.title}</h3>
-            <p className="mt-2 line-clamp-2 text-body-sm text-deep-muted">{featured.summary}</p>
-            <span className="mt-4 text-button text-gold group-hover:underline">ادامه خبر</span>
-          </SiteLink>
-
-          {/*------ Compact Rows ------*/}
-          <ul className="flex flex-col gap-4">
+        <div className="mt-8 grid gap-6 min-[960px]:grid-cols-[minmax(0,1.85fr)_minmax(0,1fr)]">
+          <div className="grid gap-5 min-[600px]:grid-cols-2">
+            <FeaturedStory story={featured} />
             {others.map((story) => (
-              <li key={story.id} className="flex-1">
-                <SiteLink
-                  href={story.href}
-                  className="group flex h-full items-center gap-4 rounded-md bg-card p-3 shadow-sm ring-1 ring-border transition-shadow duration-150 outline-none hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid"
-                >
-                  <img
-                    src={story.image}
-                    alt={story.imageAlt}
-                    width={999}
-                    height={490}
-                    className="aspect-4/3 w-28 shrink-0 rounded-sm object-cover min-[600px]:w-36"
-                  />
-                  <span className="min-w-0">
-                    <span className="block text-kicker text-gold-text">{story.category}</span>
-                    <span className="mt-1 block text-h4 group-hover:text-brand-text">{story.title}</span>
-                    <span className="mt-1 block text-caption text-muted-foreground">{story.date}</span>
-                    <span className="mt-1 block text-button text-brand-text">ادامه خبر</span>
-                  </span>
-                </SiteLink>
-              </li>
+              <StoryCard key={story.id} story={story} />
             ))}
-          </ul>
+          </div>
+          <AnnouncementsPanel />
         </div>
       </div>
     </section>
+  );
+}
+
+/*===== Featured Story =====*/
+
+/** A wide card: the whole poster beside the text from 600px, above it on phones. */
+function FeaturedStory({ story }: { story: Story }) {
+  return (
+    <Card
+      render={<SiteLink href={story.href} />}
+      className="gap-0 py-0 min-[600px]:col-span-2 min-[600px]:grid min-[600px]:grid-cols-[1.15fr_1fr]"
+    >
+      <CardMedia fit={story.poster ? "contain" : "cover"} className="aspect-2/1 min-[600px]:aspect-auto">
+        <img src={story.image} alt={story.imageAlt} width={1000} height={491} />
+      </CardMedia>
+      <div className="flex flex-col gap-2 p-5 min-[600px]:justify-center min-[600px]:p-6">
+        <Badge variant="gold" className="self-start">
+          خبر ویژه
+        </Badge>
+        <StoryMeta story={story} />
+        <CardTitle>{story.title}</CardTitle>
+        <CardDescription className="line-clamp-3">{story.summary}</CardDescription>
+        <TextLink className="mt-2">ادامه خبر</TextLink>
+      </div>
+    </Card>
+  );
+}
+
+/*===== Story Card =====*/
+
+function StoryCard({ story }: { story: Story }) {
+  return (
+    <Card size="sm" render={<SiteLink href={story.href} />}>
+      <CardMedia fit={story.poster ? "top" : "cover"} className="aspect-2/1">
+        <img src={story.image} alt={story.imageAlt} width={1000} height={491} loading="lazy" />
+      </CardMedia>
+      <CardContent className="flex flex-1 flex-col gap-1">
+        <StoryMeta story={story} />
+        <CardTitle>{story.title}</CardTitle>
+        <TextLink className="mt-auto pt-2">ادامه خبر</TextLink>
+      </CardContent>
+    </Card>
+  );
+}
+
+function StoryMeta({ story }: { story: Story }) {
+  return (
+    <p className="text-caption text-muted-foreground">
+      <span className="text-brand-text">{story.category}</span>
+      {story.date && <> · {story.date}</>}
+    </p>
+  );
+}
+
+/*===== Announcements =====*/
+
+/** Dated notices on `muted`, separated by dividers rather than a box each. Each states what, when and who issued it. */
+function AnnouncementsPanel() {
+  return (
+    <aside aria-labelledby="announcements-title" className="flex flex-col rounded-lg bg-muted p-5">
+      <p className="text-caption text-muted-foreground">آنچه باید بدانید</p>
+      <h3 id="announcements-title" className="text-h3">
+        اطلاعیه‌ها
+      </h3>
+      <ul className="mt-2 flex flex-col divide-y divide-border">
+        {ANNOUNCEMENTS.map((item) => (
+          <li key={item.title}>
+            <SiteLink
+              href={HUT_LINKS.portal}
+              className="group flex items-start gap-3 rounded-sm py-4 outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid"
+            >
+              <span className="flex w-12 shrink-0 flex-col items-center rounded-md bg-card py-1.5 ring-1 ring-border transition-colors duration-150 ease-out group-hover:bg-primary group-hover:text-primary-foreground group-hover:ring-primary group-focus-visible:bg-primary group-focus-visible:text-primary-foreground motion-reduce:transition-none">
+                <span className="text-h4">{item.day}</span>
+                <span className="text-caption">{item.month}</span>
+              </span>
+              <span className="min-w-0">
+                <span className="block text-body-sm font-semibold transition-colors duration-150 ease-out group-hover:text-brand-text group-focus-visible:text-brand-text motion-reduce:transition-none">
+                  {item.title}
+                </span>
+                <span className="mt-1 block text-caption text-muted-foreground">{item.issuer}</span>
+              </span>
+            </SiteLink>
+          </li>
+        ))}
+      </ul>
+      <TextLink href={HUT_LINKS.portal} className="mt-auto self-start">
+        همه اطلاعیه‌ها
+      </TextLink>
+    </aside>
   );
 }

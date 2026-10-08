@@ -1,6 +1,5 @@
 import { Achievements } from "./components/achievements";
 import { AcademicTimeline } from "./components/academic-timeline";
-import { Announcements } from "./components/announcements";
 import { CallToAction } from "./components/call-to-action";
 import { Events } from "./components/events";
 import { Hero } from "./components/hero";
@@ -28,7 +27,6 @@ export default function Home() {
       <Hero />
       <ServiceStrip />
       <NewsSection />
-      <Announcements />
       <AcademicTimeline />
       <StatBand />
       <Achievements />

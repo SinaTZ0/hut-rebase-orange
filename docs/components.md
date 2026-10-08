@@ -73,3 +73,7 @@ Prefer a CVA variant over `data-[size=…]:` selectors on the element itself. Ke
 ## Changing a primitive
 
 A primitive's styles change every page that uses it, so follow the "Prepare shared pieces" step in [design-flow.md](./design-flow.md). Before you change a default or add a variant, check the existing consumers and the other primitives that compose it, because some rely on its slots and selectors (`data-slot`, `in-data-[slot=button-group]`, `has-data-[icon=…]`, `aria-invalid`). Then update the story.
+
+## Whole-card links
+
+A card that is a link renders as that link: `<Card render={<SiteLink href="…" />}>`. Don't wrap a card in a link or hand-write focus classes around it. The card then gets the card lift and focus ring, and its `CardTitle`, `CardMedia` and any `TextLink` call without `href` react to its hover and keyboard focus (they key off `[a:hover_&]`, so plain cards stay still). Put the image in `CardMedia`, with `fit="top"` or `fit="contain"` for posters.

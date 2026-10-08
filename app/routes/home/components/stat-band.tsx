@@ -1,6 +1,5 @@
 import { PlayIcon } from "lucide-react";
 
-import { Button } from "~/components/primitive/button/button";
 import { SectionHeader } from "~/components/shared/section-header/section-header";
 import { SiteLink } from "~/components/shared/site-link/site-link";
 import { HUT_LINKS } from "~/lib/site-links";
@@ -8,56 +7,66 @@ import { CAMPUS_LIFE, STATS } from "../content";
 
 /*===== Stat Band =====*/
 
-/** A `deep` band: the university in six figures beside a campus-life panel that links to the Aparat channel. */
+/**
+ * A `deep` band: the university in six figures, set in an open grid with hairlines rather than boxed tiles, beside a
+ * campus-life photo that links to the Aparat channel.
+ */
 export function StatBand() {
   return (
     <section aria-labelledby="glance-title" className="surface-deep py-12 min-[600px]:py-16">
-      <div className="mx-auto max-w-site px-6">
-        <SectionHeader
-          kicker="جامعه‌ای برای یادگیری و ساختن"
-          title="دانشگاه صنعتی همدان در یک نگاه"
-          lead="آموزش و پژوهش در رشته‌های مهندسی، با تکیه بر دانش اعضای هیئت علمی و همراهی دانشجویان؛ در پیوند با نیازهای جامعه و صنعت."
-          onDeep
-          titleId="glance-title"
-        />
-
-        <div className="mt-10 grid gap-8 min-[960px]:grid-cols-[1.1fr_1fr] min-[960px]:items-stretch">
-          {/*------ Figures ------*/}
-          <dl className="grid grid-cols-2 gap-4 min-[600px]:grid-cols-3">
+      <div className="mx-auto grid max-w-site items-center gap-10 px-6 min-[960px]:grid-cols-2 min-[960px]:gap-16">
+        {/*------ Figures ------*/}
+        <div>
+          <SectionHeader
+            kicker="جامعه‌ای برای یادگیری و ساختن"
+            title="دانشگاه صنعتی همدان در یک نگاه"
+            lead="آموزش و پژوهش در رشته‌های مهندسی، با تکیه بر دانش اعضای هیئت علمی و همراهی دانشجویان؛ در پیوند با نیازهای جامعه و صنعت."
+            onDeep
+            titleId="glance-title"
+          />
+          <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-6 min-[600px]:grid-cols-3">
             {STATS.map((stat) => (
-              <div key={stat.label} className="rounded-md bg-deep-raised p-5">
-                <dd className="order-first text-stat text-gold">{stat.value}</dd>
+              <div key={stat.label} className="flex flex-col border-t border-deep-muted/25 pt-4">
                 <dt className="text-body-sm text-deep-muted">{stat.label}</dt>
+                <dd className="order-first text-stat text-gold">{stat.value}</dd>
               </div>
             ))}
           </dl>
+        </div>
 
-          {/*------ Campus Life Panel ------*/}
-          <figure className="relative isolate flex min-h-80 flex-col justify-end overflow-hidden rounded-lg p-6">
+        {/*------ Campus Life Video ------*/}
+        <figure>
+          <SiteLink
+            href={HUT_LINKS.aparat}
+            aria-label={CAMPUS_LIFE.videoLabel}
+            className="group relative isolate block aspect-16/10 overflow-hidden rounded-lg ring-1 ring-deep-muted/20 outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid"
+          >
             <img
               src={CAMPUS_LIFE.image}
-              alt={CAMPUS_LIFE.imageAlt}
+              alt=""
               width={1919}
               height={1079}
               loading="lazy"
-              className="absolute inset-0 -z-20 size-full object-cover"
+              className="absolute inset-0 -z-20 size-full object-cover transition-[scale] duration-300 ease-out motion-safe:group-hover:scale-[1.03] motion-safe:group-focus-visible:scale-[1.03]"
             />
-            <span aria-hidden className="absolute inset-0 -z-10 bg-overlay" />
-            <p className="text-kicker text-gold">{CAMPUS_LIFE.kicker}</p>
-            <h3 className="mt-1 text-h3">{CAMPUS_LIFE.title}</h3>
-            <figcaption className="mt-1 text-caption text-deep-muted">{CAMPUS_LIFE.caption}</figcaption>
-            <Button
-              variant="outline-deep"
-              className="mt-4 self-start"
-              aria-label={CAMPUS_LIFE.videoLabel}
-              nativeButton={false}
-              render={<SiteLink href={HUT_LINKS.aparat} />}
+            {/* The bottom scrim sits only under the caption; the photo above stays clear. */}
+            <span aria-hidden className="absolute inset-x-0 bottom-0 -z-10 h-1/2 scrim-bottom" />
+
+            {/*------ Play Pulse ------*/}
+            <span
+              aria-hidden
+              className="absolute inset-0 m-auto grid size-16 place-items-center rounded-full border-8 border-deep-foreground/25 bg-gold bg-clip-padding text-gold-foreground transition-[scale] duration-150 ease-out motion-safe:group-hover:scale-110 motion-safe:group-focus-visible:scale-110"
             >
-              <PlayIcon data-icon="inline-start" />
-              تماشا در آپارات
-            </Button>
-          </figure>
-        </div>
+              <PlayIcon className="ms-0.5 size-6" />
+            </span>
+
+            <span className="absolute inset-x-6 bottom-5 text-start">
+              <span className="block text-kicker text-gold">{CAMPUS_LIFE.kicker}</span>
+              <span className="block text-h3">{CAMPUS_LIFE.title}</span>
+            </span>
+          </SiteLink>
+          <figcaption className="mt-3 text-caption text-deep-muted">{CAMPUS_LIFE.caption} · تماشا در آپارات</figcaption>
+        </figure>
       </div>
     </section>
   );
