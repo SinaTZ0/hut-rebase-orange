@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { redirect, useNavigate } from "react-router";
 
-import { toast } from "~/components/ui/toast";
+import { toast } from "~/components/primitive/toast/toast";
 import { authClient } from "~/lib/auth-client";
 import { auth } from "~/lib/auth.server";
 import { orpc } from "~/orpc/client";

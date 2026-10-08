@@ -1,6 +1,6 @@
 import { CircleAlertIcon } from "lucide-react";
 
-import { Alert, AlertDescription } from "~/components/ui/alert";
+import { Alert, AlertDescription } from "~/components/primitive/alert/alert";
 
 /*===== Form Alert =====*/
 /**

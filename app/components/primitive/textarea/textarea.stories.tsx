@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Label } from "~/components/ui/label";
+import { Label } from "../label/label";
 import { Textarea } from "./textarea";
 
 /*===== Meta =====*/

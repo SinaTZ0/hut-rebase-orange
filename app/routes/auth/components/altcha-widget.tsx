@@ -6,7 +6,7 @@ import { cn } from "cn";
 import { CheckIcon, CircleAlertIcon, ShieldCheckIcon } from "lucide-react";
 import { useCallback, useEffect, useImperativeHandle, useRef, useState } from "react";
 
-import { Spinner } from "~/components/ui/spinner";
+import { Spinner } from "~/components/primitive/spinner/spinner";
 import { orpc } from "~/orpc/client";
 
 /*===== Types =====*/

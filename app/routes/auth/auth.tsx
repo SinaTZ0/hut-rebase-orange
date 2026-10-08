@@ -2,7 +2,7 @@ import { useQueryStates } from "nuqs";
 import { redirect } from "react-router";
 
 import { ThemeToggle } from "~/components/shared/theme-toggle/theme-toggle";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/primitive/tabs/tabs";
 import { auth } from "~/lib/auth.server";
 import { LoginForm } from "~/routes/auth/components/login-form";
 import { SignupForm } from "~/routes/auth/components/signup-form";

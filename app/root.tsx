@@ -4,9 +4,9 @@ import { NuqsAdapter } from "nuqs/adapters/react-router/v8";
 import { useState } from "react";
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 
-import { DirectionProvider } from "~/components/ui/direction";
-import { Toaster } from "~/components/ui/toast";
-import { TooltipProvider } from "~/components/ui/tooltip";
+import { DirectionProvider } from "~/components/primitive/direction/direction";
+import { Toaster } from "~/components/primitive/toast/toast";
+import { TooltipProvider } from "~/components/primitive/tooltip/tooltip";
 import { THEME_INIT_SCRIPT } from "~/lib/theme";
 
 import type { Route } from "./+types/root";

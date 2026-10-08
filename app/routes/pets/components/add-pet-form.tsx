@@ -5,11 +5,16 @@ import { Controller, type DefaultValues, useForm, type UseFormSetError } from "r
 import { FormAlert } from "~/components/shared/form-alert/form-alert";
 import { Button } from "~/components/primitive/button/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/primitive/card/card";
-import { Field, FieldError, FieldGroup, FieldLabel } from "~/components/ui/field";
+import { Field, FieldError, FieldGroup, FieldLabel } from "~/components/primitive/field/field";
 import { Input } from "~/components/primitive/input/input";
-import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText } from "~/components/primitive/input-group/input-group";
-import { Spinner } from "~/components/ui/spinner";
-import { toast } from "~/components/ui/toast";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+  InputGroupText,
+} from "~/components/primitive/input-group/input-group";
+import { Spinner } from "~/components/primitive/spinner/spinner";
+import { toast } from "~/components/primitive/toast/toast";
 import { useCreatePet } from "~/routes/pets/hooks/use-create-pet";
 import { type AddPetFormInput, type AddPetFormOutput, addPetFormSchema } from "~/routes/pets/schema";
 import { SpeciesPicker } from "~/routes/pets/components/species-picker";

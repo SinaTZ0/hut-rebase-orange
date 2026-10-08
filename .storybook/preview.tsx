@@ -1,7 +1,7 @@
 import type { Decorator, Preview } from "@storybook/react-vite";
 
-import { DirectionProvider } from "~/components/ui/direction";
-import { TooltipProvider } from "~/components/ui/tooltip";
+import { DirectionProvider } from "~/components/primitive/direction/direction";
+import { TooltipProvider } from "~/components/primitive/tooltip/tooltip";
 
 import "../app/app.css";
 
