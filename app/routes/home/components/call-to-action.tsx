@@ -1,8 +1,9 @@
-import { ArrowLeftIcon, HeartHandshakeIcon, MessageSquareTextIcon } from "lucide-react";
+import { ArrowLeftIcon, GraduationCapIcon, HeartHandshakeIcon, MessageSquareTextIcon } from "lucide-react";
 
 import { Button } from "~/components/primitive/button/button";
 import { LinkTile } from "~/components/shared/link-tile/link-tile";
 import { SiteLink } from "~/components/shared/site-link/site-link";
+import { WatermarkIcon } from "~/components/shared/watermark-icon/watermark-icon";
 import { HUT_LINKS, INTERNAL_PATHS } from "~/lib/site-links";
 
 /*===== Support Routes =====*/
@@ -34,7 +35,8 @@ export function CallToAction() {
       <div className="mx-auto max-w-site px-6">
         <div className="grid overflow-hidden rounded-lg shadow-sm ring-1 ring-border min-[960px]:grid-cols-[1.2fr_1fr]">
           {/*------ Invitation ------*/}
-          <div className="surface-deep p-6 min-[600px]:p-10">
+          <div className="relative isolate overflow-hidden surface-deep p-6 min-[600px]:p-10">
+            <WatermarkIcon icon={GraduationCapIcon} className="-end-6 -bottom-6 size-48" />
             <p className="flex items-center gap-3 text-kicker text-gold">
               <span aria-hidden className="h-0.5 w-8 rounded-full bg-gold" />
               شروع یک مسیر تازه

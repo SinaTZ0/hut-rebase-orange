@@ -1,7 +1,8 @@
-import { PlayIcon } from "lucide-react";
+import { PlayIcon, UsersRoundIcon } from "lucide-react";
 
 import { SectionHeader } from "~/components/shared/section-header/section-header";
 import { SiteLink } from "~/components/shared/site-link/site-link";
+import { WatermarkIcon } from "~/components/shared/watermark-icon/watermark-icon";
 import { HUT_LINKS } from "~/lib/site-links";
 import { CAMPUS_LIFE, STATS } from "../content";
 
@@ -13,7 +14,11 @@ import { CAMPUS_LIFE, STATS } from "../content";
  */
 export function StatBand() {
   return (
-    <section aria-labelledby="glance-title" className="surface-deep py-12 min-[600px]:py-16">
+    <section
+      aria-labelledby="glance-title"
+      className="relative isolate overflow-hidden surface-deep py-12 min-[600px]:py-16"
+    >
+      <WatermarkIcon icon={UsersRoundIcon} className="-end-10 -bottom-12 size-64" />
       <div className="mx-auto grid max-w-site items-center gap-10 px-6 min-[960px]:grid-cols-2 min-[960px]:gap-16">
         {/*------ Figures ------*/}
         <div>

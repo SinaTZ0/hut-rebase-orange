@@ -1,8 +1,9 @@
-import { ArrowLeftIcon } from "lucide-react";
+import { ArrowLeftIcon, BookOpenIcon } from "lucide-react";
 
 import { Badge } from "~/components/primitive/badge/badge";
 import { Card, CardContent, CardDescription, CardMedia, CardTitle } from "~/components/primitive/card/card";
 import { SiteLink } from "~/components/shared/site-link/site-link";
+import { WatermarkIcon } from "~/components/shared/watermark-icon/watermark-icon";
 import { TextLink } from "~/components/shared/text-link/text-link";
 import { HUT_LINKS } from "~/lib/site-links";
 import { EVENTS } from "../content";
@@ -18,7 +19,8 @@ export function Events() {
     <section aria-labelledby="events-title" className="bg-muted py-12 min-[600px]:py-16">
       <div className="mx-auto grid max-w-site gap-6 px-6 min-[960px]:grid-cols-[minmax(0,0.85fr)_minmax(0,1.6fr)]">
         {/*------ Intro Panel ------*/}
-        <div className="flex flex-col rounded-lg surface-deep p-6 min-[600px]:p-8">
+        <div className="relative isolate flex flex-col overflow-hidden rounded-lg surface-deep p-6 min-[600px]:p-8">
+          <WatermarkIcon icon={BookOpenIcon} className="-end-8 -top-6 size-40" />
           <p className="flex items-center gap-3 text-kicker text-gold">
             <span aria-hidden className="h-0.5 w-8 rounded-full bg-gold" />
             یادگیری ادامه دارد
