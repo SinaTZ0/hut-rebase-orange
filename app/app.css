@@ -198,7 +198,7 @@
 
   --elevation-sm: 0 1px 2px #0f2a2814, 0 1px 1px #0f2a280d;
   --elevation-md: 0 10px 28px -10px #0f2a2833;
-  --elevation-float: 0 24px 48px -16px #0f2a2840;
+  --elevation-float: 0 8px 24px -12px #0f2a2840;
 
   /* Not in Sarv: drawn from its palette, teal and gold first */
   --chart-1: #134542;
@@ -327,10 +327,10 @@
   h4 {
     @apply font-heading font-bold;
   }
-  /* Sarv's icon stroke. Author CSS beats lucide's `stroke-width` attribute, so change it with a `stroke-*` class,
-     not the `strokeWidth` prop. */
+  /* A lighter line than Sarv's 1.75, for a more refined feel (docs/app-identity.md → Iconography). Author CSS beats
+     lucide's `stroke-width` attribute, so change it with a `stroke-*` class, not the `strokeWidth` prop. */
   :where(svg.lucide) {
-    stroke-width: 1.75;
+    stroke-width: 1.5;
   }
   /* Sarv's one focus style: a solid 2px ring, 2px off the edge. Primitives set the same thing explicitly. */
   :where(a, button, input, select, textarea, [tabindex]):focus-visible {

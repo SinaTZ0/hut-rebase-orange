@@ -8,6 +8,7 @@ This is a React Router v8 application using Framework Mode: the website of a Per
 
 - Run project commands from the repository root.
 - After making code changes, run `npm run lint` and fix all errors.
+- Do not create, switch to, or push branches, worktrees, or tags. All work is committed directly on `main`; if a task seems to need a branch, ask the user first.
 - Put temporary scripts, diagnostics, experiments, and logs in `./.tmp-codex/`.
 - Create `./.tmp-claude/` as needed. It is gitignored and must never contain deliverable source files.
 

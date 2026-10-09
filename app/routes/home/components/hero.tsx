@@ -14,7 +14,7 @@ const photoTextShadow = "[text-shadow:0_1px_10px_rgb(0_0_0/0.55)]";
 
 /**
  * The full-bleed campus photo under an inline scrim: dark behind the headline at the inline start, clear on the far
- * side so the campus shows. The academic notice runs as a slim row along the bottom edge, and the bottom padding
+ * side so the campus shows. The academic notice runs as a slim hairline-topped row along the bottom edge, and the bottom padding
  * reserves the space the service strip overlaps. Exactly two actions: one gold, one outline on deep.
  */
 export function Hero() {
@@ -77,7 +77,7 @@ export function Hero() {
       <div className="mx-auto max-w-site px-6 pb-24">
         <SiteLink
           href={HUT_LINKS.calendar}
-          className="group flex min-h-14 flex-wrap items-center gap-x-4 gap-y-1 rounded-md bg-[color-mix(in_oklab,var(--overlay)_55%,transparent)] px-4 py-3 ring-1 ring-deep-foreground/20 transition-colors duration-150 ease-out outline-none hover:bg-overlay focus-visible:bg-overlay focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid motion-reduce:transition-none"
+          className="group flex min-h-14 flex-wrap items-center gap-x-4 gap-y-1 rounded-md border-t border-deep-foreground/25 py-3 transition-colors duration-150 ease-out outline-none hover:bg-overlay/40 focus-visible:bg-overlay/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid motion-reduce:transition-none"
         >
           <CalendarDaysIcon aria-hidden className="size-5 shrink-0 text-gold" />
           <span className="text-caption text-gold">{HERO.notice.label}</span>
