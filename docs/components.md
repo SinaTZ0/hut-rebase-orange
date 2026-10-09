@@ -13,7 +13,6 @@
 
 - `app/components/ui/` holds the untouched shadcn source, with every component installed. It is reference material only: never edit it and never import from it. Read it only when creating a primitive.
 - `app/components/shared/` holds app-made components used by more than one route: things with no shadcn original, such as `form-alert`, `link` and `theme-toggle`. They use the same one-folder-per-component layout, with a `<name>.styles.ts` only when the component has its own style map, and a story for anything visible. The shadcn API rule below doesn't apply to them; they compose primitives instead.
-- `claude-design-system/components/` holds the Sarv design system's HTML components. Like `ui/`, they are reference only: rebuild them as `shared/` or route components from primitives, and never import their CSS.
 - Route-specific pieces stay in their route slice and move to `shared/` when a second route needs them; see [frontend-guideline.md](./frontend-guideline.md).
 
 Import directly from the owning file. `buttonVariants` and other CVA helpers come from the `*.styles.ts` file.

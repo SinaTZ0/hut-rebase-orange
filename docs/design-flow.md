@@ -3,8 +3,8 @@
 Follow these steps for every new page. Going back to an earlier step is fine when the design changes.
 
 1. **Purpose**: In one sentence, say what the user comes to this page to do. Example: "Find a course and see when and where it meets."
-2. **App context**: Read [app-identity.md](./app-identity.md) and look at its reference screens. Note which signature patterns fit this page and how its copy follows the tone rules, and read the matching guidelines in `claude-design-system/components/<Name>/README.md`. Don't create a new mood, tone or theme for one page.
-3. **Content inventory**: before choosing any layout, list what the page really shows, using the real content (the route's `content.ts`, the CMS data or `docs/temp/`), not Sarv's sample text:
+2. **App context**: Read [app-identity.md](./app-identity.md) and look at its reference screens. Note which signature patterns fit this page and how its copy follows the tone rules. Don't create a new mood, tone or theme for one page.
+3. **Content inventory**: before choosing any layout, list what the page really shows, using the real content (the route's `content.ts`, the CMS data or `docs/temp/`), not placeholder text:
    - each image: a photo or an image that contains text (poster, flyer, certificate), and its aspect ratio;
    - how many items each section has, and how long the titles and summaries run;
    - which content is time-sensitive (announcements, deadlines) and which is evergreen.
@@ -21,7 +21,7 @@ Follow these steps for every new page. Going back to an earlier step is fine whe
    - **Standard controls** (buttons, inputs, dialogs, menus…): pick the shadcn component that fits ([shadcn.md](./shadcn.md)) and use its primitive from `components/primitive/`.
    - **App components** (form alerts, links…): check `components/shared/` before building something new.
    - **Custom pieces**: build anything more distinctive in the route slice, composing primitives where they fit.
-   - **Sarv patterns** (hero, service strip, news cards, timeline…): defaults to start from, not templates to fill. The `sv-` HTML in `claude-design-system/` is a reference for structure and semantics; its placeholder art is not a visual target. Rebuild it with primitives and Tailwind tokens; never import `bundle.css` or `tokens.css` or copy `sv-` classes.
+   - **Signature patterns** (hero, service strip, news cards, timeline…): defaults to start from, not templates to fill. Build them with primitives and Tailwind tokens.
    - **No decorative containers**: add a card, tile or panel only for something you can click or a standalone group of content. Whitespace and dividers separate everything else. Items that share a container fill it edge to edge ([app-identity.md](./app-identity.md) → Containers).
 6. **Prepare shared pieces**: as a separate change before the page, create any missing primitive and update any whose base style doesn't match app-identity yet ([components.md](./components.md)), including its interaction effects. Base styles follow app-identity, never one page's needs, because a change affects every page. Update the story and check it in light, dark and side by side (`npm run storybook`).
 7. **Build**:

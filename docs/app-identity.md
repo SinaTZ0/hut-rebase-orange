@@ -1,10 +1,6 @@
 # App Identity: Mood, Tone & Theme
 
-Source: [`claude-design-system/`](../claude-design-system/), the **Sarv** design system. Its [`README.md`](../claude-design-system/README.md) is the brand book and [`tokens.json`](../claude-design-system/tokens.json) is the source of truth for every value below. The app is the website of a Persian public (government) university, with a small CMS for staff to publish news, events and pages. It's RTL and works from phone to desktop.
-
-The `sv-` components in `claude-design-system/components/` are plain HTML references. The app never loads `bundle.css` or `tokens.css`; it rebuilds those patterns from its own primitives and tokens.
-
-Sarv's examples are drawn with placeholder art (flat teal panels, one icon, a vector campus), so they show structure, not how a page should look with real content. **This document overrides Sarv where they differ**: the type scale, control sizes, motion and scrims below are the app's own decisions.
+The look is **Refine and Silk**: quiet, light and polished, with a true teal as the voice and gold used once. The app is the website of a Persian public (government) university, with a small CMS for staff to publish news, events and pages. It's RTL and works from phone to desktop. Every value below lives in `app/app.css`.
 
 ## Mood
 
@@ -13,7 +9,7 @@ Sarv's examples are drawn with placeholder art (flat teal panels, one icon, a ve
 - **Official**: deep teal structure, a clear hierarchy, and the university's name and emblem on every page.
 - **Calm**: warm paper ground, generous whitespace, few colours and gentle shadows.
 - **Focused**: one gold call to action per view, such as «پذیرش و ثبت‌نام». Everything else is teal or neutral.
-- **Refined**: quiet precision over emphasis. Thin 1.5 icon strokes, hairlines instead of boxes and rings, soft low shadows, and one gold accent per view. If an element looks heavy, remove its fill, ring or shadow before shrinking it.
+- **Refined**: quiet precision over emphasis. Small type, medium weights, hairlines and generous leading. Thin 1.5 icon strokes, hairlines instead of boxes and rings, soft low shadows, and one gold accent per view. If an element looks heavy, remove its fill, ring or shadow before shrinking it.
 - **Warm**: daylight campus photography and soft rounded shapes.
 - **Content-led**: the university's photos, news and Persian typography carry the identity. Show photos clearly, put content first and keep layout chrome (boxes, tiles, panels) to a minimum.
 - **Alive**: subtle, snappy hover and focus feedback on everything you can click, so the page feels responsive without moving around.
@@ -26,7 +22,7 @@ Sarv's examples are drawn with placeholder art (flat teal panels, one icon, a ve
 - **Section openers**: a kicker of two to four words above the title («اخبار و اطلاعیه‌ها»، «مسیر نیم‌سال»), then at most one sentence of lead.
 - **Announcements** state what, when, and what to do next.
 - **Locale**: Persian digits («۱۴۰۵»، «۲٬۳۰۰+») with the Persian thousands separator «٬». Jalali dates («۱۶ مهر ۱۴۰۵»); ranges use an en dash («۱۲–۱۸ مهر»). Phone numbers, e-mail addresses and URLs are set `dir="ltr"`.
-- **English**: the official English name appears once, in small caps beside the Persian name (`SARV UNIVERSITY`, marked `lang="en"`), and in the `EN` language switch. Don't mix Persian and English in one sentence.
+- **English**: the official English name appears once, in small caps beside the Persian name (`HAMEDAN UNIVERSITY OF TECHNOLOGY`, marked `lang="en"`), and in the `EN` language switch. Don't mix Persian and English in one sentence.
 - **Never**: emoji, exclamation marks or slang.
 - **CMS screens** use the same voice, shorter: labels and messages say what happened and what to do next.
 
@@ -36,37 +32,37 @@ All tokens will live in `app/app.css`. Use the Tailwind classes (`bg-primary`, `
 
 ### Colour
 
-Token names follow shadcn so the primitives keep working; roles Sarv adds get their own names. **Naming trap**: Sarv's `accent` is the gold call to action, which is `gold` here. shadcn's `accent` is the quiet hover and selected wash, which is Sarv's `primary-soft`.
+Token names follow shadcn so the primitives keep working; brand roles get their own names. **Naming trap**: the gold call to action is `gold`. shadcn's `accent` is the quiet teal wash for hover and selected states.
 
-| Token                                 | Sarv role                   | Light                 | Dark                  | Use                                                                                                             |
-| ------------------------------------- | --------------------------- | --------------------- | --------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `background`                          | `surface`                   | `#FBFAF6`             | `#0A1818`             | Page background                                                                                                 |
-| `foreground`                          | `ink`                       | `#11302E`             | `#E8F1EE`             | Headings and body text. Also `card-foreground` and `popover-foreground`                                         |
-| `card` / `popover`                    | `surface-raised`            | `#FFFFFF`             | `#112625`             | Cards, forms, header, service strip, popovers                                                                   |
-| `muted` / `secondary`                 | `surface-sunken`            | `#F0F2EE`             | `#07110F`             | Recessed bands, table stripes, input wells, image placeholders                                                  |
-| `muted-foreground`                    | `ink-muted`                 | `#4A625F`             | `#9FB8B3`             | Secondary text, dates, captions                                                                                 |
-| `accent`                              | `primary-soft`              | `#E2EEEB`             | `#17302E`             | Hover and selected rows, quiet badges, ghost-button hover. Text on it: `foreground`, `brand-text`               |
-| `primary`                             | `primary`                   | `#134542`             | `#7AD6C7`             | Teal action buttons (sign-in, in-app actions), active nav marker                                                |
-| `primary-hover`                       | `primary-hover`             | `#0D3331`             | `#9BE3D7`             | Hover and pressed `primary`                                                                                     |
-| `primary-foreground`                  | `on-primary`                | `#F6F3EA`             | `#06211E`             | Text on `primary`                                                                                               |
-| `brand-text`                          | `brand-text`                | `#0F5A54`             | `#86DCCF`             | Links, kickers and teal emphasis in text                                                                        |
-| `gold`                                | `accent`                    | `#E9B43C`             | `#F2C24F`             | The one call-to-action fill, kicker rules, text and icons on `deep`                                             |
-| `gold-hover`                          | `accent-hover`              | `#D6A02A`             | `#F7D278`             | Hover and pressed `gold`                                                                                        |
-| `gold-foreground`                     | `on-accent`                 | `#14201F`             | `#14201F`             | Text on `gold`                                                                                                  |
-| `gold-text`                           | `accent-text`               | `#7D5400`             | `#F2C24F`             | Gold as text on light grounds. Never on a `gold` fill                                                           |
-| `deep`                                | `surface-deep`              | `#134542`             | `#0F302E`             | Deep-teal bands: utility bar, stats, call to action, footer                                                     |
-| `deep-raised`                         | `surface-deep-raised`       | `#18504B`             | `#17423F`             | Cards and tiles on `deep`                                                                                       |
-| `deep-foreground`                     | `on-deep`                   | `#F6F3EA`             | `#E9F2EF`             | Text and icons on `deep` and `deep-raised`                                                                      |
-| `deep-muted`                          | `on-deep-muted`             | `#BCD3CE`             | `#A6C2BC`             | Secondary text on `deep` and `deep-raised`                                                                      |
-| `border`                              | `border`                    | `#DDE3DE`             | `#234240`             | Card outlines and dividers. Not for control edges                                                               |
-| `input`                               | `border-strong`             | `#6F8782`             | `#5D7D78`             | Edges of inputs, checkboxes, radios and outline buttons (3:1)                                                   |
-| `ring`                                | `focus`                     | `#0B5CAD`             | `#8FC7FF`             | Focus ring on light grounds                                                                                     |
-| `ring-deep`                           | `focus-on-deep`             | `#FFD36B`             | `#FFD36B`             | Focus ring on `deep` and `deep-raised`                                                                          |
-| `overlay`                             | `overlay`                   | `#0B2625D9`           | `#06100FE0`           | Scrim colour over photography, always as a gradient (see Imagery). Never as a flat fill, never without an image |
-| `success` / `success-surface`         | same                        | `#17633F` / `#E4F3EA` | `#6FD49B` / `#14301F` | Success notices and badges                                                                                      |
-| `warning` / `warning-surface`         | same                        | `#7A5200` / `#FBF0D6` | `#F2C24F` / `#33280E` | Warnings                                                                                                        |
-| `destructive` / `destructive-surface` | `danger` / `danger-surface` | `#B3261E` / `#FBE7E5` | `#FF9A92` / `#3A1816` | Errors and destructive actions                                                                                  |
-| `info` / `info-surface`               | same                        | `#1B5E8E` / `#E1EEF7` | `#86C1EE` / `#14293A` | Informational notices                                                                                           |
+| Token                                 | Light                 | Dark                  | Use                                                                                                             |
+| ------------------------------------- | --------------------- | --------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `background`                          | `#FCFBF8`             | `#0F2220`             | Page background                                                                                                 |
+| `foreground`                          | `#11302E`             | `#EBF3F0`             | Headings and body text. Also `card-foreground` and `popover-foreground`                                         |
+| `card` / `popover`                    | `#FFFFFF`             | `#173230`             | Cards, forms, header, service strip, popovers                                                                   |
+| `muted` / `secondary`                 | `#F3F5F1`             | `#0C1C1B`             | Recessed bands, table stripes, input wells, image placeholders                                                  |
+| `muted-foreground`                    | `#53696A`             | `#A9C1BC`             | Secondary text, dates, captions                                                                                 |
+| `accent`                              | `#E6F2EF`             | `#1F3F3C`             | Hover and selected rows, quiet badges, ghost-button hover. Text on it: `foreground`, `brand-text`               |
+| `primary`                             | `#0E6A62`             | `#6FD8C8`             | Teal action buttons (sign-in, in-app actions), active nav marker                                                |
+| `primary-hover`                       | `#0A564F`             | `#94E5D9`             | Hover and pressed `primary`                                                                                     |
+| `primary-foreground`                  | `#F6F3EA`             | `#06211E`             | Text on `primary`                                                                                               |
+| `brand-text`                          | `#0C615A`             | `#86DCCF`             | Links, kickers and teal emphasis in text                                                                        |
+| `gold`                                | `#E9B43C`             | `#F2C24F`             | The one call-to-action fill, kicker rules, text and icons on `deep`                                             |
+| `gold-hover`                          | `#D6A02A`             | `#F7D278`             | Hover and pressed `gold`                                                                                        |
+| `gold-foreground`                     | `#14201F`             | `#14201F`             | Text on `gold`                                                                                                  |
+| `gold-text`                           | `#7D5400`             | `#F2C24F`             | Gold as text on light grounds. Never on a `gold` fill                                                           |
+| `deep`                                | `#124A45`             | `#153B38`             | Deep-teal bands: utility bar, stats, call to action, footer                                                     |
+| `deep-raised`                         | `#1A5A53`             | `#1E4D49`             | Cards and tiles on `deep`                                                                                       |
+| `deep-foreground`                     | `#F6F3EA`             | `#E9F2EF`             | Text and icons on `deep` and `deep-raised`                                                                      |
+| `deep-muted`                          | `#BCD3CE`             | `#B0CBC5`             | Secondary text on `deep` and `deep-raised`                                                                      |
+| `border`                              | `#E5E9E5`             | `#2D514D`             | Card outlines and dividers. Not for control edges                                                               |
+| `input`                               | `#6F8782`             | `#668781`             | Edges of inputs, checkboxes, radios and outline buttons (3:1)                                                   |
+| `ring`                                | `#0B5CAD`             | `#8FC7FF`             | Focus ring on light grounds                                                                                     |
+| `ring-deep`                           | `#FFD36B`             | `#FFD36B`             | Focus ring on `deep` and `deep-raised`                                                                          |
+| `overlay`                             | `#0B2625D9`           | `#06100FE0`           | Scrim colour over photography, always as a gradient (see Imagery). Never as a flat fill, never without an image |
+| `success` / `success-surface`         | `#17633F` / `#E4F3EA` | `#6FD49B` / `#14301F` | Success notices and badges                                                                                      |
+| `warning` / `warning-surface`         | `#7A5200` / `#FBF0D6` | `#F2C24F` / `#33280E` | Warnings                                                                                                        |
+| `destructive` / `destructive-surface` | `#B3261E` / `#FBE7E5` | `#FF9A92` / `#3A1816` | Errors and destructive actions                                                                                  |
+| `info` / `info-surface`               | `#1B5E8E` / `#E1EEF7` | `#86C1EE` / `#14293A` | Informational notices                                                                                           |
 
 Rules:
 
@@ -76,32 +72,32 @@ Rules:
 - No gradients except the image scrims and media placeholders. No coloured side borders on cards.
 - Scrims are gradients built from `overlay`, darkest where the text sits and fading over the rest of the picture. A flat `bg-overlay` over a whole photo hides it, so never use it.
 
-**Dark mode** is part of Sarv ("midnight teal"): a near-black teal ground, brighter mint `primary`, warmer gold, and `deep` kept as a still-deeper teal band so sections keep their rhythm. The app switches it with the `.dark` class on `<html>` (the existing theme toggle), not Sarv's `data-theme`. Never recolour a component by theme in code; the tokens do it.
+**Dark mode** ("midnight teal") is a lifted, dark-teal ground rather than near-black: lighter surfaces, a brighter mint `primary`, warmer gold, and `deep` kept a step deeper than the page so sections keep their rhythm. The app switches it with the `.dark` class on `<html>` (the existing theme toggle). Never recolour a component by theme in code; the tokens do it.
 
 ### Type
 
 - **Font**: Vazirmatn Variable (`@fontsource-variable/vazirmatn`, weights 100–900), falling back to Segoe UI and Tahoma.
-- **Styles**: use these as `text-<name>` utilities, each setting size, line height and weight. The scale is tighter than Sarv's: the homepage carries a lot of content, and Sarv's sizes made cards and sections look heavy and empty at desktop width.
+- **Styles**: use these as `text-<name>` utilities, each setting size, line height and weight. The scale is small and the weights medium: the homepage carries a lot of content, and large heavy type made cards and sections look bulky.
 
   | Style     | Size / line height | Weight | Use                                 |
   | --------- | ------------------ | ------ | ----------------------------------- |
-  | `display` | 52 / 76px          | 800    | The hero headline, once per page    |
-  | `stat`    | 40 / 52px          | 800    | Figures in the stats band           |
-  | `h1`      | 36 / 56px          | 800    | The page's own title, only          |
-  | `h2`      | 28 / 44px          | 700    | Section titles                      |
-  | `h3`      | 20 / 32px          | 700    | Card and panel titles               |
-  | `h4`      | 16 / 28px          | 700    | List-item and footer-column titles  |
-  | `body-lg` | 17 / 30px          | 400    | Hero and section leads              |
-  | `body`    | 16 / 28px          | 400    | Default running text                |
-  | `body-sm` | 14 / 24px          | 400    | Card summaries, hints, footer links |
+  | `display` | 44 / 68px          | 700    | The hero headline, once per page    |
+  | `stat`    | 36 / 48px          | 700    | Figures in the stats band           |
+  | `h1`      | 32 / 52px          | 700    | The page's own title, only          |
+  | `h2`      | 24 / 40px          | 600    | Section titles                      |
+  | `h3`      | 18 / 30px          | 600    | Card and panel titles               |
+  | `h4`      | 15 / 26px          | 600    | List-item and footer-column titles  |
+  | `body-lg` | 16 / 28px          | 400    | Hero and section leads              |
+  | `body`    | 15 / 26px          | 400    | Default running text                |
+  | `body-sm` | 13 / 22px          | 400    | Card summaries, hints, footer links |
   | `caption` | 12 / 20px          | 500    | Dates, meta lines, fine print       |
-  | `button`  | 14 / 24px          | 600    | Button labels                       |
-  | `kicker`  | 12 / 20px          | 700    | The line above a section title      |
-  | `nav`     | 14 / 24px          | 600    | Primary navigation                  |
+  | `button`  | 13 / 22px          | 600    | Button labels                       |
+  | `kicker`  | 12 / 20px          | 600    | The line above a section title      |
+  | `nav`     | 13 / 22px          | 500    | Primary navigation                  |
 
 - Persian needs tall lines: never tighten line height below the table, and never set text below `caption` (12px), not even badges or meta lines.
-- Running text stays at `body` (16px). Get density from layout (fewer boxes, side-by-side panels, tighter card padding), not by shrinking reading text.
-- Under 600px, `display`, `h1` and `h2` drop one step (`display` → 36/56, `h1` → 28/44, `h2` → 24/40); the other styles stay fixed.
+- Running text stays at `body` (15px). Get density from layout (fewer boxes, side-by-side panels, tighter card padding), not by shrinking reading text.
+- Under 600px, `display`, `h1` and `h2` drop one step (`display` → 32/52, `h1` → 26/40, `h2` → 22/36); the other styles stay fixed.
 - WCAG 2.2 AA: bold text under 18.66px (`h4`, `button`, `kicker`) and all text under 24px counts as normal text, so it needs 4.5:1. The token pairs in the colour table already meet that; never pair small text with a colour that only reaches 3:1 (`input`, `gold` on light grounds).
 
 ### Space & layout
@@ -127,10 +123,10 @@ Rules:
 
 - **Radius**:
   - `rounded-sm` 8px: inputs, thumbnails, small buttons
-  - `rounded-md` 14px: buttons, notices, list cards, tiles
-  - `rounded-lg` 20px: feature cards, the service strip, hero media, deep panels
+  - `rounded-md` 12px: buttons, notices, list cards, tiles
+  - `rounded-lg` 18px: feature cards, the service strip, hero media, deep panels
   - `rounded-full`: badges, chips, timeline dots
-- **Depth**: cards rest on `shadow-sm` plus a 1px `border`. A card that is a link takes `shadow-md` and a faint `accent` wash on hover; dropdowns use `shadow-md`. `shadow-float` is for the service strip only and stays soft and low, close to the panel's edge. Dark-theme shadows are deeper and rely on `border` for edges.
+- **Depth**: cards rest on `shadow-sm` plus a 1px `border`. A card that is a link takes `shadow-md` and a faint `accent` wash on hover; dropdowns use `shadow-md`. Shadows are layered: a faint contact line under a wide, soft ambient one, tinted teal rather than grey. `shadow-float` is for the service strip only and stays soft and low, close to the panel's edge. Dark-theme shadows are deeper and rely on `border` for edges.
 - **Containers**: use a card only for something you can click or a standalone group of content. Layout wrappers, single figures (stats) and section intros are not cards. Separate items in a list with dividers or whitespace, not a box each.
 - **Fill the container**: when items share a container, the items own the space. The container has no padding and no gaps; each item is a cell that stretches to fill its slice, and cells are separated by hairline dividers. Padding goes on the item's content, so the hover and focus area is the whole cell, not a small box inside a gutter. Don't leave dead space around interactive items.
 - **Dividers**: the app prefers hairline dividers to boxes and fills. Use them to separate and organise content, such as items in a list or grid, a header from its body, or a body from its footer, and let the design decide where they help.
@@ -178,48 +174,47 @@ These effects belong to primitives and shared components (Card, Button, Link, Li
 
 ### Iconography & imagery
 
-- **Icons**: Lucide outline icons, 24px grid, 1.5 stroke, round caps, drawn in `currentColor` (`lucide-react` in the app, where `app.css` sets the 1.5 stroke for every icon, so don't pass `strokeWidth`; `claude-design-system/assets/Icons/` shows the set). 20px in text rows, 28px in service tiles, 32–64px in media placeholders. No emoji or filled glyphs.
+- **Icons**: Lucide outline icons, 24px grid, 1.5 stroke, round caps, drawn in `currentColor` (`lucide-react` in the app, where `app.css` sets the 1.5 stroke for every icon, so don't pass `strokeWidth`). 20px in text rows, 28px in service tiles, 32–64px in media placeholders. No emoji or filled glyphs.
 - **Direction**: directional icons are never mirrored by script. Forward actions use `arrow-left`; pick the icon that points the right way.
-- **Photography**: warm, daylight campus photos. A photo is the most valuable thing on the page, so show it: keep at least half of it clearly visible, and put text on it only over a scrim. Until real photos exist, use a tonal placeholder panel with one outline icon (Sarv's `sv-media`); it's a placeholder, not final art.
+- **Photography**: warm, daylight campus photos. A photo is the most valuable thing on the page, so show it: keep at least half of it clearly visible, and put text on it only over a scrim. Until real photos exist, use a tonal placeholder panel with one outline icon; it's a placeholder, not final art.
 - **Scrims**: two shapes, both from `overlay`:
   - **Inline scrim** (hero, wide banners): darkest at the inline start where the text sits (`overlay` at full strength), easing to about a third of it at the far end. In RTL the start is the right, so the gradient runs right to left. Tailwind's `bg-linear-to-*` directions are physical, so write it as `to left` and note that it assumes RTL.
   - **Bottom scrim** (a card with text on its image): `overlay` at the bottom up to about 40% of the height, fading to transparent by about 85%. The top of the picture stays clear.
 - **Images that contain text** (posters, flyers, certificates, infographics, screenshots): most news and achievement images are posters. **Never put text over them**, scrim or not: two layers of text become unreadable. Give them their own media area with the text beside or below; crop from the top (`object-top`) or show the whole image (`object-contain` on a `muted` ground) so the poster's own title survives.
 - **Media frames**: thumbnails 4:3 or 16:9 in `rounded-sm`, card media flush with the card's top corners, and always `overflow-hidden` so the media zoom stays inside.
-- **Logo**: the Sarv emblem (an arch holding a cypress leaf) in `claude-design-system/assets/Logos/` is a placeholder for the university's official mark. Keep its 44px square slot and the lockup: «دانشگاه سرو» above `SARV UNIVERSITY`. Teal on light grounds, gold on `deep`, mint (`primary` dark) in dark mode.
+- **Logo**: the university's emblem keeps a 44px square slot and the lockup: «دانشگاه صنعتی همدان» above `HAMEDAN UNIVERSITY OF TECHNOLOGY`. Teal on light grounds, gold on `deep`, mint (`primary` dark) in dark mode.
 
 ### Signature patterns
 
-These are **defaults, not templates**. Start from a pattern, then fit it to the real content: merge patterns, drop parts or change the layout when the content calls for it (posters instead of photos, four items instead of three, a short list that doesn't fill a band). What stays fixed is the identity: tokens, tone, one gold action per view, the scrim and image rules, and the interaction vocabulary. Each pattern has guidelines and live markup in `claude-design-system/components/<Name>/`; read its markup for structure and semantics, not for its placeholder look.
+These are **defaults, not templates**. Start from a pattern, then fit it to the real content: merge patterns, drop parts or change the layout when the content calls for it (posters instead of photos, four items instead of three, a short list that doesn't fill a band). What stays fixed is the identity: tokens, tone, one gold action per view, the scrim and image rules, and the interaction vocabulary.
 
-- **Site header** ([SiteHeader](../claude-design-system/components/SiteHeader/README.md)): a `deep` utility bar (official-site label, contact, portal login) above a `card` row with the brand, up to five nav items (current one: gold underline, `brand-text`, `aria-current="page"`) and the tools (language, theme, search) at the far end.
-- **Hero** ([Hero](../claude-design-system/components/Hero/README.md)): a full-bleed campus photo under an **inline scrim** (the photo stays clearly visible on the far side), text at the inline start, a `display` headline, a lead of two lines at most, and exactly two actions: one `gold`, one outline on deep. The far side can carry a short caption; a timely academic notice can run as a slim row along the hero's bottom edge, set off by a hairline on top rather than a box, fill or ring.
-- **Service strip** ([ServiceStrip](../claude-design-system/components/ServiceStrip/README.md)): a floating `card` panel of up to six quick-access tiles (icon in an `accent` square, `h4` title, `body-sm` subtitle) that overlaps the hero on the homepage. The last tile is always «کلیه خدمات».
-- **Section header** ([SectionHeader](../claude-design-system/components/SectionHeader/README.md)): a gold rule and `brand-text` kicker, an `h2` title, an optional one-sentence lead, and an optional outline «مشاهده همه» at the opposite end.
-- **News** ([NewsCard](../claude-design-system/components/NewsCard/README.md)): a featured story plus a few more, beside a side panel of dated announcements (date chip, title, issuing office) when the page has them. The featured story puts its text over the image with a **bottom scrim** only when the image is a real photo; for posters, the text sits beside or below the image. Other stories are cards with their own media area, or compact rows (thumbnail, category kicker, `h4` title, Jalali date). Whole cards are links.
-- **Academic timeline** ([Timeline](../claude-design-system/components/Timeline/README.md)): up to seven term milestones running from the right, with done, current (gold dot, `aria-current="step"`) and future states. It becomes a vertical list under 960px.
-- **Stat band** ([StatBand](../claude-design-system/components/StatBand/README.md)): a `deep` band with a video panel and up to six real, cited figures in `stat` and `gold`, set in an open grid with hairline dividers, not boxed tiles. Never invent figures.
-- **Feature cards** ([FeatureCard](../claude-design-system/components/FeatureCard/README.md)): media, a `gold-text` kicker meta line, `h3` title, two-line summary and a link call. Mix sizes to create rhythm (one large card beside two smaller ones) for achievements; row form with a thumbnail for courses and events, beside a `deep` intro panel that holds the section title and its link.
-- **Call to action** ([CallToAction](../claude-design-system/components/CallToAction/README.md)): a `deep` invitation panel with two actions beside a `card` panel of two real support routes. Once, at the end of the homepage.
-- **Footer** ([SiteFooter](../claude-design-system/components/SiteFooter/README.md)): a `deep` footer with the brand, two link columns of up to five links, a contact column with gold icons, and the copyright line.
+- **Site header**: a `deep` utility bar (official-site label, contact, portal login) above a `card` row with the brand, up to five nav items (current one: gold underline, `brand-text`, `aria-current="page"`) and the tools (language, theme, search) at the far end.
+- **Hero**: a full-bleed campus photo under an **inline scrim** (the photo stays clearly visible on the far side), text at the inline start, a `display` headline, a lead of two lines at most, and exactly two actions: one `gold`, one outline on deep. The far side can carry a short caption; a timely academic notice can run as a slim row along the hero's bottom edge, set off by a hairline on top rather than a box, fill or ring.
+- **Service strip**: a floating `card` panel of up to six quick-access tiles (icon in an `accent` square, `h4` title, `body-sm` subtitle) that overlaps the hero on the homepage. The last tile is always «کلیه خدمات».
+- **Section header**: a gold rule and `brand-text` kicker, an `h2` title, an optional one-sentence lead, and an optional outline «مشاهده همه» at the opposite end.
+- **News**: a featured story plus a few more, beside a side panel of dated announcements (date chip, title, issuing office) when the page has them. The featured story puts its text over the image with a **bottom scrim** only when the image is a real photo; for posters, the text sits beside or below the image. Other stories are cards with their own media area, or compact rows (thumbnail, category kicker, `h4` title, Jalali date). Whole cards are links.
+- **Academic timeline**: up to seven term milestones running from the right, with done, current (gold dot, `aria-current="step"`) and future states. It becomes a vertical list under 960px.
+- **Stat band**: a `deep` band with a video panel and up to six real, cited figures in `stat` and `gold`, set in an open grid with hairline dividers, not boxed tiles. Never invent figures.
+- **Feature cards**: media, a `gold-text` kicker meta line, `h3` title, two-line summary and a link call. Mix sizes to create rhythm (one large card beside two smaller ones) for achievements; row form with a thumbnail for courses and events, beside a `deep` intro panel that holds the section title and its link.
+- **Call to action**: a `deep` invitation panel with two actions beside a `card` panel of two real support routes. Once, at the end of the homepage.
+- **Footer**: a `deep` footer with the brand, two link columns of up to five links, a contact column with gold icons, and the copyright line.
 
 Building blocks:
 
-- **Button** ([Button](../claude-design-system/components/Button/README.md)): variant `gold` for the one main call to action, `outline` for secondary choices (`outline-deep` on deep bands), `default` (teal) for in-app actions, `ghost` for low emphasis. Forward actions carry a trailing `arrow-left`. Disabled buttons use the `disabled` attribute.
-- **Badge** ([Badge](../claude-design-system/components/Badge/README.md)): a pill of three words at most. Quiet `accent` wash by default, `gold` for one featured item per card, status tones always with an icon.
-- **Field** ([Field](../claude-design-system/components/Field/README.md)): a visible label above the input, an optional hint, and an error line that names the problem and the fix with the `circle-alert` icon. Student and phone numbers are `dir="ltr"` and accept Persian digits.
-- **Alert** ([Alert](../claude-design-system/components/Alert/README.md)): variants `info`, `success`, `warning` and `destructive` (plus a neutral `default`), each a tone-coloured `h4` title and icon over an `ink` `body-sm` sentence. The primitive sets `role="alert"` for warning and destructive and `role="status"` otherwise. No more than three stacked; official announcements go in the news list.
+- **Button**: variant `gold` for the one main call to action, `outline` for secondary choices (`outline-deep` on deep bands), `default` (teal) for in-app actions, `ghost` for low emphasis. Forward actions carry a trailing `arrow-left`. Disabled buttons use the `disabled` attribute.
+- **Badge**: a pill of three words at most. Quiet `accent` wash by default, `gold` for one featured item per card, status tones always with an icon.
+- **Field**: a visible label above the input, an optional hint, and an error line that names the problem and the fix with the `circle-alert` icon. Student and phone numbers are `dir="ltr"` and accept Persian digits.
+- **Alert**: variants `info`, `success`, `warning` and `destructive` (plus a neutral `default`), each a tone-coloured `h4` title and icon over an `ink` `body-sm` sentence. The primitive sets `role="alert"` for warning and destructive and `role="status"` otherwise. No more than three stacked; official announcements go in the news list.
 
 ## Reference screens
 
 Screenshots of the previous homepage (`hut-rr8-tw-base`), which shows the composition, density, image handling and feel the app aims for. Take from it: how photos are shown, side-by-side sections, the news + announcements layout, the open stat grid, the mixed-size achievement cards, the events list beside a deep panel, and its hover feedback. Take colours, type, radius and spacing from this document, not from the screenshot, which predates these tokens. Names, dates, figures and images are sample content.
 
 - [homepage-light.png](./references/homepage-light.png) and [homepage-dark.png](./references/homepage-dark.png): the full homepage at 1440px, in section order: header, hero with an academic notice row, service strip, news with announcements, timeline, stat band, achievements, events and courses, call to action, footer.
-- Sarv's [`examples/homepage-light.html`](../claude-design-system/examples/homepage-light.html) and [`examples/homepage-dark.html`](../claude-design-system/examples/homepage-dark.html) show the patterns' markup with placeholder art. Use them for structure and semantics only.
 
 ## Accessibility notes
 
-Sarv's tokens already meet WCAG 2.2 AA in both themes when used on the grounds listed above:
+The tokens meet WCAG 2.2 AA in both themes when used on the grounds listed above:
 
 - Text pairs are at least 4.5:1; control edges, focus rings and large text at least 3:1.
 - Status is never colour-only: always an icon and a word.
