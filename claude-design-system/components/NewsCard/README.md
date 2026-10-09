@@ -1,3 +1,0 @@
-Two forms. `sv-news-featured` is a large story over a media area and `overlay` scrim, with an `accent` badge, an `h2` title, a two-line summary and a date. `sv-news-item` is a compact row (thumbnail, category `kicker`, `h4` title, date) used in a list of three beside the featured story.
-
-The consumer provides the image (the bundled `sv-media` is a placeholder: replace it with a photograph, keeping the scrim), category, title (two lines at most), date in the Jalali calendar with Persian digits, and the link. Whole cards are links; do not nest another link inside. The featured story is always the newest «اخبار ویژه».

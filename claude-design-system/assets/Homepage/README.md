@@ -1,1 +1,0 @@
-Full-page pictures of the university homepage at 1440px wide, composed only from this system's tokens and components: `homepage-light.png` and `homepage-dark.png`. Use them as the layout reference for the home page; the scene art and `sv-media` panels are placeholders for campus photography, and names, dates and figures are sample content.
