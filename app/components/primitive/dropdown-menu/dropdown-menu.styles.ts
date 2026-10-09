@@ -20,7 +20,7 @@ const twSubContentStyles = defineStyles({
 
 /*===== Items =====*/
 
-// Rows are at least 40px tall (Sarv's tap-target floor). Selected and focused rows take the quiet `accent` wash.
+// Rows are at least 40px tall (the tap-target floor). Selected and focused rows take the quiet `accent` wash.
 const twItemStyles = defineStyles({
   layout: "group/dropdown-menu-item relative flex items-center gap-2",
   geometry: "min-h-10 rounded-sm px-3 py-2 data-inset:ps-8",

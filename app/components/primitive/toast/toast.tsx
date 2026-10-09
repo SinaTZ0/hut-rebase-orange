@@ -102,7 +102,7 @@ function ToastClose({
 /*===== Icon =====*/
 
 const toastIcons: Record<string, ReactNode> = {
-  // Sarv's status icons, each in its tone colour; the title still carries the meaning in words.
+  // The status icons, each in its tone colour; the title still carries the meaning in words.
   success: <CircleCheckIcon className="text-success" aria-hidden="true" />,
   info: <InfoIcon className="text-info" aria-hidden="true" />,
   warning: <TriangleAlertIcon className="text-warning" aria-hidden="true" />,

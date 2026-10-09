@@ -3,60 +3,60 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/vazirmatn";
 
-/* Tokens follow docs/app-identity.md, which maps the Sarv design system (claude-design-system/tokens.json) onto
-   shadcn's token names. Sarv's gold `accent` is `gold` here; shadcn's `accent` is Sarv's `primary-soft` wash. */
+/* Tokens follow docs/app-identity.md. Names follow shadcn; the gold call to action is `gold`, and shadcn's `accent`
+   is the quiet teal wash for hover and selected states. */
 
 @custom-variant dark (&:is(.dark *));
 
 /*===== Type =====*/
 
 @theme {
-  /* Persian needs tall lines; these match Sarv's caption, body-sm, body and body-lg */
+  /* Persian needs tall lines; these match caption, body-sm, body and body-lg below */
   --text-xs--line-height: calc(20 / 12);
-  --text-sm--line-height: calc(24 / 14);
-  --text-base--line-height: calc(28 / 16);
-  --text-lg--line-height: calc(32 / 18);
+  --text-sm--line-height: calc(22 / 13);
+  --text-base--line-height: calc(26 / 15);
+  --text-lg--line-height: calc(28 / 16);
 
-  /* The app's type styles as `text-<name>`: size, line height and weight together. The scale is tighter than Sarv's
-     (docs/app-identity.md → Type); display, h1 and h2 drop one step on phones, below. */
-  --text-display: 3.25rem;
-  --text-display--line-height: 4.75rem;
-  --text-display--font-weight: 800;
-  --text-stat: 2.5rem;
-  --text-stat--line-height: 3.25rem;
-  --text-stat--font-weight: 800;
-  --text-h1: 2.25rem;
-  --text-h1--line-height: 3.5rem;
-  --text-h1--font-weight: 800;
-  --text-h2: 1.75rem;
-  --text-h2--line-height: 2.75rem;
-  --text-h2--font-weight: 700;
-  --text-h3: 1.25rem;
-  --text-h3--line-height: 2rem;
-  --text-h3--font-weight: 700;
-  --text-h4: 1rem;
-  --text-h4--line-height: 1.75rem;
-  --text-h4--font-weight: 700;
-  --text-body-lg: 1.0625rem;
-  --text-body-lg--line-height: 1.875rem;
-  --text-body: 1rem;
-  --text-body--line-height: 1.75rem;
-  --text-body-sm: 0.875rem;
-  --text-body-sm--line-height: 1.5rem;
+  /* The app's type styles as `text-<name>`: size, line height and weight together. Small sizes and medium weights
+     keep the page quiet (docs/app-identity.md → Type); display, h1 and h2 drop one step on phones, below. */
+  --text-display: 2.75rem;
+  --text-display--line-height: 4.25rem;
+  --text-display--font-weight: 700;
+  --text-stat: 2.25rem;
+  --text-stat--line-height: 3rem;
+  --text-stat--font-weight: 700;
+  --text-h1: 2rem;
+  --text-h1--line-height: 3.25rem;
+  --text-h1--font-weight: 700;
+  --text-h2: 1.5rem;
+  --text-h2--line-height: 2.5rem;
+  --text-h2--font-weight: 600;
+  --text-h3: 1.125rem;
+  --text-h3--line-height: 1.875rem;
+  --text-h3--font-weight: 600;
+  --text-h4: 0.9375rem;
+  --text-h4--line-height: 1.625rem;
+  --text-h4--font-weight: 600;
+  --text-body-lg: 1rem;
+  --text-body-lg--line-height: 1.75rem;
+  --text-body: 0.9375rem;
+  --text-body--line-height: 1.625rem;
+  --text-body-sm: 0.8125rem;
+  --text-body-sm--line-height: 1.375rem;
   --text-caption: 0.75rem;
   --text-caption--line-height: 1.25rem;
   --text-caption--font-weight: 500;
-  --text-button: 0.875rem;
-  --text-button--line-height: 1.5rem;
+  --text-button: 0.8125rem;
+  --text-button--line-height: 1.375rem;
   --text-button--font-weight: 600;
   --text-kicker: 0.75rem;
   --text-kicker--line-height: 1.25rem;
-  --text-kicker--font-weight: 700;
-  --text-nav: 0.875rem;
-  --text-nav--line-height: 1.5rem;
-  --text-nav--font-weight: 600;
+  --text-kicker--font-weight: 600;
+  --text-nav: 0.8125rem;
+  --text-nav--line-height: 1.375rem;
+  --text-nav--font-weight: 500;
 
-  /* Layout: `max-w-site` is Sarv's 1200px content width */
+  /* Layout: `max-w-site` is the 1200px content width */
   --container-site: 75rem;
 }
 
@@ -64,12 +64,12 @@
    classes in every route, keeps `text-display` / `text-h1` / `text-h2` correct wherever they're used. */
 @media (width < 600px) {
   :root {
-    --text-display: 2.25rem;
-    --text-display--line-height: 3.5rem;
-    --text-h1: 1.75rem;
-    --text-h1--line-height: 2.75rem;
-    --text-h2: 1.5rem;
-    --text-h2--line-height: 2.5rem;
+    --text-display: 2rem;
+    --text-display--line-height: 3.25rem;
+    --text-h1: 1.625rem;
+    --text-h1--line-height: 2.5rem;
+    --text-h2: 1.375rem;
+    --text-h2--line-height: 2.25rem;
   }
 }
 
@@ -114,7 +114,7 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /*------ Sarv roles ------*/
+  /*------ Brand roles ------*/
   --color-brand-text: var(--brand-text);
   --color-gold: var(--gold);
   --color-gold-hover: var(--gold-hover);
@@ -134,12 +134,12 @@
   --color-info-surface: var(--info-surface);
 
   /*------ Radius ------*/
-  /* sm 8 (inputs, thumbnails), md 14 (buttons, notices, tiles), lg 20 (feature cards, media). Sarv's lg is 24.
-     xl and up aren't in Sarv; they stay at least lg so the scale never shrinks. */
+  /* sm 8 (inputs, thumbnails), md 12 (buttons, notices, tiles), lg 18 (feature cards, media). xl and up stay at
+     least lg so the scale never shrinks. */
   --radius-sm: 0.5rem;
   --radius-md: var(--radius);
-  --radius-lg: 1.25rem;
-  --radius-xl: 1.25rem;
+  --radius-lg: 1.125rem;
+  --radius-xl: 1.125rem;
   --radius-2xl: 2rem;
   --radius-3xl: 2.5rem;
   --radius-4xl: 3rem;
@@ -154,36 +154,36 @@
 /*===== Light Theme =====*/
 
 :root {
-  --radius: 0.875rem;
+  --radius: 0.75rem;
 
-  --background: #fbfaf6;
+  --background: #fcfbf8;
   --foreground: #11302e;
   --card: #ffffff;
   --card-foreground: #11302e;
   --popover: #ffffff;
   --popover-foreground: #11302e;
-  --primary: #134542;
-  --primary-hover: #0d3331;
+  --primary: #0e6a62;
+  --primary-hover: #0a564f;
   --primary-foreground: #f6f3ea;
-  --secondary: #f0f2ee;
+  --secondary: #f3f5f1;
   --secondary-foreground: #11302e;
-  --muted: #f0f2ee;
-  --muted-foreground: #4a625f;
-  --accent: #e2eeeb;
+  --muted: #f3f5f1;
+  --muted-foreground: #53696a;
+  --accent: #e6f2ef;
   --accent-foreground: #11302e;
   --destructive: #b3261e;
   --destructive-surface: #fbe7e5;
-  --border: #dde3de;
+  --border: #e5e9e5;
   --input: #6f8782;
   --ring: #0b5cad;
 
-  --brand-text: #0f5a54;
+  --brand-text: #0c615a;
   --gold: #e9b43c;
   --gold-hover: #d6a02a;
   --gold-foreground: #14201f;
   --gold-text: #7d5400;
-  --deep: #134542;
-  --deep-raised: #18504b;
+  --deep: #124a45;
+  --deep-raised: #1a5a53;
   --deep-foreground: #f6f3ea;
   --deep-muted: #bcd3ce;
   --ring-deep: #ffd36b;
@@ -196,12 +196,13 @@
   --info: #1b5e8e;
   --info-surface: #e1eef7;
 
-  --elevation-sm: 0 1px 2px #0f2a2814, 0 1px 1px #0f2a280d;
-  --elevation-md: 0 10px 28px -10px #0f2a2833;
-  --elevation-float: 0 8px 24px -12px #0f2a2840;
+  /* Soft, layered and teal-tinted: a hairline contact shadow under a wide, faint ambient one */
+  --elevation-sm: 0 1px 2px #0f2a280a, 0 2px 8px -2px #0f2a280d;
+  --elevation-md: 0 1px 2px #0f2a280a, 0 12px 28px -12px #0f2a2829;
+  --elevation-float: 0 1px 2px #0f2a280a, 0 16px 36px -16px #0f2a282e;
 
-  /* Not in Sarv: drawn from its palette, teal and gold first */
-  --chart-1: #134542;
+  /* Chart colours: teal and gold first */
+  --chart-1: #0e6a62;
   --chart-2: #e9b43c;
   --chart-3: #1b5e8e;
   --chart-4: #6f8782;
@@ -209,36 +210,36 @@
 
   --sidebar: #ffffff;
   --sidebar-foreground: #11302e;
-  --sidebar-primary: #134542;
+  --sidebar-primary: #0e6a62;
   --sidebar-primary-foreground: #f6f3ea;
-  --sidebar-accent: #e2eeeb;
+  --sidebar-accent: #e6f2ef;
   --sidebar-accent-foreground: #11302e;
-  --sidebar-border: #dde3de;
+  --sidebar-border: #e5e9e5;
   --sidebar-ring: #0b5cad;
 }
 
-/*===== Dark Theme (Sarv "midnight teal") =====*/
+/*===== Dark Theme ("midnight teal") =====*/
 
 .dark {
-  --background: #0a1818;
-  --foreground: #e8f1ee;
-  --card: #112625;
+  --background: #0f2220;
+  --foreground: #ebf3f0;
+  --card: #173230;
   --card-foreground: #e8f1ee;
-  --popover: #112625;
+  --popover: #173230;
   --popover-foreground: #e8f1ee;
-  --primary: #7ad6c7;
-  --primary-hover: #9be3d7;
+  --primary: #6fd8c8;
+  --primary-hover: #94e5d9;
   --primary-foreground: #06211e;
-  --secondary: #07110f;
+  --secondary: #0c1c1b;
   --secondary-foreground: #e8f1ee;
-  --muted: #07110f;
-  --muted-foreground: #9fb8b3;
-  --accent: #17302e;
-  --accent-foreground: #e8f1ee;
+  --muted: #0c1c1b;
+  --muted-foreground: #a9c1bc;
+  --accent: #1f3f3c;
+  --accent-foreground: #ebf3f0;
   --destructive: #ff9a92;
   --destructive-surface: #3a1816;
-  --border: #234240;
-  --input: #5d7d78;
+  --border: #2d514d;
+  --input: #668781;
   --ring: #8fc7ff;
 
   --brand-text: #86dccf;
@@ -246,10 +247,10 @@
   --gold-hover: #f7d278;
   --gold-foreground: #14201f;
   --gold-text: #f2c24f;
-  --deep: #0f302e;
-  --deep-raised: #17423f;
+  --deep: #153b38;
+  --deep-raised: #1e4d49;
   --deep-foreground: #e9f2ef;
-  --deep-muted: #a6c2bc;
+  --deep-muted: #b0cbc5;
   --ring-deep: #ffd36b;
   --overlay: #06100fe0;
 
@@ -260,23 +261,23 @@
   --info: #86c1ee;
   --info-surface: #14293a;
 
-  --elevation-sm: 0 1px 2px #00000080;
-  --elevation-md: 0 12px 30px -10px #000000b3;
-  --elevation-float: 0 28px 56px -16px #000000cc;
+  --elevation-sm: 0 1px 2px #00000059, 0 2px 8px -2px #00000040;
+  --elevation-md: 0 1px 2px #00000059, 0 14px 30px -12px #00000080;
+  --elevation-float: 0 1px 2px #00000059, 0 20px 40px -18px #0000008c;
 
-  --chart-1: #7ad6c7;
+  --chart-1: #6fd8c8;
   --chart-2: #f2c24f;
   --chart-3: #86c1ee;
   --chart-4: #5d7d78;
   --chart-5: #ff9a92;
 
-  --sidebar: #112625;
-  --sidebar-foreground: #e8f1ee;
-  --sidebar-primary: #7ad6c7;
+  --sidebar: #173230;
+  --sidebar-foreground: #ebf3f0;
+  --sidebar-primary: #6fd8c8;
   --sidebar-primary-foreground: #06211e;
-  --sidebar-accent: #17302e;
-  --sidebar-accent-foreground: #e8f1ee;
-  --sidebar-border: #234240;
+  --sidebar-accent: #1f3f3c;
+  --sidebar-accent-foreground: #ebf3f0;
+  --sidebar-border: #2d514d;
   --sidebar-ring: #8fc7ff;
 }
 
@@ -319,20 +320,31 @@
     @apply bg-background text-foreground;
   }
   html {
-    @apply font-sans;
+    @apply font-sans antialiased;
+    /* Kerning and ligatures on, and the browser's own text smoothing on dark grounds */
+    font-kerning: normal;
+    -webkit-tap-highlight-color: transparent;
   }
   h1,
   h2,
   h3,
   h4 {
-    @apply font-heading font-bold;
+    @apply font-heading font-semibold;
+    /* Balanced line breaks keep short Persian headings from ending on a lone word */
+    text-wrap: balance;
   }
-  /* A lighter line than Sarv's 1.75, for a more refined feel (docs/app-identity.md → Iconography). Author CSS beats
+  p {
+    text-wrap: pretty;
+  }
+  ::selection {
+    @apply bg-accent text-foreground;
+  }
+  /* A light line for a refined feel (docs/app-identity.md → Iconography). Author CSS beats
      lucide's `stroke-width` attribute, so change it with a `stroke-*` class, not the `strokeWidth` prop. */
   :where(svg.lucide) {
     stroke-width: 1.5;
   }
-  /* Sarv's one focus style: a solid 2px ring, 2px off the edge. Primitives set the same thing explicitly. */
+  /* The one focus style: a solid 2px ring, 2px off the edge. Primitives set the same thing explicitly. */
   :where(a, button, input, select, textarea, [tabindex]):focus-visible {
     @apply outline-2 outline-offset-2 outline-ring;
   }
@@ -349,7 +361,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  /* Sarv removes its colour transitions and hover lifts entirely */
+  /* Colour transitions and hover lifts are removed entirely */
   *,
   *::before,
   *::after {

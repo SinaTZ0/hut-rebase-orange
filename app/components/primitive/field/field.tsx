@@ -130,7 +130,7 @@ function FieldError({ className, children, errors, ...props }: FieldErrorProps) 
 
   return (
     <div role="alert" data-slot="field-error" className={cn(fieldErrorClasses, className)} {...props}>
-      {/* Sarv never shows an error by colour alone. */}
+      {/* Never show an error by colour alone. */}
       <CircleAlertIcon aria-hidden="true" />
       <div>{content}</div>
     </div>

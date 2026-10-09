@@ -18,7 +18,7 @@ const twSharedStyles = defineStyles({
 
 /*===== Appearance =====*/
 
-// `default` is Sarv's quiet wash; `gold` marks one featured item per card. Status tones always pair with an icon.
+// `default` is the quiet wash; `gold` marks one featured item per card. Status tones always pair with an icon.
 const twVariant = defineStyles({
   default: {
     appearance: "bg-accent text-brand-text",

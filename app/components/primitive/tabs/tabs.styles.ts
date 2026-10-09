@@ -43,7 +43,7 @@ const twTriggerStyles = defineStyles({
   disabled:
     "disabled:pointer-events-none disabled:opacity-45 aria-disabled:pointer-events-none aria-disabled:opacity-45",
   state: "data-active:bg-card data-active:text-foreground group-data-[variant=default]/tabs-list:data-active:shadow-sm",
-  // The line variant drops the active fill and shows Sarv's current-nav marker instead: `brand-text` over a gold
+  // The line variant drops the active fill and shows the current-nav marker instead: `brand-text` over a gold
   // underline (`after:`).
   stateLine:
     "group-data-[variant=line]/tabs-list:bg-transparent group-data-[variant=line]/tabs-list:data-active:bg-transparent group-data-[variant=line]/tabs-list:data-active:text-brand-text group-data-[variant=line]/tabs-list:data-active:shadow-none group-data-[variant=line]/tabs-list:data-active:after:opacity-100",

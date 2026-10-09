@@ -4,9 +4,9 @@ import { defineStyles, joinStyles } from "../styles";
 
 const twInputStyles = defineStyles({
   layout: "w-full min-w-0",
-  // Sarv's control edge: 1.5px `input` (border-strong), which meets 3:1 on every surface.
+  // The control edge: 1.5px `input` (border-strong), which meets 3:1 on every surface.
   geometry: "h-11 rounded-sm border-[1.5px] px-4 py-1",
-  // Sarv's `body` style; 16px also keeps iOS Safari from zooming in on focus.
+  // The `body` style at 16px also keeps iOS Safari from zooming in on focus.
   typography: "text-body",
   appearance: "border-input bg-card placeholder:text-muted-foreground",
   // The native file-picker button inside `type="file"` inputs.

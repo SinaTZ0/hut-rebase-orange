@@ -7,7 +7,7 @@ const twTextareaStyles = defineStyles({
   layout: "flex field-sizing-content w-full",
   // Same 1.5px `input` edge as Input.
   geometry: "min-h-28 rounded-sm border-[1.5px] px-4 py-3",
-  // Sarv's `body` style; 16px also keeps iOS Safari from zooming in on focus.
+  // The `body` style at 16px also keeps iOS Safari from zooming in on focus.
   typography: "text-body",
   appearance: "border-input bg-card placeholder:text-muted-foreground",
   interaction: "transition-colors duration-150 outline-none",

@@ -63,7 +63,7 @@ const twLabelStyles = defineStyles({
   layout: "group/field-label peer/field-label flex w-fit gap-2",
   typography: "leading-snug",
   disabled: "group-data-[disabled=true]/field:opacity-45",
-  // A checked choice card takes Sarv's selected-row wash and a teal edge.
+  // A checked choice card takes the selected-row wash and a teal edge.
   state: "has-data-checked:border-primary has-data-checked:bg-accent",
   layoutCard: "has-[>[data-slot=field]]:w-full has-[>[data-slot=field]]:flex-col",
   geometryCard:
@@ -83,7 +83,7 @@ const twTitleStyles = defineStyles({
 const twDescriptionStyles = defineStyles({
   // Pulls the description closer to a legend or to the control just above it.
   geometry: "last:mt-0 nth-last-2:-mt-1 [[data-variant=legend]+&]:-mt-1.5",
-  // Sarv's hint line: `caption` in `ink-muted`.
+  // The hint line: `caption` in `ink-muted`.
   typography:
     "text-start text-caption font-normal group-has-data-horizontal/field:text-balance [&>a]:underline [&>a]:underline-offset-4",
   appearance: "text-muted-foreground",
@@ -102,7 +102,7 @@ const twSeparatorContentStyles = defineStyles({
   appearance: "bg-background text-muted-foreground",
 });
 
-// Sarv's error line: `caption` in the danger colour, always led by the circle-alert icon (FieldError adds it).
+// The error line: `caption` in the danger colour, always led by the circle-alert icon (FieldError adds it).
 const twErrorStyles = defineStyles({
   layout: "flex items-start gap-1",
   typography: "text-caption",

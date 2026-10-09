@@ -15,7 +15,7 @@ const twAlertStyles = defineStyles({
   icon: "*:[svg]:row-span-2 *:[svg]:translate-y-1 *:[svg]:text-(--tone) *:[svg:not([class*='size-'])]:size-5",
 });
 
-// Sarv notices: a tinted ground and a hairline in the tone colour, a title and icon in it, and the message in `ink`.
+// Notices: a tinted ground and a hairline in the tone colour, a title and icon in it, and the message in `ink`.
 // Status is never colour alone: pair the tone with its icon (info, check-circle-2, alert-triangle, circle-alert)
 // and a title. `default` is the neutral card for notes that carry no status.
 const twVariant = defineStyles({

@@ -4,7 +4,7 @@ import { defineStyles, joinStyles } from "../styles";
 
 const twLabelStyles = defineStyles({
   layout: "flex items-center gap-2",
-  // Sarv's field label: `body-sm` at weight 600.
+  // The field label: `body-sm` at weight 600.
   typography: "text-body-sm font-semibold",
   interaction: "select-none",
   // A label follows the disabled state of its Field group or of the control just before it.

@@ -10,7 +10,7 @@ const twTriggerStyles = defineStyles({
     "*:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-1.5",
   // Same chrome as Input: 1.5px `input` edge.
   geometry: "rounded-sm border-[1.5px] py-2 ps-4 pe-3",
-  // Sarv's `body` style; 16px also keeps iOS Safari from zooming in on focus.
+  // The `body` style at 16px also keeps iOS Safari from zooming in on focus.
   typography: "text-body whitespace-nowrap",
   appearance: "border-input bg-card data-placeholder:text-muted-foreground",
   hover: "hover:border-muted-foreground",
@@ -52,7 +52,7 @@ const twPopupStyles = defineStyles({
   layout: "relative isolate z-50 overflow-x-hidden overflow-y-auto",
   // Base UI provides the available height, trigger width, and transform origin as CSS variables.
   geometry: "max-h-(--available-height) w-(--anchor-width) min-w-36 origin-(--transform-origin) rounded-md",
-  // Sarv's dropdown panel: a hairline plus `shadow-md`.
+  // The dropdown panel: a hairline plus `shadow-md`.
   appearance: "bg-popover text-popover-foreground shadow-md ring-1 ring-border",
   state:
     "duration-100 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",

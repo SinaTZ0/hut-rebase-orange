@@ -6,7 +6,7 @@ import { composeStyles, defineStyles, joinStyles } from "../styles";
 const twSharedStyles = defineStyles({
   // `group/button` lets icons and labels react to the button's own state.
   layout: "group/button inline-flex shrink-0 items-center justify-center",
-  // Sarv's 1.5px edge, transparent unless a variant draws it, so every variant has the same size.
+  // A 1.5px edge, transparent unless a variant draws it, so every variant has the same size.
   geometry: "rounded-md border-[1.5px]",
   appearance: "border-transparent bg-clip-padding",
   typography: "text-button whitespace-nowrap",
@@ -27,7 +27,7 @@ const twSharedStyles = defineStyles({
 
 /*===== Appearance =====*/
 
-// Sarv allows one `gold` button per view: the page's main call to action. `default` (teal) is for in-app actions.
+// One `gold` button per view: the page's main call to action. `default` (teal) is for in-app actions.
 // Hover tints by one step; the movement is the shared press and arrow nudge above.
 const twVariant = defineStyles({
   default: {
@@ -71,7 +71,7 @@ const twVariant = defineStyles({
 
 /*===== Geometry =====*/
 
-// Heights line up with the 44px inputs; `sm` and every icon size keep Sarv's 40px minimum tap target.
+// Heights line up with the 44px inputs; `sm` and every icon size keep a 40px minimum tap target.
 // `geometryIcon` tightens the padding on the side holding a `data-icon` child so the icon looks optically centered.
 // `geometryGroup` restores the shared radius when compact buttons sit inside a ButtonGroup.
 const twSize = defineStyles({
